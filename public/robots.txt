@@ -1,0 +1,10 @@
+# robots.txt for Portfolio
+
+User-agent: *
+Allow: /
+
+# Disallow admin routes
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://portfolio.vercel.app/sitemap.xml
