@@ -14,8 +14,9 @@ import {
   Mail,
   Linkedin,
   Github,
-  Twitter,
+  X,
   MapPin,
+  Phone,
   Clock,
   Send,
 } from "lucide-react";
@@ -25,23 +26,23 @@ export default function ContactPage() {
     {
       icon: Mail,
       label: "Email",
-      value: "your.email@example.com",
-      href: "mailto:your.email@example.com",
+      value: "elaidelossantos05@gmail.com",
+      href: "mailto:elaidelossantos05@gmail.com",
       color: "text-red-500",
+    },
+    {
+      icon: Phone,
+      label: "Mobile",
+      value: "0945 628 4577",
+      href: "tel:+639456284577",
+      color: "text-green-500",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
+      value: "Davao City, Philippines",
       href: null,
       color: "text-blue-500",
-    },
-    {
-      icon: Clock,
-      label: "Response Time",
-      value: "Within 24-48 hours",
-      href: null,
-      color: "text-green-500",
     },
   ];
 
@@ -59,8 +60,8 @@ export default function ContactPage() {
       color: "hover:bg-gray-500/10 hover:text-gray-500 hover:border-gray-500/50",
     },
     {
-      icon: Twitter,
-      name: "Twitter",
+      icon: X,
+      name: "X (Twitter)",
       href: "https://twitter.com/yourusername",
       color: "hover:bg-sky-500/10 hover:text-sky-500 hover:border-sky-500/50",
     },

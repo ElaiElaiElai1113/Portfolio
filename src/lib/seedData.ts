@@ -6,102 +6,201 @@
 // ===== PROJECTS =====
 const projects = [
   {
-    title: "E-Commerce Platform",
-    slug: "e-commerce-platform",
-    summary: "A full-featured online shopping platform with payment integration",
-    description: `# E-Commerce Platform
+    title: "GoDavao Ridesharing App",
+    slug: "godavao-ridesharing-app",
+    summary: "Thesis Capstone Project - A comprehensive ridesharing application for Davao City",
+    role: "Project Manager & Developer",
+    problem: "Need for a reliable, local ridesharing service tailored to Davao City's transportation needs",
+    solution: "Led Agile sprints, task planning, backlog structuring, and execution tracking. Created comprehensive PM documents including requirements, workflows, and UAT scripts. Presented deliverables and managed stakeholder revisions.",
+    case_study_md: `# GoDavao Ridesharing App
 
-A modern e-commerce solution built with React, Node.js, and PostgreSQL.
+**Thesis Capstone Project | 2024-2025**
 
-## Features
-- User authentication and authorization
-- Product catalog with advanced filtering
-- Shopping cart and checkout process
-- Payment integration with Stripe
-- Order tracking and history
-- Admin dashboard for inventory management
+## Overview
+A comprehensive ridesharing application designed specifically for Davao City, addressing local transportation needs with a focus on safety, reliability, and user experience.
 
-## Tech Stack
-- **Frontend**: React 18, TypeScript, Tailwind CSS
+## My Role
+**Project Manager & Developer** - Led the entire development lifecycle from planning to deployment.
+
+## Key Responsibilities
+- Led Agile sprints, task planning, and backlog structuring
+- Created comprehensive project management documents
+- Developed requirements specifications and workflow documentation
+- Created and managed UAT (User Acceptance Testing) scripts
+- Presented deliverables to stakeholders and managed revisions
+- Coordinated development team execution tracking
+
+## Technologies Used
+- **Frontend**: Flutter, Dart
 - **Backend**: Node.js, Express
-- **Database**: PostgreSQL with Supabase
-- **Payments**: Stripe
-- **Deployment**: Vercel
+- **Database**: PostgreSQL/Supabase
+- **Project Management**: Agile, Scrum, Trello, Asana
 
 ## Impact
-- Increased sales conversion by 35%
-- Reduced page load time by 60%
-- Handles 10,000+ daily active users`,
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Stripe", "Tailwind CSS"],
-    live_url: "https://demo-store.example.com",
-    repo_url: "https://github.com/yourusername/ecommerce-platform",
-    cover_image_url: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800",
+- Successfully delivered thesis capstone project
+- Demonstrated full-stack development capabilities
+- Showcased project management leadership skills`,
+    stack: ["Flutter", "Dart", "Node.js", "React", "Python", "PostgreSQL", "Agile", "Scrum"],
+    tags: ["Mobile App", "Full-Stack", "Project Management", "Thesis", "Agile"],
     featured: true,
     featured_order: 1,
     status: "published"
   },
   {
-    title: "Task Management App",
-    slug: "task-management-app",
-    summary: "Collaborative task manager with real-time updates",
-    description: `# Task Management App
+    title: "DailyMacros POS & Ordering System",
+    slug: "dailymacros-pos-ordering-system",
+    summary: "A comprehensive Point of Sale and ordering system for business operations",
+    role: "Product Manager & Developer",
+    problem: "Businesses need an efficient way to manage sales, inventory, and customer orders",
+    solution: "Led requirements gathering, UI/UX planning, and feature prioritization. Created detailed workflows and product documentation. Managed testing, deployment improvements, and provided regular client updates throughout the development process.",
+    case_study_md: `# DailyMacros POS & Ordering System
 
-A Trello-style task management application with real-time collaboration features.
+**Product Manager & Developer | 2025**
+
+## Overview
+A comprehensive Point of Sale and ordering system designed to streamline business operations, manage inventory, and enhance customer ordering experience.
+
+## My Role
+**Product Manager & Developer** - Led the product from concept to deployment.
+
+## Key Responsibilities
+- Led requirements gathering sessions with stakeholders
+- Planned UI/UX design and user journeys
+- Prioritized features based on business value
+- Created detailed workflow documentation
+- Managed product documentation throughout lifecycle
+- Oversaw testing and deployment improvements
+- Provided regular updates to clients
+
+## Technologies Used
+- **Frontend**: React, HTML/CSS/JS
+- **Backend**: Node.js, Python
+- **Database**: SQL
+- **Tools**: Figma (UI/UX), GitHub
 
 ## Features
-- Drag-and-drop task organization
-- Real-time updates using WebSockets
-- Team collaboration and permissions
-- File attachments and comments
-- Due dates and reminders
-- Mobile-responsive design
+- Point of Sale functionality
+- Inventory management
+- Customer ordering system
+- Sales reporting and analytics
+- User-friendly interface
 
-## Tech Stack
-- **Frontend**: Next.js, React, Framer Motion
-- **Backend**: Supabase (Realtime)
-- **UI**: shadcn/ui, Tailwind CSS
-- **State**: Zustand
-
-## Challenges & Solutions
-- Implemented optimistic UI updates for better UX
-- Solved race conditions in collaborative editing
-- Built custom drag-and-drop system for mobile`,
-    stack: ["Next.js", "React", "Supabase", "TypeScript", "Framer Motion"],
-    live_url: "https://taskapp.example.com",
-    repo_url: "https://github.com/yourusername/task-manager",
+## Impact
+- Streamlined business operations for clients
+- Improved order processing efficiency
+- Enhanced inventory tracking capabilities`,
+    stack: ["React", "Node.js", "Python", "SQL", "HTML", "CSS", "JavaScript", "Figma"],
+    tags: ["Full-Stack", "Product Management", "UI/UX", "Business", "POS"],
     featured: true,
     featured_order: 2,
     status: "published"
   },
   {
-    title: "Weather Dashboard",
-    slug: "weather-dashboard",
-    summary: "Beautiful weather app with forecasts and maps",
-    description: `# Weather Dashboard
+    title: "Duyog Website",
+    slug: "duyog-website",
+    summary: "Official website for Ateneo de Davao University - Rush project delivered in one month",
+    role: "Project Manager",
+    problem: "Ateneo de Davao University needed a complete website solution delivered on tight deadline",
+    solution: "Led Agile sprints for this rush project, coordinating between UI/UX team, DevOps, Backend, Frontend, and third-party payment software integration. Presented deliverables weekly and managed client revisions. Successfully deployed within one month of deadline.",
+    case_study_md: `# Duyog Website
 
-A weather application with detailed forecasts, interactive maps, and location-based updates.
+**Project Manager | Rush Project - 2025**
 
-## Features
-- Current weather conditions
-- 7-day forecast with hourly details
-- Interactive weather maps
-- Location-based automatic updates
-- Dark/light theme toggle
-- Severe weather alerts
+## Overview
+A complete website solution for Ateneo de Davao University, delivered as a rush project within strict one-month deadline.
 
-## Tech Stack
-- **Frontend**: React, TypeScript
-- **API**: OpenWeatherMap API
-- **Maps**: Leaflet
-- **State**: React Query
+## My Role
+**Project Manager** - Coordinated cross-functional teams and managed delivery timeline.
 
-## Highlights
-- Caching strategy reduces API calls by 90%
-- Progressive Web App (PWA) capabilities
-- Offline support with service workers`,
-    stack: ["React", "TypeScript", "REST APIs", "PWA", "Leaflet"],
-    live_url: "https://weather.example.com",
-    repo_url: "https://github.com/yourusername/weather-dashboard",
+## Key Responsibilities
+- Led Agile sprints and task planning
+- Structured and managed backlog
+- Coordinated between multiple teams:
+  - UI/UX Design Team
+  - DevOps Team
+  - Backend Developers
+  - Frontend Developers
+  - Third-party payment software integration
+- Presented deliverables to client weekly
+- Managed revisions based on client feedback
+- Ensured successful deployment within deadline
+
+## Challenge
+**Rush Project** - Complete website delivery required within one month
+
+## Technologies Used
+- **Frontend**: React, HTML/CSS/JS
+- **Backend**: Node.js
+- **Payment Integration**: Third-party payment software
+- **Collaboration**: GitHub, Slack, Zoom
+
+## Achievement
+✅ Successfully deployed within one month of deadline
+✅ Coordinated 5+ different teams/roles
+✅ Integrated complex payment system
+✅ Managed weekly client presentations and revisions
+
+## Impact
+- Delivered professional website for university on time
+- Demonstrated strong project management under pressure
+- Successfully coordinated complex multi-team project`,
+    stack: ["React", "Node.js", "HTML", "CSS", "JavaScript", "DevOps", "GitHub"],
+    tags: ["Project Management", "Web Development", "Rush Project", "University", "Agile"],
+    featured: true,
+    featured_order: 3,
+    status: "published"
+  },
+  {
+    title: "Duyog Website",
+    slug: "duyog-website",
+    summary: "Official website for Ateneo de Davao University - Rush project delivered in one month",
+    role: "Project Manager",
+    problem: "Ateneo de Davao University needed a complete website solution delivered on tight deadline",
+    solution: "Led Agile sprints for this rush project, coordinating between UI/UX team, DevOps, Backend, Frontend, and third-party payment software integration. Presented deliverables weekly and managed client revisions. Successfully deployed within one month of deadline.",
+    case_study_md: `# Duyog Website
+
+**Project Manager | Rush Project - 2025**
+
+## Overview
+A complete website solution for Ateneo de Davao University, delivered as a rush project within strict one-month deadline.
+
+## My Role
+**Project Manager** - Coordinated cross-functional teams and managed delivery timeline.
+
+## Key Responsibilities
+- Led Agile sprints and task planning
+- Structured and managed backlog
+- Coordinated between multiple teams:
+  - UI/UX Design Team
+  - DevOps Team
+  - Backend Developers
+  - Frontend Developers
+  - Third-party payment software integration
+- Presented deliverables to client weekly
+- Managed revisions based on client feedback
+- Ensured successful deployment within deadline
+
+## Challenge
+**Rush Project** - Complete website delivery required within one month
+
+## Technologies Used
+- **Frontend**: React, HTML/CSS/JS
+- **Backend**: Node.js
+- **Payment Integration**: Third-party payment software
+- **Collaboration**: GitHub, Slack, Zoom
+
+## Achievement
+✅ Successfully deployed within one month of deadline
+✅ Coordinated 5+ different teams/roles
+✅ Integrated complex payment system
+✅ Managed weekly client presentations and revisions
+
+## Impact
+- Delivered professional website for university on time
+- Demonstrated strong project management under pressure
+- Successfully coordinated complex multi-team project`,
+    stack: ["React", "Node.js", "HTML", "CSS", "JavaScript", "DevOps", "GitHub"],
+    tags: ["Project Management", "Web Development", "Rush Project", "University", "Agile"],
     featured: true,
     featured_order: 3,
     status: "published"
@@ -111,131 +210,124 @@ A weather application with detailed forecasts, interactive maps, and location-ba
 // ===== EXPERIENCE =====
 const experiences = [
   {
-    company: "TechCorp",
-    position: "Senior Full-Stack Developer",
-    start_date: "2022-06-01",
-    end_date: null,
-    current: true,
-    description: "Leading development of core platform features and mentoring junior developers.",
+    company: "Ateneo de Davao University CSSEC",
+    role: "Productions & Documentation Officer",
+    location: "Davao City, Philippines",
+    start_date: "2022-01-01",
+    end_date: "2023-12-31",
     bullets: [
-      "Architected and built microservices architecture handling 1M+ daily requests",
-      "Reduced API response time by 70% through optimization and caching strategies",
-      "Led team of 5 developers on flagship product rewrite",
-      "Implemented CI/CD pipeline reducing deployment time by 80%",
-      "Mentored 3 junior developers who promoted to mid-level within 1 year"
+      "Assisted in event hosting, logistics, and documentation preparation",
+      "Supported multi-team coordination for academic events",
+      "Managed production workflows and documentation systems",
+      "Coordinated with various teams for successful event execution"
     ],
-    skills: ["React", "Node.js", "TypeScript", "AWS", "Docker", "PostgreSQL"],
-    location: "San Francisco, CA",
-    order: 1
+    skills: ["Event Management", "Documentation", "Team Coordination", "Logistics", "Agile"],
+    sort_order: 1
   },
   {
-    company: "Innovate Labs",
-    position: "Full-Stack Developer",
-    start_date: "2020-03-01",
-    end_date: "2022-05-31",
-    current: false,
-    description: "Built web applications for various clients in healthcare and fintech sectors.",
-    bullets: [
-      "Developed 15+ client projects from concept to deployment",
-      "Built reusable component library used across all company projects",
-      "Integrated payment systems processing $500K+ monthly transactions",
-      "Improved test coverage from 30% to 85%",
-      "Collaborated with UX designers to implement pixel-perfect designs"
-    ],
-    skills: ["Vue.js", "Python", "Django", "PostgreSQL", "Docker"],
+    company: "Metropolitan Property Management",
+    role: "Virtual Assistant",
     location: "Remote",
-    order: 2
-  },
-  {
-    company: "StartupXYZ",
-    position: "Junior Developer",
-    start_date: "2018-06-01",
-    end_date: "2020-02-29",
-    current: false,
-    description: "Started career building MVP for early-stage startup.",
+    start_date: "2021-06-01",
+    end_date: "2021-12-31",
     bullets: [
-      "Built MVP that secured $2M seed funding",
-      "Learned full-stack development with React and Node.js",
-      "Implemented authentication and authorization systems",
-      "Participated in agile development processes",
-      "Contributed to all aspects of product development"
+      "Handled administrative tasks, documentation, and data entry",
+      "Conducted market research and analysis",
+      "Coordinated tenant and vendor communications",
+      "Improved workflow organization and reporting accuracy"
     ],
-    skills: ["React", "JavaScript", "Node.js", "MongoDB", "Express"],
-    location: "New York, NY",
-    order: 3
+    skills: ["Administrative Support", "Data Entry", "Communication", "Research", "Organization"],
+    sort_order: 2
   }
 ];
 
 // ===== CERTIFICATIONS =====
 const certifications = [
   {
-    title: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    issue_date: "2023-03-15",
-    expiration_date: "2026-03-15",
-    credential_id: "AWS-ASA-123456",
-    credential_url: "https://aws.amazon.com/verification",
-    badge_image_url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=200",
-    order: 1
+    name: "Lean Six Sigma Yellow Belt",
+    issuer: "Lean Six Sigma",
+    issue_date: "2025-01-01",
+    credential_url: null,
+    badge_image_url: null,
+    sort_order: 1
   },
   {
-    title: "Google Cloud Professional Developer",
-    issuer: "Google Cloud",
-    issue_date: "2022-11-20",
-    expiration_date: "2025-11-20",
-    credential_id: "GCP-PD-789012",
-    credential_url: "https://cloud.google.com/certification",
-    badge_image_url: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=200",
-    order: 2
+    name: "Lean Six Sigma White Belt",
+    issuer: "Lean Six Sigma",
+    issue_date: "2025-01-01",
+    credential_url: null,
+    badge_image_url: null,
+    sort_order: 2
   },
   {
-    title: "Meta Front-End Developer Professional",
-    issuer: "Meta",
-    issue_date: "2022-07-10",
-    expiration_date: null,
-    credential_id: "META-FE-345678",
-    credential_url: "https://www.coursera.org/account/accomplishments/certificate",
-    badge_image_url: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=200",
-    order: 3
+    name: "DICT IDEAS PlugIn Activity - Startup Innovation Event",
+    issuer: "Department of Information and Communications Technology (DICT)",
+    issue_date: "2025-05-08",
+    credential_url: null,
+    badge_image_url: null,
+    sort_order: 3
+  },
+  {
+    name: "Agile Project Management",
+    issuer: "Currently Enrolled",
+    issue_date: "2025-01-01",
+    credential_url: null,
+    badge_image_url: null,
+    sort_order: 4
   }
 ];
 
 // ===== SKILLS =====
 const skills = [
   // Frontend
-  { name: "React", category: "Frontend", proficiency: "Expert", order: 1 },
-  { name: "TypeScript", category: "Frontend", proficiency: "Expert", order: 2 },
-  { name: "Next.js", category: "Frontend", proficiency: "Advanced", order: 3 },
-  { name: "Vue.js", category: "Frontend", proficiency: "Advanced", order: 4 },
-  { name: "Tailwind CSS", category: "Frontend", proficiency: "Expert", order: 5 },
-  { name: "Framer Motion", category: "Frontend", proficiency: "Advanced", order: 6 },
+  { name: "React", category: "Frontend", level: "advanced", sort_order: 1 },
+  { name: "Flutter", category: "Frontend", level: "intermediate", sort_order: 2 },
+  { name: "Dart", category: "Frontend", level: "intermediate", sort_order: 3 },
+  { name: "HTML", category: "Frontend", level: "advanced", sort_order: 4 },
+  { name: "CSS", category: "Frontend", level: "advanced", sort_order: 5 },
+  { name: "JavaScript", category: "Frontend", level: "advanced", sort_order: 6 },
 
   // Backend
-  { name: "Node.js", category: "Backend", proficiency: "Expert", order: 1 },
-  { name: "Express", category: "Backend", proficiency: "Expert", order: 2 },
-  { name: "Python", category: "Backend", proficiency: "Intermediate", order: 3 },
-  { name: "PostgreSQL", category: "Backend", proficiency: "Advanced", order: 4 },
-  { name: "MongoDB", category: "Backend", proficiency: "Advanced", order: 5 },
-  { name: "GraphQL", category: "Backend", proficiency: "Advanced", order: 6 },
+  { name: "Node.js", category: "Backend", level: "advanced", sort_order: 1 },
+  { name: "Python", category: "Backend", level: "intermediate", sort_order: 2 },
+  { name: "Express", category: "Backend", level: "intermediate", sort_order: 3 },
+  { name: "SQL", category: "Backend", level: "intermediate", sort_order: 4 },
+  { name: "Core Java", category: "Backend", level: "intermediate", sort_order: 5 },
 
-  // DevOps
-  { name: "Docker", category: "DevOps", proficiency: "Advanced", order: 1 },
-  { name: "AWS", category: "DevOps", proficiency: "Advanced", order: 2 },
-  { name: "CI/CD", category: "DevOps", proficiency: "Advanced", order: 3 },
-  { name: "Git", category: "DevOps", proficiency: "Expert", order: 4 },
+  // Project Management
+  { name: "Agile", category: "Project Management", level: "advanced", sort_order: 1 },
+  { name: "Scrum", category: "Project Management", level: "advanced", sort_order: 2 },
+  { name: "Sprint Planning", category: "Project Management", level: "advanced", sort_order: 3 },
+  { name: "Backlog Grooming", category: "Project Management", level: "advanced", sort_order: 4 },
+  { name: "Requirements Gathering", category: "Project Management", level: "advanced", sort_order: 5 },
+  { name: "Process Mapping", category: "Project Management", level: "intermediate", sort_order: 6 },
+  { name: "Workflow Optimization", category: "Project Management", level: "intermediate", sort_order: 7 },
 
-  // Tools
-  { name: "Figma", category: "Tools", proficiency: "Intermediate", order: 1 },
-  { name: "VS Code", category: "Tools", proficiency: "Expert", order: 2 },
-  { name: "Postman", category: "Tools", proficiency: "Advanced", order: 3 }
+  // Tools & Platforms
+  { name: "Git", category: "Tools", level: "intermediate", sort_order: 1 },
+  { name: "GitHub", category: "Tools", level: "intermediate", sort_order: 2 },
+  { name: "Trello", category: "Tools", level: "advanced", sort_order: 3 },
+  { name: "Asana", category: "Tools", level: "advanced", sort_order: 4 },
+  { name: "Figma", category: "Tools", level: "beginner", sort_order: 5 },
+  { name: "Slack", category: "Tools", level: "advanced", sort_order: 6 },
+  { name: "Zoom", category: "Tools", level: "advanced", sort_order: 7 },
+  { name: "Google Workspace", category: "Tools", level: "advanced", sort_order: 8 },
+
+  // Soft Skills
+  { name: "Fast Learner (100+ WPM)", category: "Soft Skills", level: "expert", sort_order: 1 },
+  { name: "Detail-Oriented", category: "Soft Skills", level: "advanced", sort_order: 2 },
+  { name: "Organized", category: "Soft Skills", level: "advanced", sort_order: 3 },
+  { name: "Task Prioritization", category: "Soft Skills", level: "advanced", sort_order: 4 },
+  { name: "Timeline Tracking", category: "Soft Skills", level: "advanced", sort_order: 5 },
+  { name: "Stakeholder Communication", category: "Soft Skills", level: "advanced", sort_order: 6 },
+  { name: "Independent Work", category: "Soft Skills", level: "advanced", sort_order: 7 },
+  { name: "Remote Work", category: "Soft Skills", level: "advanced", sort_order: 8 }
 ];
 
 // ===== ADMIN (for initial setup) =====
 const admins = [
   {
-    email: "admin@portfolio.com",
-    name: "Admin User",
-    role: "admin",
+    user_id: "elijah-admin-001",
     created_at: new Date().toISOString()
   }
 ];
@@ -250,72 +342,102 @@ export const seedSQL = `
 -- Enable UUID extension
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
--- Insert Projects
-INSERT INTO projects (title, slug, summary, description, stack, live_url, repo_url, cover_image_url, featured, featured_order, status, created_at, updated_at)
+-- ===== INSERT PROJECTS =====
+INSERT INTO projects (title, slug, summary, role, problem, solution, case_study_md, stack, tags, featured, featured_order, status, created_at, updated_at)
 VALUES
-  ('E-Commerce Platform', 'e-commerce-platform', 'A full-featured online shopping platform with payment integration',
-   '{"description":"A modern e-commerce solution built with React, Node.js, and PostgreSQL."}',
-   ARRAY['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Stripe'],
-   'https://demo-store.example.com', 'https://github.com/yourusername/ecommerce-platform',
-   'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800',
+  ('GoDavao Ridesharing App', 'godavao-ridesharing-app', 'Thesis Capstone Project - A comprehensive ridesharing application for Davao City',
+   'Project Manager & Developer',
+   'Need for a reliable, local ridesharing service tailored to Davao City''s transportation needs',
+   'Led Agile sprints, task planning, backlog structuring, and execution tracking. Created comprehensive PM documents including requirements, workflows, and UAT scripts.',
+   '# GoDavao Ridesharing App\n\n**Thesis Capstone Project | 2024-2025**\n\n## Overview\nA comprehensive ridesharing application designed specifically for Davao City.',
+   ARRAY['Flutter', 'Dart', 'Node.js', 'React', 'Python', 'PostgreSQL', 'Agile', 'Scrum'],
+   ARRAY['Mobile App', 'Full-Stack', 'Project Management', 'Thesis', 'Agile'],
    true, 1, 'published', NOW(), NOW()),
-  ('Task Management App', 'task-management-app', 'Collaborative task manager with real-time updates',
-   '{"description":"A Trello-style task management application"}',
-   ARRAY['Next.js', 'React', 'Supabase', 'TypeScript', 'Framer Motion'],
-   'https://taskapp.example.com', 'https://github.com/yourusername/task-manager',
-   'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800',
+
+  ('DailyMacros POS & Ordering System', 'dailymacros-pos-ordering-system', 'A comprehensive Point of Sale and ordering system for business operations',
+   'Product Manager & Developer',
+   'Businesses need an efficient way to manage sales, inventory, and customer orders',
+   'Led requirements gathering, UI/UX planning, and feature prioritization. Created detailed workflows and product documentation.',
+   '# DailyMacros POS & Ordering System\n\n**Product Manager & Developer | 2025**',
+   ARRAY['React', 'Node.js', 'Python', 'SQL', 'HTML', 'CSS', 'JavaScript', 'Figma'],
+   ARRAY['Full-Stack', 'Product Management', 'UI/UX', 'Business', 'POS'],
    true, 2, 'published', NOW(), NOW()),
-  ('Weather Dashboard', 'weather-dashboard', 'Beautiful weather app with forecasts and maps',
-   '{"description":"A weather application with detailed forecasts"}',
-   ARRAY['React', 'TypeScript', 'REST APIs', 'PWA', 'Leaflet'],
-   'https://weather.example.com', 'https://github.com/yourusername/weather-dashboard',
-   'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800',
+
+  ('Duyog Website', 'duyog-website', 'Official website for Ateneo de Davao University - Rush project delivered in one month',
+   'Project Manager',
+   'Ateneo de Davao University needed a complete website solution delivered on tight deadline',
+   'Led Agile sprints, coordinated between UI/UX, DevOps, Backend, Frontend, and payment software. Successfully deployed within one month.',
+   '# Duyog Website\n\n**Project Manager | Rush Project - 2025**',
+   ARRAY['React', 'Node.js', 'HTML', 'CSS', 'JavaScript', 'DevOps', 'GitHub'],
+   ARRAY['Project Management', 'Web Development', 'Rush Project', 'University', 'Agile'],
    true, 3, 'published', NOW(), NOW());
 
--- Insert Experience
-INSERT INTO experiences (company, position, start_date, end_date, current, description, bullets, skills, location, "order", created_at, updated_at)
+-- ===== INSERT EXPERIENCE =====
+INSERT INTO experiences (company, role, location, start_date, end_date, bullets, skills, sort_order, created_at, updated_at)
 VALUES
-  ('TechCorp', 'Senior Full-Stack Developer', '2022-06-01', NULL, true,
-   'Leading development of core platform features and mentoring junior developers.',
-   ARRAY['Architected and built microservices architecture handling 1M+ daily requests',
-         'Reduced API response time by 70% through optimization and caching strategies',
-         'Led team of 5 developers on flagship product rewrite'],
-   ARRAY['React', 'Node.js', 'TypeScript', 'AWS', 'Docker', 'PostgreSQL'],
-   'San Francisco, CA', 1, NOW(), NOW()),
-  ('Innovate Labs', 'Full-Stack Developer', '2020-03-01', '2022-05-31', false,
-   'Built web applications for various clients in healthcare and fintech sectors.',
-   ARRAY['Developed 15+ client projects from concept to deployment',
-         'Built reusable component library used across all company projects'],
-   ARRAY['Vue.js', 'Python', 'Django', 'PostgreSQL', 'Docker'],
-   'Remote', 2, NOW(), NOW());
+  ('Ateneo de Davao University CSSEC', 'Productions & Documentation Officer', 'Davao City, Philippines', '2022-01-01', '2023-12-31',
+   ARRAY['Assisted in event hosting, logistics, and documentation preparation',
+         'Supported multi-team coordination for academic events',
+         'Managed production workflows and documentation systems',
+         'Coordinated with various teams for successful event execution'],
+   ARRAY['Event Management', 'Documentation', 'Team Coordination', 'Logistics', 'Agile'],
+   1, NOW(), NOW()),
 
--- Insert Certifications
-INSERT INTO certifications (title, issuer, issue_date, expiration_date, credential_id, credential_url, badge_image_url, "order", created_at, updated_at)
+  ('Metropolitan Property Management', 'Virtual Assistant', 'Remote', '2021-06-01', '2021-12-31',
+   ARRAY['Handled administrative tasks, documentation, and data entry',
+         'Conducted market research and analysis',
+         'Coordinated tenant and vendor communications',
+         'Improved workflow organization and reporting accuracy'],
+   ARRAY['Administrative Support', 'Data Entry', 'Communication', 'Research', 'Organization'],
+   2, NOW(), NOW());
+
+-- ===== INSERT CERTIFICATIONS =====
+INSERT INTO certifications (name, issuer, issue_date, credential_url, badge_image_url, sort_order, created_at)
 VALUES
-  ('AWS Certified Solutions Architect', 'Amazon Web Services', '2023-03-15', '2026-03-15',
-   'AWS-ASA-123456', 'https://aws.amazon.com/verification',
-   'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=200', 1, NOW(), NOW()),
-  ('Google Cloud Professional Developer', 'Google Cloud', '2022-11-20', '2025-11-20',
-   'GCP-PD-789012', 'https://cloud.google.com/certification',
-   'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=200', 2, NOW(), NOW());
+  ('Lean Six Sigma Yellow Belt', 'Lean Six Sigma', '2025-01-01', NULL, NULL, 1, NOW()),
+  ('Lean Six Sigma White Belt', 'Lean Six Sigma', '2025-01-01', NULL, NULL, 2, NOW()),
+  ('DICT IDEAS PlugIn Activity - Startup Innovation Event', 'Department of Information and Communications Technology (DICT)', '2025-05-08', NULL, NULL, 3, NOW()),
+  ('Agile Project Management', 'Currently Enrolled', '2025-01-01', NULL, NULL, 4, NOW());
 
--- Insert Skills
-INSERT INTO skills (name, category, proficiency, "order", created_at, updated_at)
+-- ===== INSERT SKILLS =====
+INSERT INTO skills (name, category, level, sort_order, created_at)
 VALUES
   -- Frontend
-  ('React', 'Frontend', 'Expert', 1, NOW(), NOW()),
-  ('TypeScript', 'Frontend', 'Expert', 2, NOW(), NOW()),
-  ('Next.js', 'Frontend', 'Advanced', 3, NOW(), NOW()),
-  ('Vue.js', 'Frontend', 'Advanced', 4, NOW(), NOW()),
-  ('Tailwind CSS', 'Frontend', 'Expert', 5, NOW(), NOW()),
+  ('React', 'Frontend', 'advanced', 1, NOW()),
+  ('Flutter', 'Frontend', 'intermediate', 2, NOW()),
+  ('Dart', 'Frontend', 'intermediate', 3, NOW()),
+  ('HTML', 'Frontend', 'advanced', 4, NOW()),
+  ('CSS', 'Frontend', 'advanced', 5, NOW()),
+  ('JavaScript', 'Frontend', 'advanced', 6, NOW()),
+
   -- Backend
-  ('Node.js', 'Backend', 'Expert', 1, NOW(), NOW()),
-  ('Express', 'Backend', 'Expert', 2, NOW(), NOW()),
-  ('Python', 'Backend', 'Intermediate', 3, NOW(), NOW()),
-  ('PostgreSQL', 'Backend', 'Advanced', 4, NOW(), NOW()),
-  ('MongoDB', 'Backend', 'Advanced', 5, NOW(), NOW()),
-  -- DevOps
-  ('Docker', 'DevOps', 'Advanced', 1, NOW(), NOW()),
-  ('AWS', 'DevOps', 'Advanced', 2, NOW(), NOW()),
-  ('Git', 'DevOps', 'Expert', 3, NOW(), NOW());
+  ('Node.js', 'Backend', 'advanced', 1, NOW()),
+  ('Python', 'Backend', 'intermediate', 2, NOW()),
+  ('Express', 'Backend', 'intermediate', 3, NOW()),
+  ('SQL', 'Backend', 'intermediate', 4, NOW()),
+  ('Core Java', 'Backend', 'intermediate', 5, NOW()),
+
+  -- Project Management
+  ('Agile', 'Project Management', 'advanced', 1, NOW()),
+  ('Scrum', 'Project Management', 'advanced', 2, NOW()),
+  ('Sprint Planning', 'Project Management', 'advanced', 3, NOW()),
+  ('Backlog Grooming', 'Project Management', 'advanced', 4, NOW()),
+  ('Requirements Gathering', 'Project Management', 'advanced', 5, NOW()),
+
+  -- Tools
+  ('Git', 'Tools', 'intermediate', 1, NOW()),
+  ('GitHub', 'Tools', 'intermediate', 2, NOW()),
+  ('Trello', 'Tools', 'advanced', 3, NOW()),
+  ('Asana', 'Tools', 'advanced', 4, NOW()),
+  ('Figma', 'Tools', 'beginner', 5, NOW()),
+  ('Slack', 'Tools', 'advanced', 6, NOW()),
+  ('Zoom', 'Tools', 'advanced', 7, NOW()),
+  ('Google Workspace', 'Tools', 'advanced', 8, NOW()),
+
+  -- Soft Skills
+  ('Fast Learner (100+ WPM)', 'Soft Skills', 'expert', 1, NOW()),
+  ('Detail-Oriented', 'Soft Skills', 'advanced', 2, NOW()),
+  ('Organized', 'Soft Skills', 'advanced', 3, NOW()),
+  ('Task Prioritization', 'Soft Skills', 'advanced', 4, NOW()),
+  ('Stakeholder Communication', 'Soft Skills', 'advanced', 5, NOW());
 `;

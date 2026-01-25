@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Moon, Sun, Menu, X, Keyboard, Github, Linkedin, Twitter } from "lucide-react";
+import { Moon, Sun, Menu, X, Keyboard, Github, Linkedin, X as TwitterX } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,10 +18,11 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
 
   const navigation = [
     { name: "Home", href: "/", key: "h" },
+    { name: "About", href: "/about", key: "a" },
     { name: "Projects", href: "/projects", key: "p" },
     { name: "Experience", href: "/experience", key: "e" },
     { name: "Certifications", href: "/certifications", key: "c" },
-    { name: "Contact", href: "/contact", key: "c" },
+    { name: "Contact", href: "/contact", key: "t" },
   ];
 
   // Handle scroll for navbar background
@@ -41,6 +42,11 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
       description: "Go to home",
     },
     {
+      key: "a",
+      action: () => navigate("/about"),
+      description: "Go to about",
+    },
+    {
       key: "p",
       action: () => navigate("/projects"),
       description: "Go to projects",
@@ -52,11 +58,16 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
     },
     {
       key: "c",
+      action: () => navigate("/certifications"),
+      description: "Go to certifications",
+    },
+    {
+      key: "t",
       action: () => navigate("/contact"),
       description: "Go to contact",
     },
     {
-      key: "t",
+      key: "b",
       action: () => setTheme(theme === "dark" ? "light" : "dark"),
       description: "Toggle theme",
     },
@@ -294,7 +305,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
                     href: "https://linkedin.com",
                     label: "LinkedIn",
                   },
-                  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+                  { icon: TwitterX, href: "https://twitter.com", label: "X (Twitter)" },
                 ].map((social) => (
                   <motion.a
                     key={social.label}

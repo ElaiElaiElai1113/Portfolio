@@ -23,15 +23,17 @@ export default function ExperiencePage() {
   const calculateDuration = (startDate: string, endDate: string | null) => {
     const start = new Date(startDate);
     const end = endDate ? new Date(endDate) : new Date();
-    const months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+    const months =
+      (end.getFullYear() - start.getFullYear()) * 12 +
+      (end.getMonth() - start.getMonth());
 
     const years = Math.floor(months / 12);
     const remainingMonths = months % 12;
 
     if (years > 0 && remainingMonths > 0) {
-      return `${years} yr${years > 1 ? 's' : ''} ${remainingMonths} mo`;
+      return `${years} yr${years > 1 ? "s" : ""} ${remainingMonths} mo`;
     } else if (years > 0) {
-      return `${years} yr${years > 1 ? 's' : ''}`;
+      return `${years} yr${years > 1 ? "s" : ""}`;
     } else {
       return `${remainingMonths} mo`;
     }
@@ -41,7 +43,7 @@ export default function ExperiencePage() {
     <>
       <SEO
         title="Experience"
-        description="My professional journey in full-stack development. View my work history, roles, and career milestones."
+        description="My professional journey in development and my career. View my work history, roles, and career milestones."
       />
 
       <div className="max-w-4xl mx-auto space-y-12">
@@ -50,7 +52,7 @@ export default function ExperiencePage() {
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold">Experience</h1>
             <p className="text-xl text-muted-foreground">
-              My professional journey and career milestones in software development.
+              My professional journey and career milestones.
             </p>
           </div>
         </ScrollReveal>
@@ -80,8 +82,8 @@ export default function ExperiencePage() {
                       whileInView={{ scale: 1 }}
                       transition={{ type: "spring", delay: index * 0.1 }}
                       className={`absolute left-2 top-0 h-7 w-7 rounded-full bg-gradient-to-br from-primary to-purple-500 shadow-lg shadow-primary/20 ${
-                    index === 0 ? "ring-4 ring-primary/30" : ""
-                  }`}
+                        index === 0 ? "ring-4 ring-primary/30" : ""
+                      }`}
                     />
 
                     <motion.div
@@ -100,7 +102,9 @@ export default function ExperiencePage() {
                                   {experience.company}
                                 </CardTitle>
                                 {experience.current && (
-                                  <Badge variant="default" className="ml-2">Current</Badge>
+                                  <Badge variant="default" className="ml-2">
+                                    Current
+                                  </Badge>
                                 )}
                               </div>
                               <p className="text-lg font-semibold text-foreground">
@@ -125,57 +129,75 @@ export default function ExperiencePage() {
                             </div>
                             <div className="flex items-center gap-1.5">
                               <TrendingUp className="h-4 w-4" />
-                              <span>{calculateDuration(experience.start_date, experience.end_date)}</span>
+                              <span>
+                                {calculateDuration(
+                                  experience.start_date,
+                                  experience.end_date,
+                                )}
+                              </span>
                             </div>
                           </div>
                         </CardHeader>
 
                         <CardContent className="space-y-6">
                           {/* Skills used */}
-                          {experience.skills && experience.skills.length > 0 && (
-                            <div>
-                              <p className="text-sm font-medium mb-3">Skills & Technologies</p>
-                              <div className="flex flex-wrap gap-2">
-                                {experience.skills.map((skill: string) => (
-                                  <motion.span
-                                    key={skill}
-                                    whileHover={{ scale: 1.05 }}
-                                    className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20 cursor-default"
-                                  >
-                                    {skill}
-                                  </motion.span>
-                                ))}
+                          {experience.skills &&
+                            experience.skills.length > 0 && (
+                              <div>
+                                <p className="text-sm font-medium mb-3">
+                                  Skills & Technologies
+                                </p>
+                                <div className="flex flex-wrap gap-2">
+                                  {experience.skills.map((skill: string) => (
+                                    <motion.span
+                                      key={skill}
+                                      whileHover={{ scale: 1.05 }}
+                                      className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20 cursor-default"
+                                    >
+                                      {skill}
+                                    </motion.span>
+                                  ))}
+                                </div>
                               </div>
-                            </div>
-                          )}
+                            )}
 
                           {/* Description */}
                           {experience.description && (
-                            <p className="text-muted-foreground">{experience.description}</p>
+                            <p className="text-muted-foreground">
+                              {experience.description}
+                            </p>
                           )}
 
                           {/* Bullet points */}
-                          {experience.bullets && experience.bullets.length > 0 && (
-                            <div>
-                              <p className="text-sm font-medium mb-3">Key Achievements</p>
-                              <ul className="space-y-3">
-                                {experience.bullets.map(
-                                  (bullet: string, bulletIndex: number) => (
-                                    <motion.li
-                                      key={bulletIndex}
-                                      initial={{ opacity: 0, x: -10 }}
-                                      whileInView={{ opacity: 1, x: 0 }}
-                                      transition={{ delay: (index * 0.1) + (bulletIndex * 0.05) }}
-                                      className="flex gap-3 text-muted-foreground"
-                                    >
-                                      <span className="text-primary mt-1">•</span>
-                                      <span>{bullet}</span>
-                                    </motion.li>
-                                  ),
-                                )}
-                              </ul>
-                            </div>
-                          )}
+                          {experience.bullets &&
+                            experience.bullets.length > 0 && (
+                              <div>
+                                <p className="text-sm font-medium mb-3">
+                                  Key Achievements
+                                </p>
+                                <ul className="space-y-3">
+                                  {experience.bullets.map(
+                                    (bullet: string, bulletIndex: number) => (
+                                      <motion.li
+                                        key={bulletIndex}
+                                        initial={{ opacity: 0, x: -10 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        transition={{
+                                          delay:
+                                            index * 0.1 + bulletIndex * 0.05,
+                                        }}
+                                        className="flex gap-3 text-muted-foreground"
+                                      >
+                                        <span className="text-primary mt-1">
+                                          •
+                                        </span>
+                                        <span>{bullet}</span>
+                                      </motion.li>
+                                    ),
+                                  )}
+                                </ul>
+                              </div>
+                            )}
                         </CardContent>
                       </Card>
                     </motion.div>
@@ -193,7 +215,9 @@ export default function ExperiencePage() {
                 className="max-w-md mx-auto"
               >
                 <div className="text-6xl mb-4">💼</div>
-                <h3 className="text-xl font-semibold mb-2">No experience yet</h3>
+                <h3 className="text-xl font-semibold mb-2">
+                  No experience yet
+                </h3>
                 <p className="text-muted-foreground">
                   Experience entries will be displayed here.
                 </p>
