@@ -1,57 +1,11 @@
-import { supabase } from "@/lib/supabaseClient";
-import { Database } from "@/types/database.types";
+import experiencesData from "@/data/experiences.json";
+import { Experience } from "@/types/portfolio";
 
-type ExperienceInsert = Database["public"]["Tables"]["experiences"]["Insert"];
-type ExperienceUpdate = Database["public"]["Tables"]["experiences"]["Update"];
-
-export async function getExperiences() {
-  const { data, error } = await supabase
-    .from("experiences")
-    .select("*")
-    .order("sort_order", { ascending: true });
-
-  if (error) throw error;
-  return data;
+// Simulate async behavior for React Query compatibility
+async function getData<T>(data: T): Promise<T> {
+  return Promise.resolve(data);
 }
 
-// Admin functions
-export async function adminListExperiences() {
-  const { data, error } = await supabase
-    .from("experiences")
-    .select("*")
-    .order("sort_order", { ascending: true });
-
-  if (error) throw error;
-  return data;
-}
-
-export async function adminGetExperience(id: string) {
-  const { data, error } = await supabase
-    .from("experiences")
-    .select("*")
-    .eq("id", id)
-    .single();
-
-  if (error) throw error;
-  return data;
-}
-
-export async function adminUpsertExperience(
-  experience: ExperienceInsert | ExperienceUpdate,
-) {
-  const { data, error } = await supabase
-    .from("experiences")
-    .upsert(experience)
-    .select()
-    .single();
-
-  if (error) throw error;
-  return data;
-}
-
-export async function adminDeleteExperience(id: string) {
-  const { error } = await supabase.from("experiences").delete().eq("id", id);
-
-  if (error) throw error;
-  return true;
+export async function getExperiences(): Promise<Experience[]> {
+  return getData(experiencesData.sort((a, b) => a.sort_order - b.sort_order));
 }

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "cert-1",
+    "title": "Lean Six Sigma Yellow Belt",
+    "name": "Lean Six Sigma Yellow Belt",
+    "issuer": "Lean Six Sigma",
+    "issue_date": "2025-01-01",
+    "sort_order": 1
+  },
+  {
+    "id": "cert-2",
+    "title": "Lean Six Sigma White Belt",
+    "name": "Lean Six Sigma White Belt",
+    "issuer": "Lean Six Sigma",
+    "issue_date": "2025-01-01",
+    "sort_order": 2
+  },
+  {
+    "id": "cert-3",
+    "title": "DICT IDEAS PlugIn Activity - Startup Innovation Event",
+    "name": "DICT IDEAS PlugIn Activity - Startup Innovation Event",
+    "issuer": "Department of Information and Communications Technology (DICT)",
+    "issue_date": "2025-05-08",
+    "sort_order": 3
+  },
+  {
+    "id": "cert-4",
+    "title": "Agile Project Management",
+    "name": "Agile Project Management",
+    "issuer": "Currently Enrolled",
+    "issue_date": "2025-01-01",
+    "sort_order": 4
+  }
+]

@@ -1,0 +1,274 @@
+[
+  {
+    "id": "skill-1",
+    "name": "React",
+    "category": "Frontend",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 1
+  },
+  {
+    "id": "skill-2",
+    "name": "Flutter",
+    "category": "Frontend",
+    "level": "intermediate",
+    "proficiency": "Intermediate",
+    "sort_order": 2
+  },
+  {
+    "id": "skill-3",
+    "name": "Dart",
+    "category": "Frontend",
+    "level": "intermediate",
+    "proficiency": "Intermediate",
+    "sort_order": 3
+  },
+  {
+    "id": "skill-4",
+    "name": "HTML",
+    "category": "Frontend",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 4
+  },
+  {
+    "id": "skill-5",
+    "name": "CSS",
+    "category": "Frontend",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 5
+  },
+  {
+    "id": "skill-6",
+    "name": "JavaScript",
+    "category": "Frontend",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 6
+  },
+  {
+    "id": "skill-7",
+    "name": "Node.js",
+    "category": "Backend",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 1
+  },
+  {
+    "id": "skill-8",
+    "name": "Python",
+    "category": "Backend",
+    "level": "intermediate",
+    "proficiency": "Intermediate",
+    "sort_order": 2
+  },
+  {
+    "id": "skill-9",
+    "name": "Express",
+    "category": "Backend",
+    "level": "intermediate",
+    "proficiency": "Intermediate",
+    "sort_order": 3
+  },
+  {
+    "id": "skill-10",
+    "name": "SQL",
+    "category": "Backend",
+    "level": "intermediate",
+    "proficiency": "Intermediate",
+    "sort_order": 4
+  },
+  {
+    "id": "skill-11",
+    "name": "Core Java",
+    "category": "Backend",
+    "level": "intermediate",
+    "proficiency": "Intermediate",
+    "sort_order": 5
+  },
+  {
+    "id": "skill-12",
+    "name": "Agile",
+    "category": "Project Management",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 1
+  },
+  {
+    "id": "skill-13",
+    "name": "Scrum",
+    "category": "Project Management",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 2
+  },
+  {
+    "id": "skill-14",
+    "name": "Sprint Planning",
+    "category": "Project Management",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 3
+  },
+  {
+    "id": "skill-15",
+    "name": "Backlog Grooming",
+    "category": "Project Management",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 4
+  },
+  {
+    "id": "skill-16",
+    "name": "Requirements Gathering",
+    "category": "Project Management",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 5
+  },
+  {
+    "id": "skill-17",
+    "name": "Process Mapping",
+    "category": "Project Management",
+    "level": "intermediate",
+    "proficiency": "Intermediate",
+    "sort_order": 6
+  },
+  {
+    "id": "skill-18",
+    "name": "Workflow Optimization",
+    "category": "Project Management",
+    "level": "intermediate",
+    "proficiency": "Intermediate",
+    "sort_order": 7
+  },
+  {
+    "id": "skill-19",
+    "name": "Git",
+    "category": "Tools",
+    "level": "intermediate",
+    "proficiency": "Intermediate",
+    "sort_order": 1
+  },
+  {
+    "id": "skill-20",
+    "name": "GitHub",
+    "category": "Tools",
+    "level": "intermediate",
+    "proficiency": "Intermediate",
+    "sort_order": 2
+  },
+  {
+    "id": "skill-21",
+    "name": "Trello",
+    "category": "Tools",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 3
+  },
+  {
+    "id": "skill-22",
+    "name": "Asana",
+    "category": "Tools",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 4
+  },
+  {
+    "id": "skill-23",
+    "name": "Figma",
+    "category": "Tools",
+    "level": "beginner",
+    "proficiency": "Beginner",
+    "sort_order": 5
+  },
+  {
+    "id": "skill-24",
+    "name": "Slack",
+    "category": "Tools",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 6
+  },
+  {
+    "id": "skill-25",
+    "name": "Zoom",
+    "category": "Tools",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 7
+  },
+  {
+    "id": "skill-26",
+    "name": "Google Workspace",
+    "category": "Tools",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 8
+  },
+  {
+    "id": "skill-27",
+    "name": "Fast Learner (100+ WPM)",
+    "category": "Soft Skills",
+    "level": "expert",
+    "proficiency": "Expert",
+    "sort_order": 1
+  },
+  {
+    "id": "skill-28",
+    "name": "Detail-Oriented",
+    "category": "Soft Skills",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 2
+  },
+  {
+    "id": "skill-29",
+    "name": "Organized",
+    "category": "Soft Skills",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 3
+  },
+  {
+    "id": "skill-30",
+    "name": "Task Prioritization",
+    "category": "Soft Skills",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 4
+  },
+  {
+    "id": "skill-31",
+    "name": "Timeline Tracking",
+    "category": "Soft Skills",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 5
+  },
+  {
+    "id": "skill-32",
+    "name": "Stakeholder Communication",
+    "category": "Soft Skills",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 6
+  },
+  {
+    "id": "skill-33",
+    "name": "Independent Work",
+    "category": "Soft Skills",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 7
+  },
+  {
+    "id": "skill-34",
+    "name": "Remote Work",
+    "category": "Soft Skills",
+    "level": "advanced",
+    "proficiency": "Advanced",
+    "sort_order": 8
+  }
+]

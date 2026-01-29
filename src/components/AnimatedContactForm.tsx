@@ -16,8 +16,6 @@ import {
 } from '@/components/ui/form';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Send, CheckCircle, Loader2 } from 'lucide-react';
-import { useMutation } from '@tanstack/react-query';
-import { sendMessage } from '@/services';
 import { useToast } from '@/hooks/use-toast';
 
 const formSchema = z.object({
@@ -35,6 +33,7 @@ interface AnimatedContactFormProps {
 
 export function AnimatedContactForm({ onSuccess }: AnimatedContactFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<FormValues>({
@@ -47,9 +46,25 @@ export function AnimatedContactForm({ onSuccess }: AnimatedContactFormProps) {
     },
   });
 
-  const mutation = useMutation({
-    mutationFn: (data: FormValues) => sendMessage(data),
-    onSuccess: () => {
+  const onSubmit = async (data: FormValues) => {
+    setIsSubmitting(true);
+
+    // Netlify Forms will handle the submission automatically
+    // We just need to submit the form to the current URL
+    try {
+      const formData = new FormData();
+      formData.append('form-name', 'contact');
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('subject', data.subject);
+      formData.append('message', data.message);
+
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
       setIsSubmitted(true);
       toast({
         title: 'Message sent!',
@@ -60,18 +75,15 @@ export function AnimatedContactForm({ onSuccess }: AnimatedContactFormProps) {
         form.reset();
         onSuccess?.();
       }, 3000);
-    },
-    onError: (error: any) => {
+    } catch (error) {
       toast({
         title: 'Error',
-        description: error.message || 'Failed to send message. Please try again.',
+        description: 'Failed to send message. Please try again.',
         variant: 'destructive',
       });
-    },
-  });
-
-  const onSubmit = (data: FormValues) => {
-    mutation.mutate(data);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -110,7 +122,15 @@ export function AnimatedContactForm({ onSuccess }: AnimatedContactFormProps) {
       </CardHeader>
       <CardContent>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-6"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -203,9 +223,9 @@ export function AnimatedContactForm({ onSuccess }: AnimatedContactFormProps) {
               <Button
                 type="submit"
                 className="w-full group"
-                disabled={mutation.isPending}
+                disabled={isSubmitting}
               >
-                {mutation.isPending ? (
+                {isSubmitting ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     Sending...

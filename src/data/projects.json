@@ -1,0 +1,50 @@
+[
+  {
+    "id": "godavao-ridesharing-app",
+    "title": "GoDavao Ridesharing App",
+    "slug": "godavao-ridesharing-app",
+    "summary": "Thesis Capstone Project - A comprehensive ridesharing application for Davao City",
+    "role": "Project Manager & Developer",
+    "problem": "Need for a reliable, local ridesharing service tailored to Davao City's transportation needs",
+    "solution": "Led Agile sprints, task planning, backlog structuring, and execution tracking. Created comprehensive PM documents including requirements, workflows, and UAT scripts. Presented deliverables and managed stakeholder revisions.",
+    "case_study_md": "# GoDavao Ridesharing App\n\n**Thesis Capstone Project | 2024-2025**\n\n## Overview\nA comprehensive ridesharing application designed specifically for Davao City, addressing local transportation needs with a focus on safety, reliability, and user experience.\n\n## My Role\n**Project Manager & Developer** - Led the entire development lifecycle from planning to deployment.\n\n## Key Responsibilities\n- Led Agile sprints, task planning, and backlog structuring\n- Created comprehensive project management documents\n- Developed requirements specifications and workflow documentation\n- Created and managed UAT (User Acceptance Testing) scripts\n- Presented deliverables to stakeholders and managed revisions\n- Coordinated development team execution tracking\n\n## Technologies Used\n- **Frontend**: Flutter, Dart\n- **Backend**: Node.js, Express\n- **Database**: PostgreSQL/Supabase\n- **Project Management**: Agile, Scrum, Trello, Asana\n\n## Impact\n- Successfully delivered thesis capstone project\n- Demonstrated full-stack development capabilities\n- Showcased project management leadership skills",
+    "stack": ["Flutter", "Dart", "Node.js", "React", "Python", "PostgreSQL", "Agile", "Scrum"],
+    "tags": ["Mobile App", "Full-Stack", "Project Management", "Thesis", "Agile"],
+    "featured": true,
+    "featured_order": 1,
+    "status": "published",
+    "media": []
+  },
+  {
+    "id": "dailymacros-pos-ordering-system",
+    "title": "DailyMacros POS & Ordering System",
+    "slug": "dailymacros-pos-ordering-system",
+    "summary": "A comprehensive Point of Sale and ordering system for business operations",
+    "role": "Product Manager & Developer",
+    "problem": "Businesses need an efficient way to manage sales, inventory, and customer orders",
+    "solution": "Led requirements gathering, UI/UX planning, and feature prioritization. Created detailed workflows and product documentation. Managed testing, deployment improvements, and provided regular client updates throughout the development process.",
+    "case_study_md": "# DailyMacros POS & Ordering System\n\n**Product Manager & Developer | 2025**\n\n## Overview\nA comprehensive Point of Sale and ordering system designed to streamline business operations, manage inventory, and enhance customer ordering experience.\n\n## My Role\n**Product Manager & Developer** - Led the product from concept to deployment.\n\n## Key Responsibilities\n- Led requirements gathering sessions with stakeholders\n- Planned UI/UX design and user journeys\n- Prioritized features based on business value\n- Created detailed workflow documentation\n- Managed product documentation throughout lifecycle\n- Oversaw testing and deployment improvements\n- Provided regular updates to clients\n\n## Technologies Used\n- **Frontend**: React, HTML/CSS/JS\n- **Backend**: Node.js, Python\n- **Database**: SQL\n- **Tools**: Figma (UI/UX), GitHub\n\n## Features\n- Point of Sale functionality\n- Inventory management\n- Customer ordering system\n- Sales reporting and analytics\n- User-friendly interface\n\n## Impact\n- Streamlined business operations for clients\n- Improved order processing efficiency\n- Enhanced inventory tracking capabilities",
+    "stack": ["React", "Node.js", "Python", "SQL", "HTML", "CSS", "JavaScript", "Figma"],
+    "tags": ["Full-Stack", "Product Management", "UI/UX", "Business", "POS"],
+    "featured": true,
+    "featured_order": 2,
+    "status": "published",
+    "media": []
+  },
+  {
+    "id": "duyog-website",
+    "title": "Duyog Website",
+    "slug": "duyog-website",
+    "summary": "Official website for Ateneo de Davao University - Rush project delivered in one month",
+    "role": "Project Manager",
+    "problem": "Ateneo de Davao University needed a complete website solution delivered on tight deadline",
+    "solution": "Led Agile sprints for this rush project, coordinating between UI/UX team, DevOps, Backend, Frontend, and third-party payment software integration. Presented deliverables weekly and managed client revisions. Successfully deployed within one month of deadline.",
+    "case_study_md": "# Duyog Website\n\n**Project Manager | Rush Project - 2025**\n\n## Overview\nA complete website solution for Ateneo de Davao University, delivered as a rush project within strict one-month deadline.\n\n## My Role\n**Project Manager** - Coordinated cross-functional teams and managed delivery timeline.\n\n## Key Responsibilities\n- Led Agile sprints and task planning\n- Structured and managed backlog\n- Coordinated between multiple teams:\n  - UI/UX Design Team\n  - DevOps Team\n  - Backend Developers\n  - Frontend Developers\n  - Third-party payment software integration\n- Presented deliverables to client weekly\n- Managed revisions based on client feedback\n- Ensured successful deployment within deadline\n\n## Challenge\n**Rush Project** - Complete website delivery required within one month\n\n## Technologies Used\n- **Frontend**: React, HTML/CSS/JS\n- **Backend**: Node.js\n- **Payment Integration**: Third-party payment software\n- **Collaboration**: GitHub, Slack, Zoom\n\n## Achievement\n✅ Successfully deployed within one month of deadline\n✅ Coordinated 5+ different teams/roles\n✅ Integrated complex payment system\n✅ Managed weekly client presentations and revisions\n\n## Impact\n- Delivered professional website for university on time\n- Demonstrated strong project management under pressure\n- Successfully coordinated complex multi-team project",
+    "stack": ["React", "Node.js", "HTML", "CSS", "JavaScript", "DevOps", "GitHub"],
+    "tags": ["Project Management", "Web Development", "Rush Project", "University", "Agile"],
+    "featured": true,
+    "featured_order": 3,
+    "status": "published",
+    "media": []
+  }
+]

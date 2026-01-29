@@ -1,59 +1,11 @@
-import { supabase } from "@/lib/supabaseClient";
-import { Database } from "@/types/database.types";
+import certificationsData from "@/data/certifications.json";
+import { Certification } from "@/types/portfolio";
 
-type CertificationInsert =
-  Database["public"]["Tables"]["certifications"]["Insert"];
-type CertificationUpdate =
-  Database["public"]["Tables"]["certifications"]["Update"];
-
-export async function getCertifications() {
-  const { data, error } = await supabase
-    .from("certifications")
-    .select("*")
-    .order("sort_order", { ascending: true });
-
-  if (error) throw error;
-  return data;
+// Simulate async behavior for React Query compatibility
+async function getData<T>(data: T): Promise<T> {
+  return Promise.resolve(data);
 }
 
-// Admin functions
-export async function adminListCertifications() {
-  const { data, error } = await supabase
-    .from("certifications")
-    .select("*")
-    .order("sort_order", { ascending: true });
-
-  if (error) throw error;
-  return data;
-}
-
-export async function adminGetCertification(id: string) {
-  const { data, error } = await supabase
-    .from("certifications")
-    .select("*")
-    .eq("id", id)
-    .single();
-
-  if (error) throw error;
-  return data;
-}
-
-export async function adminUpsertCertification(
-  certification: CertificationInsert | CertificationUpdate,
-) {
-  const { data, error } = await supabase
-    .from("certifications")
-    .upsert(certification)
-    .select()
-    .single();
-
-  if (error) throw error;
-  return data;
-}
-
-export async function adminDeleteCertification(id: string) {
-  const { error } = await supabase.from("certifications").delete().eq("id", id);
-
-  if (error) throw error;
-  return true;
+export async function getCertifications(): Promise<Certification[]> {
+  return getData(certificationsData.sort((a, b) => a.sort_order - b.sort_order));
 }

@@ -1,67 +1,16 @@
-import { supabase } from "@/lib/supabaseClient";
-import { Database } from "@/types/database.types";
+import skillsData from "@/data/skills.json";
+import { Skill } from "@/types/portfolio";
 
-type SkillInsert = Database["public"]["Tables"]["skills"]["Insert"];
-type SkillUpdate = Database["public"]["Tables"]["skills"]["Update"];
-
-export async function getSkills() {
-  const { data, error } = await supabase
-    .from("skills")
-    .select("*")
-    .order("sort_order", { ascending: true });
-
-  if (error) throw error;
-  return data;
+// Simulate async behavior for React Query compatibility
+async function getData<T>(data: T): Promise<T> {
+  return Promise.resolve(data);
 }
 
-export async function getSkillsByCategory(category: string) {
-  const { data, error } = await supabase
-    .from("skills")
-    .select("*")
-    .eq("category", category)
-    .order("sort_order", { ascending: true });
-
-  if (error) throw error;
-  return data;
+export async function getSkills(): Promise<Skill[]> {
+  return getData((skillsData as Skill[]).sort((a, b) => a.sort_order - b.sort_order));
 }
 
-// Admin functions
-export async function adminListSkills() {
-  const { data, error } = await supabase
-    .from("skills")
-    .select("*")
-    .order("category", { ascending: true })
-    .order("sort_order", { ascending: true });
-
-  if (error) throw error;
-  return data;
-}
-
-export async function adminGetSkill(id: string) {
-  const { data, error } = await supabase
-    .from("skills")
-    .select("*")
-    .eq("id", id)
-    .single();
-
-  if (error) throw error;
-  return data;
-}
-
-export async function adminUpsertSkill(skill: SkillInsert | SkillUpdate) {
-  const { data, error } = await supabase
-    .from("skills")
-    .upsert(skill)
-    .select()
-    .single();
-
-  if (error) throw error;
-  return data;
-}
-
-export async function adminDeleteSkill(id: string) {
-  const { error } = await supabase.from("skills").delete().eq("id", id);
-
-  if (error) throw error;
-  return true;
+export async function getSkillsByCategory(category: string): Promise<Skill[]> {
+  const data = (skillsData as Skill[]).filter((s) => s.category === category);
+  return getData(data.sort((a, b) => a.sort_order - b.sort_order));
 }

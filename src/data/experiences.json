@@ -1,0 +1,36 @@
+[
+  {
+    "id": "experience-1",
+    "company": "Ateneo de Davao University CSSEC",
+    "role": "Productions & Documentation Officer",
+    "location": "Davao City, Philippines",
+    "start_date": "2022-01-01",
+    "end_date": "2023-12-31",
+    "current": false,
+    "bullets": [
+      "Assisted in event hosting, logistics, and documentation preparation",
+      "Supported multi-team coordination for academic events",
+      "Managed production workflows and documentation systems",
+      "Coordinated with various teams for successful event execution"
+    ],
+    "skills": ["Event Management", "Documentation", "Team Coordination", "Logistics", "Agile"],
+    "sort_order": 1
+  },
+  {
+    "id": "experience-2",
+    "company": "Metropolitan Property Management",
+    "role": "Virtual Assistant",
+    "location": "Remote",
+    "start_date": "2021-06-01",
+    "end_date": "2021-12-31",
+    "current": false,
+    "bullets": [
+      "Handled administrative tasks, documentation, and data entry",
+      "Conducted market research and analysis",
+      "Coordinated tenant and vendor communications",
+      "Improved workflow organization and reporting accuracy"
+    ],
+    "skills": ["Administrative Support", "Data Entry", "Communication", "Research", "Organization"],
+    "sort_order": 2
+  }
+]
