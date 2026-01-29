@@ -1,50 +1,195 @@
 [
   {
-    "id": "godavao-ridesharing-app",
-    "title": "GoDavao Ridesharing App",
-    "slug": "godavao-ridesharing-app",
-    "summary": "Thesis Capstone Project - A comprehensive ridesharing application for Davao City",
-    "role": "Project Manager & Developer",
-    "problem": "Need for a reliable, local ridesharing service tailored to Davao City's transportation needs",
-    "solution": "Led Agile sprints, task planning, backlog structuring, and execution tracking. Created comprehensive PM documents including requirements, workflows, and UAT scripts. Presented deliverables and managed stakeholder revisions.",
-    "case_study_md": "# GoDavao Ridesharing App\n\n**Thesis Capstone Project | 2024-2025**\n\n## Overview\nA comprehensive ridesharing application designed specifically for Davao City, addressing local transportation needs with a focus on safety, reliability, and user experience.\n\n## My Role\n**Project Manager & Developer** - Led the entire development lifecycle from planning to deployment.\n\n## Key Responsibilities\n- Led Agile sprints, task planning, and backlog structuring\n- Created comprehensive project management documents\n- Developed requirements specifications and workflow documentation\n- Created and managed UAT (User Acceptance Testing) scripts\n- Presented deliverables to stakeholders and managed revisions\n- Coordinated development team execution tracking\n\n## Technologies Used\n- **Frontend**: Flutter, Dart\n- **Backend**: Node.js, Express\n- **Database**: PostgreSQL/Supabase\n- **Project Management**: Agile, Scrum, Trello, Asana\n\n## Impact\n- Successfully delivered thesis capstone project\n- Demonstrated full-stack development capabilities\n- Showcased project management leadership skills",
-    "stack": ["Flutter", "Dart", "Node.js", "React", "Python", "PostgreSQL", "Agile", "Scrum"],
-    "tags": ["Mobile App", "Full-Stack", "Project Management", "Thesis", "Agile"],
+    "id": "issuepilot",
+    "title": "IssuePilot",
+    "slug": "issuepilot",
+    "summary": "A multi-workspace issue tracking SaaS with kanban boards, analytics, and role-based access control built on React and Supabase.",
+    "role": "Full-Stack Developer",
+    "problem": "Teams need a structured platform for managing bugs, features, and tasks across multiple projects with proper data isolation and developer-friendly workflows. Traditional tools like Jira can be overly complex, while simpler alternatives lack multi-workspace support and QA-focused features.",
+    "solution": "Built IssuePilot as a modern issue tracking SaaS using React 19, TypeScript, and Supabase. Implemented a multi-workspace architecture with row-level security for data isolation, role-based access control, a drag-and-drop kanban board, saved filters, and an analytics dashboard. Added QA-specific fields like severity, environment, and steps to reproduce.",
+    "case_study_md": "# IssuePilot\n\n**Full-Stack Developer | 2025**\n\n## Overview\n\nIssuePilot is a multi-workspace issue tracking SaaS designed for teams managing bugs, features, and tasks across multiple projects. It combines the structure of enterprise tools with a modern, developer-friendly interface.\n\n## The Problem\n\nExisting issue tracking solutions presented a trade-off: enterprise tools like Jira offered comprehensive features but with overwhelming complexity, while simpler alternatives lacked multi-workspace support and QA-focused capabilities essential for software teams.\n\n## The Solution\n\nI built IssuePilot as a full-stack SaaS with:\n\n- **Multi-workspace architecture** – Teams can create isolated workspaces with their own projects, members, and issues\n- **Role-based access control** – Owner, Admin, Member, and Viewer roles with enforcement from database to UI\n- **Kanban board** – Drag-and-drop interface for visual workflow management\n- **Advanced filtering** – Saved filter presets for quick access to custom views\n- **QA-focused fields** – Severity, environment, steps to reproduce, and expected vs. actual results\n- **Analytics dashboard** – Real-time metrics for status distribution, type breakdown, and resolution times\n- **Activity tracking** – Complete audit trail for all issue changes\n\n## Technical Implementation\n\n### Stack\n- **Frontend**: React 19.2, TypeScript, Vite 7, Tailwind CSS 4\n- **Backend**: Supabase (PostgreSQL, Auth, Storage, RLS)\n- **Routing**: React Router DOM 7\n\n### Key Architecture Decisions\n\n**Row-Level Security (RLS)** – All data access is scoped to the user's workspace at the database level. Even if a malicious client bypassed UI guards, PostgreSQL policies prevent unauthorized access.\n\n**Feature-based structure** – Code organized by domain (`features/workspaces`, `features/issues`, `features/analytics`) with dedicated hooks for each concern.\n\n**Enum-driven consistency** – Database enums for status, type, priority, and severity ensure data integrity across the stack.\n\n### Challenges & Solutions\n\n**Workspace isolation** – Required a comprehensive RLS policy suite that checks workspace membership on every query. Implemented using Supabase's `auth.uid()` in combination with workspace member lookups.\n\n**Complex state management** – Kanban board state needed to sync with drag-and-drop operations. Used optimistic updates with rollback on error for a responsive feel.\n\n**Attachment storage** – Files stored in Supabase Storage with bucket-level policies to prevent cross-workspace leakage.\n\n## Impact\n\nIssuePilot demonstrates production-ready SaaS development patterns: database-level security, type-safe full-stack code, and a modular architecture. The codebase serves as a reference implementation for multi-tenant applications using modern tooling.",
+    "stack": ["React 19", "TypeScript", "Vite 7", "Tailwind CSS", "Supabase", "PostgreSQL", "RLS"],
+    "tags": ["SaaS", "Full-Stack", "Multi-Tenant", "Issue Tracking", "Kanban"],
     "featured": true,
     "featured_order": 1,
     "status": "published",
-    "media": []
+    "media": [],
+    "case_study_takeaways": [
+      "Multi-tenant architecture with row-level security for data isolation.",
+      "Role-based access control enforced from database to UI.",
+      "Drag-and-drop kanban board with optimistic updates and rollback handling."
+    ],
+    "case_study_why": "Demonstrates production-ready SaaS patterns with database-level security, type-safe full-stack code, and modular architecture for multi-tenant applications.",
+    "case_study_contributions": [
+      "Designed multi-workspace architecture with RLS policies.",
+      "Built kanban board with drag-and-drop and real-time updates.",
+      "Implemented analytics dashboard with custom metrics and visualizations."
+    ]
   },
   {
-    "id": "dailymacros-pos-ordering-system",
-    "title": "DailyMacros POS & Ordering System",
-    "slug": "dailymacros-pos-ordering-system",
-    "summary": "A comprehensive Point of Sale and ordering system for business operations",
-    "role": "Product Manager & Developer",
-    "problem": "Businesses need an efficient way to manage sales, inventory, and customer orders",
-    "solution": "Led requirements gathering, UI/UX planning, and feature prioritization. Created detailed workflows and product documentation. Managed testing, deployment improvements, and provided regular client updates throughout the development process.",
-    "case_study_md": "# DailyMacros POS & Ordering System\n\n**Product Manager & Developer | 2025**\n\n## Overview\nA comprehensive Point of Sale and ordering system designed to streamline business operations, manage inventory, and enhance customer ordering experience.\n\n## My Role\n**Product Manager & Developer** - Led the product from concept to deployment.\n\n## Key Responsibilities\n- Led requirements gathering sessions with stakeholders\n- Planned UI/UX design and user journeys\n- Prioritized features based on business value\n- Created detailed workflow documentation\n- Managed product documentation throughout lifecycle\n- Oversaw testing and deployment improvements\n- Provided regular updates to clients\n\n## Technologies Used\n- **Frontend**: React, HTML/CSS/JS\n- **Backend**: Node.js, Python\n- **Database**: SQL\n- **Tools**: Figma (UI/UX), GitHub\n\n## Features\n- Point of Sale functionality\n- Inventory management\n- Customer ordering system\n- Sales reporting and analytics\n- User-friendly interface\n\n## Impact\n- Streamlined business operations for clients\n- Improved order processing efficiency\n- Enhanced inventory tracking capabilities",
-    "stack": ["React", "Node.js", "Python", "SQL", "HTML", "CSS", "JavaScript", "Figma"],
-    "tags": ["Full-Stack", "Product Management", "UI/UX", "Business", "POS"],
+    "id": "sebtravels-travel-website",
+    "title": "SEBTravels",
+    "slug": "sebtravels",
+    "summary": "A modern travel booking website for Ebiyahe Travel & Tours featuring real-time tour availability tracking and interactive destination showcases.",
+    "role": "Full Stack Developer",
+    "problem": "A travel agency needed a modern web presence to showcase their Danang, Vietnam charter flight packages and provide customers with real-time tour availability information.",
+    "solution": "Built a responsive single-page application with React and Bootstrap, featuring an interactive availability tracker, modal-based destination details, and seamless booking integration with Facebook.",
+    "case_study_md": "# SEBTravels\n\n**Full Stack Developer | 2025**\n\n## Overview\n\nA modern travel booking website for Ebiyahe Travel & Tours, a Philippine-based travel agency specializing in charter flight packages to Danang, Vietnam. The platform serves as a digital storefront showcasing tour packages with real-time availability tracking.\n\n## Challenges\n\n- Displaying complex tour data (dates, pricing, availability, airline info) in an intuitive interface\n- Providing real-time availability updates without a backend\n- Creating a seamless booking experience integrated with existing social media channels\n- Ensuring mobile responsiveness for customers on the go\n\n## Solutions\n\n- Built with React 19 and Vite for fast development and optimized performance\n- Implemented an interactive accordion-based availability tracker with smart filtering for fully booked tours\n- Created modal-based destination details for seamless user experience\n- Used Bootstrap 5 for responsive grid system and consistent styling\n- Integrated booking flow directly to Facebook Messenger\n- Custom theme with travel-inspired color palette (orange, blue, pink accents)\n\n## Key Features\n\n- **Hero Section**: Full-screen banner with smooth scroll CTA\n- **Featured Destinations**: Interactive tour cards with detailed modal views\n- **Availability Tracker**: Live tour status with filtering capabilities\n- **Responsive Design**: Mobile-first approach with Bootstrap breakpoints\n- **Smart Filtering**: Automatically hides fully booked tours\n\n## Tech Stack\n\nReact 19, Vite, Bootstrap 5, React Bootstrap, Animate.css, ESLint",
+    "stack": ["React", "Vite", "Bootstrap 5", "JavaScript", "CSS3"],
+    "tags": ["Frontend", "Travel", "Booking System", "Responsive Design", "Single Page Application"],
     "featured": true,
     "featured_order": 2,
     "status": "published",
-    "media": []
+    "media": [],
+    "case_study_takeaways": [
+      "Interactive tour availability tracker with smart filtering.",
+      "Modal-based UI for seamless destination details.",
+      "Facebook Messenger integration for direct bookings."
+    ],
+    "case_study_why": "Modernized travel agency web presence with real-time availability tracking and mobile-first design for on-the-go customers.",
+    "case_study_contributions": [
+      "Built responsive SPA with React 19 and Bootstrap 5.",
+      "Implemented interactive availability tracker with smart filtering.",
+      "Created seamless booking flow integrated with Facebook Messenger."
+    ]
   },
   {
-    "id": "duyog-website",
-    "title": "Duyog Website",
-    "slug": "duyog-website",
-    "summary": "Official website for Ateneo de Davao University - Rush project delivered in one month",
-    "role": "Project Manager",
-    "problem": "Ateneo de Davao University needed a complete website solution delivered on tight deadline",
-    "solution": "Led Agile sprints for this rush project, coordinating between UI/UX team, DevOps, Backend, Frontend, and third-party payment software integration. Presented deliverables weekly and managed client revisions. Successfully deployed within one month of deadline.",
-    "case_study_md": "# Duyog Website\n\n**Project Manager | Rush Project - 2025**\n\n## Overview\nA complete website solution for Ateneo de Davao University, delivered as a rush project within strict one-month deadline.\n\n## My Role\n**Project Manager** - Coordinated cross-functional teams and managed delivery timeline.\n\n## Key Responsibilities\n- Led Agile sprints and task planning\n- Structured and managed backlog\n- Coordinated between multiple teams:\n  - UI/UX Design Team\n  - DevOps Team\n  - Backend Developers\n  - Frontend Developers\n  - Third-party payment software integration\n- Presented deliverables to client weekly\n- Managed revisions based on client feedback\n- Ensured successful deployment within deadline\n\n## Challenge\n**Rush Project** - Complete website delivery required within one month\n\n## Technologies Used\n- **Frontend**: React, HTML/CSS/JS\n- **Backend**: Node.js\n- **Payment Integration**: Third-party payment software\n- **Collaboration**: GitHub, Slack, Zoom\n\n## Achievement\n✅ Successfully deployed within one month of deadline\n✅ Coordinated 5+ different teams/roles\n✅ Integrated complex payment system\n✅ Managed weekly client presentations and revisions\n\n## Impact\n- Delivered professional website for university on time\n- Demonstrated strong project management under pressure\n- Successfully coordinated complex multi-team project",
-    "stack": ["React", "Node.js", "HTML", "CSS", "JavaScript", "DevOps", "GitHub"],
-    "tags": ["Project Management", "Web Development", "Rush Project", "University", "Agile"],
+    "id": "pokebuddy-pokedex-study-buddy",
+    "title": "Pokebuddy",
+    "slug": "pokebuddy",
+    "summary": "An AI-powered Pokedex study assistant that uses RAG technology to provide grounded, citation-based answers to Pokemon questions.",
+    "role": "Full Stack Developer",
+    "problem": "Pokemon enthusiasts need accurate, citable information about Pokemon, moves, items, and types, but existing resources lack conversational AI capabilities and source verification.",
+    "solution": "Built a full-stack RAG application combining Django REST API with React frontend, using ChromaDB for vector embeddings and supporting multiple LLM providers (OpenAI, Ollama) with local fallback responses.",
+    "case_study_md": "# Pokebuddy: Pokedex Study Buddy\n\n**Full Stack Developer | 2025**\n\n## Overview\n\nPokebuddy is an AI-powered Pokedex study assistant that leverages Retrieval-Augmented Generation (RAG) technology to provide accurate, citation-based answers to Pokemon questions. Unlike static databases, Pokebuddy maintains conversation context, handles typos with fuzzy matching, and always shows sources for verification.\n\n## Tech Stack\n\n**Frontend:** React 19.2, TypeScript, Vite 7.2\n**Backend:** Django 5.x REST API, SQLite\n**AI/ML:** ChromaDB (vector embeddings), sentence-transformers, OpenAI/Ollama LLM integration\n**Tools:** rapidfuzz (fuzzy matching), PokeAPI integration\n\n## Key Features\n\n- **Grounded Answers with Citations** – Every response includes source cards with origin data\n- **Multi-turn Memory** – Session-based conversation history persisted in SQLite\n- **Stat Rankings** – Query for top Pokemon by stats (fastest, strongest)\n- **Direct Lookups** – Search for types, moves, and items with detailed info\n- **Typo Tolerance** – Fuzzy matching handles misspellings and partial matches\n- **Team Builder** – Build balanced teams considering type coverage\n- **Multiple LLM Support** – OpenAI API, local Ollama, or fallback responses\n\n## Architecture\n\nThe application uses a split architecture with a React frontend and Django backend. Core RAG functionality includes document retrieval via ChromaDB, LLM response generation, and PokeAPI enrichment for additional data. Comprehensive JSON datasets (1,000+ Pokemon entries, moves, items, types) power the knowledge base.\n\n## Challenges & Solutions\n\nImplemented reranking capabilities to improve retrieval accuracy. Added typing indicators and tabs for better UX. Handled offline scenarios with graceful fallbacks and warnings when PokeAPI is unavailable.",
+    "stack": ["React 19", "TypeScript", "Django", "ChromaDB", "RAG", "OpenAI API", "Ollama", "SQLite"],
+    "tags": ["AI/ML", "Full Stack", "RAG", "Vector Database", "REST API", "LLM"],
     "featured": true,
-    "featured_order": 3,
+    "featured_order": 4,
     "status": "published",
-    "media": []
+    "media": [],
+    "case_study_takeaways": [
+      "RAG architecture with ChromaDB for grounded, citation-based responses.",
+      "Multi-LLM support with OpenAI, Ollama, and fallback responses.",
+      "Fuzzy matching for typo tolerance and improved UX."
+    ],
+    "case_study_why": "Demonstrates practical RAG implementation with verification sources, conversation memory, and graceful fallback handling for reliable AI-powered knowledge assistance.",
+    "case_study_contributions": [
+      "Built full-stack RAG app with Django REST API and React frontend.",
+      "Implemented ChromaDB vector embeddings with citation-based responses.",
+      "Added fuzzy matching, multi-LLM support, and offline fallback capabilities."
+    ]
+  },
+  {
+    "id": "ai-tweet-generator",
+    "title": "AI Tweet Generator",
+    "slug": "ai-tweet-generator",
+    "summary": "A full-featured AI-powered tweet generator supporting multiple providers, with templates, batch generation, streaming responses, and vision capabilities for creating engaging Twitter content from text or images.",
+    "role": "AI Development Assistant - Guided implementation of full-stack React application with advanced AI integrations",
+    "problem": "Content creators and social media managers need efficient ways to generate engaging tweets consistently. Manual writing is time-consuming, and existing tools often lack customization options, multi-provider support, or the ability to generate content from visual media.",
+    "solution": "Built a comprehensive AI tweet generator with multi-provider support (Groq, HuggingFace, OpenAI, DeepSeek, Together AI), template system with 12 pre-built prompts, batch generation for multiple variations, real-time streaming responses, and vision capabilities for image/video-to-tweet generation. Includes live Twitter preview, history management with favorites, keyboard shortcuts, and advanced controls for temperature/creativity, tone, and length targeting.",
+    "case_study_md": "# AI Tweet Generator\n\n**Role | 2025**\n\n## Overview\n\nA full-featured AI-powered web application that generates engaging tweets using multiple AI providers. Built with modern React + TypeScript + Vite, featuring a responsive UI with shadcn/ui components and Tailwind CSS.\n\n## Key Features\n\n### Multi-Provider Support\n- **5 AI Providers**: Groq (Llama 3.3 70B), HuggingFace (Mistral 7B), OpenAI (GPT-4o Mini), DeepSeek, Together AI\n- **Auto-detection**: Automatically selects available API key from environment variables\n- **Fallback**: Groq as default with free unlimited access\n\n### Generation Modes\n- **Single Tweet**: Standard generation with customizable options\n- **Batch Mode**: Generate 2-5 variations simultaneously, compare side-by-side\n- **Streaming**: Real-time character-by-character generation with typing effect\n- **Vision Mode**: Upload images/videos, AI analyzes content and generates relevant tweets\n\n### Templates & Presets\n- 12 pre-built templates organized by category (marketing, engagement, educational, news, personal)\n- Templates include: Product Launch, Tips & Tricks, Thread Starter, Call to Action, Engagement Question, Data Insight, Behind the Scenes, Motivational, Hot Take, Story Time, Resource Drop, News Commentary\n\n### Advanced Controls\n- **Temperature Slider** (0.3-1.2): Control response creativity from precise to experimental\n- **Tone Selector**: Professional, Neutral, Casual, Playful\n- **Length Targeting**: Short (~100 chars), Medium (~200 chars), Long (~280 chars)\n\n### UX Enhancements\n- **Live Preview**: Realistic Twitter-styled preview with verified badge, hashtags/mentions highlighting\n- **History System**: localStorage persistence, favorites filtering, timestamp formatting\n- **Keyboard Shortcuts**: Ctrl+Enter (generate), Ctrl+B (batch), Ctrl+S (streaming), Ctrl+T (templates), Ctrl+C (copy), Ctrl+R (regenerate), Ctrl+H (history), Ctrl+P (preview), Esc (cancel)\n- **Character Counter**: Color-coded (green/yellow/red) with remaining/over-limit indicators\n- **Copy & Post**: One-click copy to clipboard, direct Twitter intent integration\n\n## Technical Implementation\n\n### Architecture\n- **Frontend**: React 19.2.0 with TypeScript for type safety\n- **Build Tool**: Vite for fast development and HMR\n- **Styling**: Tailwind CSS with custom CSS variables for theming\n- **Components**: shadcn/ui component library with customizable theme\n- **State Management**: React hooks (useState, useCallback, useEffect, useRef)\n\n### Key Files\n- `src/lib/api.ts`: Multi-provider API integration with request builders\n- `src/lib/vision.ts`: Image/video analysis using OpenAI GPT-4o vision capabilities\n- `src/lib/templates.ts`: Template definitions with 12 pre-built prompts\n- `src/lib/settings.ts`: Advanced settings types and helper functions\n- `src/lib/useStreamingGeneration.ts`: Custom hook for streaming responses\n- `src/lib/history.ts`: localStorage persistence for saved tweets\n- `src/components/TemplateSelector.tsx`: Visual template picker with categories\n- `src/components/AdvancedControls.tsx`: Collapsible settings panel with sliders\n- `src/components/ImageUploader.tsx`: Drag & drop media upload with preview\n- `src/components/BatchResults.tsx`: Grid display for comparing multiple tweets\n- `src/components/TweetPreview.tsx`: Twitter-styled preview component\n\n### API Integration\n- Environment variable configuration for API keys\n- Automatic provider detection based on available keys\n- Vite proxy configuration for HuggingFace CORS handling\n- Error handling with user-friendly messages\n\n### Browser Features\n- FileReader API for image/video base64 conversion\n- Canvas API for video frame extraction\n- Clipboard API for copy functionality\n- localStorage for data persistence\n- URL.createObjectURL for media previews\n\n## Challenges & Solutions\n\n### CORS Issue\n**Problem**: HuggingFace API blocked browser requests due to missing CORS headers\n**Solution**: Configured Vite proxy to forward requests through dev server\n\n### Model Deprecation\n**Problem**: Groq model `llama3-8b-8192` and HuggingFace `Mistral-7B-Instruct-v0.2` were deprecated\n**Solution**: Updated to `llama-3.3-70b-versatile` and `Mistral-7B-Instruct-v0.3`\n\n### Icon Import Error\n**Problem**: lucide-react `verifiedBadge` export didn't exist\n**Solution**: Changed to correct export name `BadgeCheck`\n\n## Future Improvements\n\nPotential enhancements identified but not yet implemented:\n- Analytics dashboard for usage tracking\n- Search/filter functionality for history\n- Export functionality (JSON/CSV)\n- Multi-platform support (LinkedIn, Mastodon, Bluesky)\n- Thread builder with drag-and-drop tweet reordering\n- Custom prompt editor for power users\n- Scheduling integration\n- Undo/redo functionality",
+    "stack": ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Lucide React", "Groq API", "OpenAI API", "HuggingFace API", "DeepSeek API", "Together AI API"],
+    "tags": ["React", "TypeScript", "AI", "Twitter", "Content Generation", "OpenAI", "Groq", "Vite", "Tailwind CSS", "shadcn/ui", "Web App"],
+    "featured": true,
+    "featured_order": 5,
+    "status": "published",
+    "media": [],
+    "case_study_takeaways": [
+      "Multi-provider AI integration with fallback handling.",
+      "Template system with 12 pre-built prompts for consistency.",
+      "Advanced UX with streaming responses and vision capabilities."
+    ],
+    "case_study_why": "Streamlines content creation for social media managers while maintaining quality and brand voice through customizable AI settings.",
+    "case_study_contributions": [
+      "Integrated 5 different AI providers with auto-detection.",
+      "Built template system and advanced generation controls.",
+      "Implemented vision mode for image/video-to-tweet generation."
+    ]
+  },
+  {
+    "id": "dailymacros",
+    "title": "DailyMacros",
+    "slug": "dailymacros",
+    "summary": "A full-stack protein shake ordering platform with real-time nutritional calculations and comprehensive admin management system.",
+    "role": "Full Stack Developer",
+    "problem": "Health-conscious consumers need transparent nutritional information when ordering custom protein shakes, while businesses need efficient tools to manage orders, inventory, and complex pricing models.",
+    "solution": "Built a complete e-commerce platform with an interactive shake builder featuring live macro calculation, allergen tracking, role-based access control, and a sophisticated admin dashboard for business operations.",
+    "case_study_md": "## Summary\nDailyMacros is a production-ready web app that lets customers build protein shakes with live nutrition feedback while giving staff and admins the tools to manage menu items, ingredients, and orders end-to-end.\n\n## At a Glance\n- **Users:** Customers, staff, administrators (role-based access)\n- **Core Value:** Real-time macro tracking + streamlined operations\n- **Status:** Live\n- **Stack:** React 19, TypeScript, Vite, Supabase, Tailwind CSS\n\n## Problem\nCustomers wanted transparent, accurate nutrition data while customizing shakes, and operators needed a fast, reliable workflow for order management, pricing, and labeling.\n\n## Solution\nI built a dual-sided experience:\n- A **customer-facing builder** with instant macro and price updates\n- An **admin and staff system** for menu, ingredients, and order fulfillment\n\n## Outcomes\n- Reduced order errors with validation and clear allergen warnings\n- Improved nutritional transparency with live macro calculation\n- Simplified staff operations through centralized admin tools\n\n## Key Features\n### Customer Experience\n- **Interactive Shake Builder** with live macro updates\n- **Smart Allergen Detection** and warnings\n- **Order Tracking** using QR codes\n- **Custom & Preset Options** with accurate pricing\n\n### Business Operations\n- **Role-Based Access Control** for customers, staff, admins\n- **Admin Dashboard** for drinks, ingredients, addons, and orders\n- **Dynamic Pricing System** (flat, per gram, per ml, per unit)\n- **Audit Logging** for accountability\n- **Print Integration** for order labels\n\n## Technical Highlights\n### 1) Real-Time Nutrition Engine\nBuilt a calculator that handles multiple unit systems (grams, ml, tbsp, cups, scoops) with automatic conversion and instant updates.\n\n### 2) Pricing Logic\nImplemented flexible pricing with base prices, size modifiers, and per-ingredient addons across multiple calculation modes.\n\n### 3) State Management\nUsed React Context for cart, auth, and real-time data synchronization.\n\n### 4) Type Safety\nCreated comprehensive TypeScript types for database schemas, API responses, and component props.\n\n## What I Would Improve Next\n- Add nutrition presets by dietary goals (cut, bulk, maintenance)\n- Expand analytics for order trends and ingredient usage\n- Optimize builder performance for large ingredient lists\n",
+    "stack": [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Supabase",
+      "Tailwind CSS",
+      "React Router",
+      "Radix UI"
+    ],
+    "tags": [
+      "Full Stack",
+      "E-Commerce",
+      "React",
+      "TypeScript",
+      "Supabase",
+      "Admin Dashboard",
+      "Real-Time Features"
+    ],
+    "featured": true,
+    "featured_order": 6,
+    "status": "published",
+    "live_url": "https://dailymacros-rho.vercel.app",
+    "media": [],
+    "case_study_meta": [
+      {
+        "label": "Role",
+        "value": "Full Stack Developer"
+      },
+      {
+        "label": "Timeline",
+        "value": "2025"
+      },
+      {
+        "label": "Product",
+        "value": "Custom and premade protein shake ordering platform"
+      }
+    ],
+    "case_study_takeaways": [
+      "Real-time nutrition builder with accurate macro computation.",
+      "Operational tooling that scales menu, pricing, and orders.",
+      "Clear separation of customer and admin workflows."
+    ],
+    "case_study_why": "Gives health-conscious customers clarity while giving operators a faster, more reliable order workflow.",
+    "case_study_contributions": [
+      "Designed and built the full-stack architecture and data flows.",
+      "Implemented the live macro calculator and pricing logic.",
+      "Built admin tooling for menu, inventory, and fulfillment."
+    ]
+  },
+  {
+    "id": "godavao-rideshare",
+    "title": "GoDavao - Rideshare Platform",
+    "slug": "godavao-rideshare",
+    "summary": "A Flutter-based rideshare application connecting passengers with drivers in Davao, Philippines with support for carpooling, group fares, and hourly rentals.",
+    "role": "Full Stack Developer",
+    "problem": "Davao, Philippines lacked a localized rideshare solution that supported flexible ride options like carpooling, group flat fares, and hourly vehicle rentals (Pakyaw) tailored to the region's transportation needs.",
+    "solution": "Built a comprehensive cross-platform rideshare application using Flutter and Supabase with intelligent route matching, dynamic pricing with surge detection, real-time location tracking, and a dual-interface system for passengers and drivers.",
+    "case_study_md": "# GoDavao - Rideshare Platform\n\n**Full Stack Developer | 2024**\n\n## Overview\n\nGoDavao is a comprehensive rideshare platform specifically designed for Davao, Philippines, addressing the need for flexible, localized transportation options. The app connects passengers with drivers while offering multiple ride modes including regular rides, shared carpooling, group flat fares, and hourly rentals (Pakyaw).\n\n## Key Features\n\n### Dual User Experience\n- **Passenger App**: Route discovery, ride booking, live tracking, ride history, and ratings\n- **Driver App**: Route creation, vehicle management, ride requests, and earnings tracking\n- **Admin Dashboard**: User verification and platform oversight\n\n### Intelligent Route Matching\n- Drivers create predefined routes using OSRM routing or manual drawing\n- Smart algorithm matches passenger pick-up/drop-off points with compatible routes\n- Real-time location tracking for both drivers and passengers\n\n### Dynamic Pricing Engine\n- Distance and duration-based fare calculations\n- Surge pricing during peak hours\n- Night surcharge (15% after 9 PM)\n- Platform fee management (15%)\n- Carpool discounts for shared rides\n\n### Safety & Trust Features\n- Identity verification system\n- Trusted contacts sharing\n- In-app chat communication\n- Live ride tracking with sharing options\n\n## Tech Stack\n\n- **Frontend**: Flutter (Dart) with Material 3 design\n- **Backend**: Supabase (PostgreSQL, Auth, Real-time)\n- **Mapping**: Flutter Map with OSRM integration\n- **Location**: Geolocator, Geocoding\n- **State Management**: Provider pattern\n- **Notifications**: Flutter local notifications\n\n## Challenges & Solutions\n\n**Challenge**: Implementing efficient route matching in a region without standardized addresses.\n\n**Solution**: Implemented flexible route creation using OSRM routing with manual override capabilities, allowing drivers to draw custom routes and store polyline data for accurate matching.\n\n**Challenge**: Real-time coordination between drivers and passengers.\n\n**Solution**: Leveraged Supabase real-time subscriptions combined with local notifications for instant ride updates and location sharing.",
+    "stack": ["Flutter", "Dart", "Supabase", "PostgreSQL", "OSRM", "Provider"],
+    "tags": ["Mobile App", "Rideshare", "Cross-Platform", "Real-Time", "Mapping", "Geolocation"],
+    "featured": true,
+    "featured_order": 7,
+    "status": "published",
+    "media": [],
+    "case_study_takeaways": [
+      "Intelligent route matching with OSRM integration and custom polyline support.",
+      "Dynamic pricing engine with surge detection and multiple ride modes.",
+      "Real-time coordination using Supabase subscriptions and local notifications."
+    ],
+    "case_study_why": "Provides flexible, localized transportation options for Davao City with features like carpooling, group fares, and hourly rentals not available in global platforms.",
+    "case_study_contributions": [
+      "Built dual-interface Flutter app with passenger and driver experiences.",
+      "Implemented intelligent route matching algorithm with OSRM integration.",
+      "Developed dynamic pricing engine with surge detection and multiple fare modes."
+    ]
   }
 ]
