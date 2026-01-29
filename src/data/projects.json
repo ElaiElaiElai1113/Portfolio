@@ -40,6 +40,8 @@
     "featured": true,
     "featured_order": 2,
     "status": "published",
+    "live_url": "https://sebtravels.vercel.app/",
+    "repo_url": "https://github.com/ElaiElaiElai1113/sebtravels",
     "media": [],
     "case_study_takeaways": [
       "Interactive tour availability tracker with smart filtering.",
