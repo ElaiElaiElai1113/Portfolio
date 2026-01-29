@@ -30,11 +30,11 @@ export function EnhancedProjectCard({ project, index = 0 }: EnhancedProjectCardP
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.1, type: "spring", stiffness: 100 }}
       whileHover={{ y: -8 }}
-      className="group"
+      className="group hover-lift"
     >
-      <Card className="overflow-hidden h-full border-border/50 hover:border-border transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+      <Card className="overflow-hidden h-full glass hover:shadow-glow transition-all duration-300">
         <Link to={`/projects/${project.slug}`} className="block">
           {/* Project Image */}
           {project.cover_image_url ? (

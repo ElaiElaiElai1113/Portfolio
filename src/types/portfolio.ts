@@ -15,6 +15,10 @@ export interface Project {
   live_url?: string;
   demo_video_url?: string;
   cover_image_url?: string;
+  case_study_meta?: { label: string; value: string }[];
+  case_study_takeaways?: string[];
+  case_study_why?: string;
+  case_study_contributions?: string[];
   case_study_md?: string;
   media?: ProjectMedia[];
 }

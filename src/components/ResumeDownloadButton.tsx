@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { Download, FileText } from 'lucide-react';
 
 interface ResumeDownloadButtonProps {
   resumeUrl?: string;
   className?: string;
+  wrapperClassName?: string;
   variant?: 'default' | 'outline' | 'ghost';
   size?: 'default' | 'sm' | 'lg';
 }
@@ -12,6 +14,7 @@ interface ResumeDownloadButtonProps {
 export function ResumeDownloadButton({
   resumeUrl = '/resume.pdf',
   className = '',
+  wrapperClassName = '',
   variant = 'default',
   size = 'default',
 }: ResumeDownloadButtonProps) {
@@ -32,13 +35,13 @@ export function ResumeDownloadButton({
     <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className={className}
+      className={wrapperClassName}
     >
       <Button
         variant={variant}
         size={size}
         onClick={handleDownload}
-        className="group relative overflow-hidden"
+        className={cn("group relative overflow-hidden", className)}
       >
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary/0"

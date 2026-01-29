@@ -133,11 +133,12 @@ interface CompactSocialProofProps {
 
 export function CompactSocialProof({ companies = defaultCompanies }: CompactSocialProofProps) {
   return (
-    <div className="py-12 border-y bg-muted/30">
+    <div className="relative py-12 border-y bg-gradient-to-r from-muted/40 via-background to-muted/40 overflow-hidden">
+      <div className="absolute inset-0 bg-noise pointer-events-none" />
       <p className="text-center text-sm text-muted-foreground mb-6">
         Trusted by innovative companies
       </p>
-      <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+      <div className="relative flex flex-wrap justify-center items-center gap-8 md:gap-16">
         {companies.map((company, index) => (
           <motion.div
             key={company.name}

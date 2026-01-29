@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useKeyboardShortcuts } from "@/hooks/useKeyboardShortcuts";
 import { KeyboardShortcutsModal } from "@/components/KeyboardShortcutsModal";
+import { BackToTop } from "@/components/BackToTop";
 
 export function PublicLayout({ children }: { children: React.ReactNode }) {
   const { theme, setTheme } = useTheme();
@@ -80,28 +81,68 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Gradient Background */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:shadow-elevation-3"
+      >
+        Skip to content
+      </a>
+      {/* Enhanced Gradient Background with Animated Elements */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[128px]" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[128px]" />
+        <motion.div
+          animate={{
+            x: [0, 30, 0],
+            y: [0, -30, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-0 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-[128px]"
+        />
+        <motion.div
+          animate={{
+            x: [0, -30, 0],
+            y: [0, 30, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-400/15 rounded-full blur-[128px]"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-primary/10 via-amber-400/10 to-teal-400/10 rounded-full blur-[100px]"
+        />
+        <div className="absolute inset-0 bg-noise" />
       </div>
 
-      {/* Navigation */}
+      {/* Navigation with Glassmorphism */}
       <nav
         className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
-          scrolled
-            ? "bg-background/80 backdrop-blur-lg shadow-sm"
-            : "bg-background/60 backdrop-blur-md"
+          scrolled ? "glass-strong shadow-elevation-2" : "glass"
         }`}
       >
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             <Link to="/" className="flex items-center space-x-2 group">
               <motion.span
-                className="text-2xl font-bold bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent"
+                className="text-2xl font-bold text-gradient-primary tracking-tight"
                 whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Portfolio
+                Elijah De Los Santos
               </motion.span>
             </Link>
 
@@ -111,10 +152,10 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="relative group"
+                  className="relative group hover-lift rounded-lg"
                 >
                   <motion.div
-                    className="px-3 py-2 text-sm font-medium transition-colors hover:text-primary flex items-center gap-1"
+                    className="px-3 py-2 text-sm font-medium transition-colors hover:text-primary flex items-center gap-1 rounded-lg"
                     whileHover={{ y: -1 }}
                   >
                     <span
@@ -263,18 +304,21 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
       </nav>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">{children}</main>
+      <main id="main-content" className="container mx-auto px-4 py-10">
+        <div id="top" className="sr-only" />
+        {children}
+      </main>
 
-      {/* Footer */}
-      <footer className="border-t bg-background/50 backdrop-blur-sm">
+      {/* Footer with Glassmorphism */}
+      <footer className="border-t glass mt-20">
         <div className="container mx-auto px-4 py-12">
           <div className="grid gap-8 md:grid-cols-3">
             {/* Brand */}
             <div className="space-y-4">
-              <h3 className="text-lg font-bold">Portfolio</h3>
+              <h3 className="text-lg font-bold">Elijah De Los Santos</h3>
               <p className="text-sm text-muted-foreground">
-                Building modern web applications with React, TypeScript, and
-                Node.js.
+                Building resilient products and delightful interfaces across web
+                and mobile.
               </p>
             </div>
 
@@ -312,7 +356,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-muted/50 hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
+                    className="p-2.5 rounded-full glass hover:shadow-glow transition-all text-muted-foreground hover:text-primary"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.label}
@@ -326,7 +370,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
 
           <div className="mt-8 pt-8 border-t flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Portfolio. Built with{" "}
+              © {new Date().getFullYear()} Elijah De Los Santos. Built with{" "}
               <span className="text-red-500">♥</span> using React & TypeScript.
             </p>
             <p className="text-sm text-muted-foreground">
@@ -342,6 +386,9 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
         open={showShortcuts}
         onOpenChange={setShowShortcuts}
       />
+
+      {/* Back to Top Button */}
+      <BackToTop />
     </div>
   );
 }
