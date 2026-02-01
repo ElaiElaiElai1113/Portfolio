@@ -35,9 +35,10 @@ import { MagneticButton } from "@/components/animations/MagneticButton";
 import { EnhancedProjectCard } from "@/components/EnhancedProjectCard";
 import { ResumeDownloadButton } from "@/components/ResumeDownloadButton";
 import { CircularSkill } from "@/components/SkillsVisualization";
-import { CompactSocialProof } from "@/components/SocialProof";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
+import { WavingText } from "@/components/react-bits/WavingText";
+import { AnimatedCounter } from "@/components/react-bits/AnimatedCounter";
 
 export default function HomePage() {
   const { data: featuredProjects, isLoading: projectsLoading } = useQuery({
@@ -80,9 +81,9 @@ export default function HomePage() {
                 </FadeInUp>
 
                 <FadeInUp delay={0.1}>
-                  <h1 className="text-5xl sm:text-7xl font-bold tracking-tight mb-6">
-                    Hi, I'm Elijah
-                  </h1>
+                  <div className="mb-6">
+                    <WavingText text="Hi, I'm Elijah" size="xl" className="font-bold tracking-tight" />
+                  </div>
                 </FadeInUp>
 
                 <FadeInUp delay={0.2} className="min-h-[80px] sm:min-h-[64px] mb-6">
@@ -149,7 +150,7 @@ export default function HomePage() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 rounded-full glass hover:shadow-glow transition-all text-muted-foreground hover:text-primary"
+                        className="p-3 rounded-full glass hover:shadow-glow transition-all text-muted-foreground hover:text-primary inline-block"
                         whileHover={{ scale: 1.15, rotate: 5 }}
                         whileTap={{ scale: 0.95 }}
                         aria-label={social.label}
@@ -206,11 +207,6 @@ export default function HomePage() {
           </StaggerContainer>
         </section>
 
-        {/* Social Proof Banner */}
-        <ScrollReveal>
-          <CompactSocialProof />
-        </ScrollReveal>
-
         {/* Featured Projects */}
         <section>
           <ScrollReveal>
@@ -259,6 +255,33 @@ export default function HomePage() {
             </div>
           )}
         </section>
+
+        {/* Stats Section */}
+        <ScrollReveal>
+          <Card className="surface-card">
+            <CardContent className="py-12">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                {[
+                  { value: 6, label: "Featured Projects", suffix: "+" },
+                  { value: 34, label: "Skills & Tools", suffix: "" },
+                  { value: 2, label: "Years Experience", suffix: "+" },
+                  { value: 100, label: "Commitment", suffix: "%" },
+                ].map((stat) => (
+                  <div key={stat.label} className="space-y-2">
+                    <div className="text-5xl font-bold text-gradient-primary">
+                      <AnimatedCounter
+                        value={stat.value}
+                        suffix={stat.suffix}
+                        duration={2}
+                      />
+                    </div>
+                    <p className="text-sm text-muted-foreground uppercase tracking-wider">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </ScrollReveal>
 
         {/* Skills Showcase */}
         <section>
