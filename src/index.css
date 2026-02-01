@@ -390,3 +390,33 @@
     margin-top: 0;
   }
 }
+
+/* Performance Optimizations */
+@layer base {
+  /* GPU Acceleration for Animated Elements */
+  .motion-optimized {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Reduce Paint on Scroll */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      /* Enable compositing for smooth animations */
+      transform: translateZ(0);
+    }
+  }
+
+  /* Optimize Images */
+  img {
+    content-visibility: auto;
+  }
+
+  /* Optimize Large Content Sections */
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
+}

@@ -28,12 +28,25 @@ interface EnhancedProjectCardProps {
 export function EnhancedProjectCard({ project, index = 0 }: EnhancedProjectCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
+      transition={{
+        duration: 0.4,
+        delay: Math.min(index * 0.03, 0.15),
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }}
       className="group hover-lift"
+      style={{ willChange: 'transform, opacity' }}
     >
-      <Card className="overflow-hidden h-full glass hover:shadow-glow transition-all duration-300 hover:-translate-y-1">
+      <Card className="overflow-hidden h-full glass hover:shadow-glow transition-all duration-300 hover:-translate-y-1 relative">
+        {/* Featured Badge */}
+        {project.featured && (
+          <div className="absolute top-3 right-3 z-10">
+            <Badge className="bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 transition-colors">
+              ⭐ Featured
+            </Badge>
+          </div>
+        )}
         <Link to={`/projects/${project.slug}`} className="block">
               {/* Project Image */}
               {project.cover_image_url ? (

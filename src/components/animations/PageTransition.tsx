@@ -36,8 +36,8 @@ const staggerContainerVariants = {
   enter: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
     },
   },
 };
@@ -56,7 +56,7 @@ export function StaggerContainer({ children, className = '' }: PageTransitionPro
 }
 
 const fadeInUpVariants = {
-  initial: { opacity: 0, y: 60 },
+  initial: { opacity: 0, y: 20 },
   enter: { opacity: 1, y: 0 },
 };
 
@@ -71,12 +71,12 @@ export function FadeInUp({
       initial="initial"
       animate="enter"
       transition={{
-        type: 'spring',
-        stiffness: 100,
-        damping: 15,
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94],
         delay,
       }}
       className={className}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>
@@ -84,7 +84,7 @@ export function FadeInUp({
 }
 
 const scaleInVariants = {
-  initial: { opacity: 0, scale: 0.9 },
+  initial: { opacity: 0, scale: 0.95 },
   enter: { opacity: 1, scale: 1 },
 };
 
@@ -99,12 +99,12 @@ export function ScaleIn({
       initial="initial"
       animate="enter"
       transition={{
-        type: 'spring',
-        stiffness: 200,
-        damping: 20,
+        duration: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94],
         delay,
       }}
       className={className}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>
@@ -112,7 +112,7 @@ export function ScaleIn({
 }
 
 const slideInLeftVariants = {
-  initial: { opacity: 0, x: -100 },
+  initial: { opacity: 0, x: -30 },
   enter: { opacity: 1, x: 0 },
 };
 
@@ -127,12 +127,12 @@ export function SlideInLeft({
       initial="initial"
       animate="enter"
       transition={{
-        type: 'spring',
-        stiffness: 100,
-        damping: 20,
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94],
         delay,
       }}
       className={className}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>
@@ -140,7 +140,7 @@ export function SlideInLeft({
 }
 
 const slideInRightVariants = {
-  initial: { opacity: 0, x: 100 },
+  initial: { opacity: 0, x: 30 },
   enter: { opacity: 1, x: 0 },
 };
 
@@ -155,12 +155,12 @@ export function SlideInRight({
       initial="initial"
       animate="enter"
       transition={{
-        type: 'spring',
-        stiffness: 100,
-        damping: 20,
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94],
         delay,
       }}
       className={className}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>

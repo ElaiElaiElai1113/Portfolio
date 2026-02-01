@@ -31,14 +31,11 @@ import {
 import { TypingEffect } from "@/components/animations/TypingEffect";
 import { HeroGradient } from "@/components/animations/GradientBackground";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
-import { MagneticButton } from "@/components/animations/MagneticButton";
 import { EnhancedProjectCard } from "@/components/EnhancedProjectCard";
 import { ResumeDownloadButton } from "@/components/ResumeDownloadButton";
 import { CircularSkill } from "@/components/SkillsVisualization";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
-import { WavingText } from "@/components/react-bits/WavingText";
-import { AnimatedCounter } from "@/components/react-bits/AnimatedCounter";
 
 export default function HomePage() {
   const { data: featuredProjects, isLoading: projectsLoading } = useQuery({
@@ -81,8 +78,16 @@ export default function HomePage() {
                 </FadeInUp>
 
                 <FadeInUp delay={0.1}>
-                  <div className="mb-6">
-                    <WavingText text="Hi, I'm Elijah" size="xl" className="font-bold tracking-tight" />
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+                    <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
+                      Hi, I'm Elijah
+                    </h1>
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full bg-green-500/10 text-green-500 text-xs font-medium">
+                        <span className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse" />
+                        Open to Work
+                      </span>
+                    </div>
                   </div>
                 </FadeInUp>
 
@@ -114,18 +119,14 @@ export default function HomePage() {
 
                 <FadeInUp delay={0.4}>
                   <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
-                    <MagneticButton strength={0.2}>
-                      <Button size="lg" asChild className="group rounded-full px-8 shadow-elevation-3">
-                        <Link to="/projects">
-                          View My Work
-                          <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </Button>
-                    </MagneticButton>
+                    <Button size="lg" asChild className="group rounded-full px-8 shadow-elevation-3">
+                      <Link to="/projects">
+                        View My Work
+                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </Button>
 
-                    <MagneticButton strength={0.2}>
-                      <ResumeDownloadButton variant="outline" size="lg" className="rounded-full px-8" />
-                    </MagneticButton>
+                    <ResumeDownloadButton variant="outline" size="lg" className="rounded-full px-8" />
                   </div>
                 </FadeInUp>
 
@@ -163,43 +164,41 @@ export default function HomePage() {
               </div>
 
               <FadeInUp delay={0.35}>
-                <Card className="surface-card relative overflow-hidden">
+                <Card className="surface-card relative overflow-hidden border-primary/20">
                   <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-[50px]" />
                   <CardHeader className="space-y-4">
                     <div className="flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
                       <Sparkles className="h-4 w-4 text-primary" />
-                      Focus
+                      Impact
                     </div>
-                    <CardTitle className="text-3xl">Crafting calm, confident product experiences.</CardTitle>
+                    <CardTitle className="text-3xl">Building products that solve real problems.</CardTitle>
                     <CardDescription className="text-base">
-                      I design and build with clarity—balancing visual polish, system thinking, and delivery discipline.
+                      Dean's Lister | Lean Six Sigma Certified | Building scalable apps since 2022
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="text-center p-3 rounded-lg bg-primary/5">
+                        <div className="text-2xl font-bold text-primary">6+</div>
+                        <div className="text-xs text-muted-foreground">Production Apps</div>
+                      </div>
+                      <div className="text-center p-3 rounded-lg bg-primary/5">
+                        <div className="text-2xl font-bold text-primary">500+</div>
+                        <div className="text-xs text-muted-foreground">GitHub Commits</div>
+                      </div>
+                    </div>
                     <ul className="space-y-3 text-sm text-muted-foreground">
                       {[
-                        "Product-minded full-stack development",
-                        "Cross-platform experiences with Flutter",
-                        "Agile leadership and delivery coordination",
+                        "Full-stack applications with React & Node.js",
+                        "Cross-platform mobile apps with Flutter",
+                        "AI-powered tools with RAG & LLMs",
                       ].map((item) => (
                         <li key={item} className="flex items-start gap-2">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary flex-shrink-0" />
                           <span>{item}</span>
                         </li>
                       ))}
                     </ul>
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">
-                        Toolkit
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {["React", "Node.js", "Flutter", "TypeScript"].map((tool) => (
-                          <Badge key={tool} variant="secondary" className="rounded-full px-3 py-1 text-xs">
-                            {tool}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
                   </CardContent>
                 </Card>
               </FadeInUp>
@@ -262,18 +261,14 @@ export default function HomePage() {
             <CardContent className="py-12">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 {[
-                  { value: 6, label: "Featured Projects", suffix: "+" },
-                  { value: 34, label: "Skills & Tools", suffix: "" },
-                  { value: 2, label: "Years Experience", suffix: "+" },
-                  { value: 100, label: "Commitment", suffix: "%" },
+                  { value: "6+", label: "Featured Projects" },
+                  { value: "34", label: "Skills & Tools" },
+                  { value: "2+", label: "Years Experience" },
+                  { value: "100%", label: "Commitment" },
                 ].map((stat) => (
                   <div key={stat.label} className="space-y-2">
                     <div className="text-5xl font-bold text-gradient-primary">
-                      <AnimatedCounter
-                        value={stat.value}
-                        suffix={stat.suffix}
-                        duration={2}
-                      />
+                      {stat.value}
                     </div>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider">{stat.label}</p>
                   </div>
@@ -338,40 +333,51 @@ export default function HomePage() {
               {
                 icon: Briefcase,
                 title: "Experience",
-                description:
-                  "View my professional work history and career journey.",
+                description: "2+ years building production applications",
+                details: "Professional journey & growth",
                 href: "/experience",
                 color: "text-blue-500",
+                stat: "2 Years",
               },
               {
                 icon: Award,
                 title: "Certifications",
-                description:
-                  "Check out my professional certifications and credentials.",
+                description: "Lean Six Sigma & Agile certified",
+                details: "Professional credentials",
                 href: "/certifications",
                 color: "text-purple-500",
+                stat: "3+ Certs",
               },
               {
                 icon: Code,
                 title: "All Projects",
-                description:
-                  "Browse through my complete portfolio of projects.",
+                description: "6 featured projects to explore",
+                details: "Full portfolio showcase",
                 href: "/projects",
                 color: "text-pink-500",
+                stat: "6 Projects",
               },
             ].map((item, index) => (
               <ScrollReveal key={item.href} delay={index * 0.1}>
                 <motion.div
                   whileHover={{ y: -8 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
                   className="hover-lift"
                 >
                   <Card className="h-full surface-ring glass-strong hover:shadow-glow transition-all cursor-pointer">
                     <Link to={item.href}>
                       <CardHeader>
-                        <item.icon className={`h-12 w-12 mb-4 ${item.color}`} />
+                        <div className="flex items-start justify-between">
+                          <item.icon className={`h-12 w-12 mb-4 ${item.color}`} />
+                          {item.stat && (
+                            <Badge variant="secondary" className="ml-2 text-xs">
+                              {item.stat}
+                            </Badge>
+                          )}
+                        </div>
                         <CardTitle>{item.title}</CardTitle>
                         <CardDescription>{item.description}</CardDescription>
+                        <p className="text-xs text-muted-foreground mt-2">{item.details}</p>
                       </CardHeader>
                       <CardContent>
                         <Button variant="link" className="px-0 group">
@@ -395,24 +401,23 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-grid-white/[0.03] bg-[size:24px_24px]" />
               <div className="relative z-10 text-center py-16 px-4">
                 <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground mb-4">Let's Collaborate</p>
-                <h2 className="text-4xl font-bold mb-4">Let's build something memorable.</h2>
+                <h2 className="text-4xl font-bold mb-4">Let's build something amazing together.</h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-                  Have a project in mind? I'd love to hear about it. Let's
-                  shape the vision, ship the product, and keep it moving.
+                  I'm always excited to work on meaningful projects. Whether you need a full-stack application,
+                  mobile app, or technical consultation—let's discuss how I can help bring your vision to life.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <MagneticButton strength={0.15}>
-                    <Button size="lg" asChild className="group rounded-full px-8 shadow-elevation-3">
-                      <Link to="/contact">
-                        <Mail className="mr-2 h-5 w-5" /> Get In Touch
-                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </Button>
-                  </MagneticButton>
-                  <MagneticButton strength={0.15}>
-                    <ResumeDownloadButton variant="outline" size="lg" className="rounded-full px-8" />
-                  </MagneticButton>
+                  <Button size="lg" asChild className="group rounded-full px-8 shadow-elevation-3">
+                    <Link to="/contact">
+                      <Mail className="mr-2 h-5 w-5" /> Start a Conversation
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                  <ResumeDownloadButton variant="outline" size="lg" className="rounded-full px-8" />
                 </div>
+                <p className="text-sm text-muted-foreground mt-6">
+                  Usually responds within 24 hours
+                </p>
               </div>
             </Card>
           </ScrollReveal>

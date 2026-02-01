@@ -11,19 +11,19 @@ interface ScrollRevealProps {
 
 const variants = {
   up: {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
   },
   down: {
-    hidden: { opacity: 0, y: -60 },
+    hidden: { opacity: 0, y: -30 },
     visible: { opacity: 1, y: 0 },
   },
   left: {
-    hidden: { opacity: 0, x: -60 },
+    hidden: { opacity: 0, x: -30 },
     visible: { opacity: 1, x: 0 },
   },
   right: {
-    hidden: { opacity: 0, x: 60 },
+    hidden: { opacity: 0, x: 30 },
     visible: { opacity: 1, x: 0 },
   },
 };
@@ -38,7 +38,7 @@ export function ScrollReveal({
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once,
-    margin: '-100px',
+    margin: '-50px',
   });
 
   return (
@@ -48,12 +48,12 @@ export function ScrollReveal({
       animate={isInView ? 'visible' : 'hidden'}
       variants={variants[direction]}
       transition={{
-        type: 'spring',
-        stiffness: 100,
-        damping: 20,
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
         delay,
       }}
       className={className}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 interface TypingEffectProps {
@@ -19,7 +18,6 @@ export function TypingEffect({
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
     const currentWord = words[currentWordIndex];
@@ -47,22 +45,10 @@ export function TypingEffect({
     return () => clearTimeout(timeout);
   }, [currentText, isDeleting, currentWordIndex, words, speed, deleteSpeed, pauseDuration]);
 
-  // Blink cursor effect
-  useEffect(() => {
-    const cursorTimeout = setTimeout(() => {
-      setShowCursor((prev) => !prev);
-    }, 500);
-
-    return () => clearTimeout(cursorTimeout);
-  }, [showCursor]);
-
   return (
     <span className={className}>
       {currentText}
-      <motion.span
-        animate={{ opacity: showCursor ? 1 : 0 }}
-        className="inline-block w-0.5 h-current bg-current ml-1"
-      />
+      <span className="inline-block w-0.5 h-current bg-current ml-1 animate-pulse" />
     </span>
   );
 }
