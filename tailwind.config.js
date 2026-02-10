@@ -43,6 +43,17 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Custom accent colors
+        terracotta: "hsl(var(--terracotta))",
+        sage: "hsl(var(--sage))",
+        indigo: "hsl(var(--indigo))",
+        clay: "hsl(var(--clay))",
+        forest: "hsl(var(--forest))",
+      },
+      fontFamily: {
+        sans: ["Space Grotesk", "system-ui", "sans-serif"],
+        serif: ["Playfair Display", "Georgia", "serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
       keyframes: {
         "accordion-down": {

@@ -5,12 +5,12 @@ import { PageTransition } from "@/components/animations/PageTransition";
 import { HelmetProvider } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 
-// Layouts
-import { PublicLayout } from "@/layouts/PublicLayout";
+import { UniquePublicLayout } from "@/layouts/UniquePublicLayout";
 
 // Public Pages
-import HomePage from "@/pages/HomePage";
-import AboutPage from "@/pages/AboutPage";
+import UniqueHomePage from "@/pages/UniqueHomePage";
+import UniqueAboutPage from "@/pages/UniqueAboutPage";
+import AutomationPage from "@/pages/AutomationPage";
 import ProjectsPage from "@/pages/ProjectsPage";
 import ProjectDetailPage from "@/pages/ProjectDetailPage";
 import ExperiencePage from "@/pages/ExperiencePage";
@@ -37,13 +37,14 @@ function App() {
           <Route
             path="/"
             element={
-              <PublicLayout>
+              <UniquePublicLayout>
                 <AnimatedOutlet />
-              </PublicLayout>
+              </UniquePublicLayout>
             }
           >
-            <Route index element={<HomePage />} />
-            <Route path="about" element={<AboutPage />} />
+            <Route index element={<UniqueHomePage />} />
+            <Route path="about" element={<UniqueAboutPage />} />
+            <Route path="automation" element={<AutomationPage />} />
             <Route path="projects" element={<ProjectsPage />} />
             <Route path="projects/:slug" element={<ProjectDetailPage />} />
             <Route path="experience" element={<ExperiencePage />} />
