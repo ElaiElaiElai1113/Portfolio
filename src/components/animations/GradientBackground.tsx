@@ -63,18 +63,31 @@ export function HeroGradient({ className = '' }: GradientBackgroundProps) {
     <div className={`absolute inset-0 -z-10 ${className}`}>
       <motion.div
         animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.4, 0.6, 0.4],
+          scale: [1, 1.06, 1],
+          opacity: [0.18, 0.3, 0.18],
         }}
         transition={{
-          duration: 6,
+          duration: 12,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-r from-primary/20 via-amber-400/20 to-teal-400/20 rounded-full blur-[100px]"
+        className="absolute left-1/2 top-[42%] h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,hsl(var(--primary)/0.2),transparent_62%)] blur-[120px]"
+      />
+      <motion.div
+        animate={{
+          x: [0, -18, 0],
+          y: [0, 16, 0],
+          opacity: [0.08, 0.14, 0.08],
+        }}
+        transition={{
+          duration: 16,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+        className="absolute right-[12%] top-[18%] h-72 w-72 rounded-full bg-[radial-gradient(circle,hsl(var(--accent)/0.18),transparent_65%)] blur-[110px]"
       />
       <div
-        className="absolute inset-0 bg-[linear-gradient(to_right,#6b72800a_1px,transparent_1px),linear-gradient(to_bottom,#6b72800a_1px,transparent_1px)] bg-[size:32px_32px]"
+        className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px]"
       />
     </div>
   );

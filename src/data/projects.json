@@ -10,9 +10,9 @@
     "case_study_md": "# IssuePilot\n\n**Full-Stack Developer | 2025**\n\n## Overview\n\nIssuePilot is a multi-workspace issue tracking SaaS designed for teams managing bugs, features, and tasks across multiple projects. It combines the structure of enterprise tools with a modern, developer-friendly interface.\n\n## The Problem\n\nExisting issue tracking solutions presented a trade-off: enterprise tools like Jira offered comprehensive features but with overwhelming complexity, while simpler alternatives lacked multi-workspace support and QA-focused capabilities essential for software teams.\n\n## The Solution\n\nI built IssuePilot as a full-stack SaaS with:\n\n- **Multi-workspace architecture** – Teams can create isolated workspaces with their own projects, members, and issues\n- **Role-based access control** – Owner, Admin, Member, and Viewer roles with enforcement from database to UI\n- **Kanban board** – Drag-and-drop interface for visual workflow management\n- **Advanced filtering** – Saved filter presets for quick access to custom views\n- **QA-focused fields** – Severity, environment, steps to reproduce, and expected vs. actual results\n- **Analytics dashboard** – Real-time metrics for status distribution, type breakdown, and resolution times\n- **Activity tracking** – Complete audit trail for all issue changes\n\n## Technical Implementation\n\n### Stack\n- **Frontend**: React 19.2, TypeScript, Vite 7, Tailwind CSS 4\n- **Backend**: Supabase (PostgreSQL, Auth, Storage, RLS)\n- **Routing**: React Router DOM 7\n\n### Key Architecture Decisions\n\n**Row-Level Security (RLS)** – All data access is scoped to the user's workspace at the database level. Even if a malicious client bypassed UI guards, PostgreSQL policies prevent unauthorized access.\n\n**Feature-based structure** – Code organized by domain (`features/workspaces`, `features/issues`, `features/analytics`) with dedicated hooks for each concern.\n\n**Enum-driven consistency** – Database enums for status, type, priority, and severity ensure data integrity across the stack.\n\n### Challenges & Solutions\n\n**Workspace isolation** – Required a comprehensive RLS policy suite that checks workspace membership on every query. Implemented using Supabase's `auth.uid()` in combination with workspace member lookups.\n\n**Complex state management** – Kanban board state needed to sync with drag-and-drop operations. Used optimistic updates with rollback on error for a responsive feel.\n\n**Attachment storage** – Files stored in Supabase Storage with bucket-level policies to prevent cross-workspace leakage.\n\n## Impact\n\nIssuePilot demonstrates production-ready SaaS development patterns: database-level security, type-safe full-stack code, and a modular architecture. The codebase serves as a reference implementation for multi-tenant applications using modern tooling.",
     "stack": ["React 19", "TypeScript", "Vite 7", "Tailwind CSS", "Supabase", "PostgreSQL", "RLS"],
     "tags": ["SaaS", "Full-Stack", "Multi-Tenant", "Issue Tracking", "Kanban"],
-    "featured": true,
+    "featured": false,
     "featured_order": 1,
-    "status": "published",
+    "status": "hidden",
     "media": [],
     "case_study_takeaways": [
       "Multi-tenant architecture with row-level security for data isolation.",
@@ -40,6 +40,7 @@
     "featured": true,
     "featured_order": 2,
     "status": "published",
+    "cover_image_url": "/assets/SEBTravels.png",
     "live_url": "https://sebtravels.vercel.app/",
     "repo_url": "https://github.com/ElaiElaiElai1113/sebtravels",
     "media": [],
@@ -69,6 +70,7 @@
     "featured": true,
     "featured_order": 4,
     "status": "published",
+    "cover_image_url": "/assets/PokeBuddy.png",
     "media": [],
     "case_study_takeaways": [
       "RAG architecture with ChromaDB for grounded, citation-based responses.",
@@ -96,6 +98,7 @@
     "featured": true,
     "featured_order": 5,
     "status": "published",
+    "cover_image_url": "/assets/AITweetGen.png",
     "media": [],
     "case_study_takeaways": [
       "Multi-provider AI integration with fallback handling.",
@@ -139,6 +142,7 @@
     "featured": true,
     "featured_order": 6,
     "status": "published",
+    "cover_image_url": "/assets/DailyMacros.png",
     "live_url": "https://dailymacros-rho.vercel.app",
     "media": [],
     "case_study_meta": [
@@ -181,6 +185,7 @@
     "featured": true,
     "featured_order": 7,
     "status": "published",
+    "cover_image_url": "/assets/GoDavao.png",
     "media": [],
     "case_study_takeaways": [
       "Intelligent route matching with OSRM integration and custom polyline support.",

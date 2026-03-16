@@ -17,18 +17,16 @@ import {
   Briefcase,
   Award,
   Mail,
-  MapPin,
   Github,
   Linkedin,
   X,
   Sparkles,
-  CheckCircle2,
+  Dot,
 } from "lucide-react";
 import {
   FadeInUp,
   StaggerContainer,
 } from "@/components/animations/PageTransition";
-import { TypingEffect } from "@/components/animations/TypingEffect";
 import { HeroGradient } from "@/components/animations/GradientBackground";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { EnhancedProjectCard } from "@/components/EnhancedProjectCard";
@@ -64,61 +62,49 @@ export default function HomePage() {
 
       <div className="space-y-24">
         {/* Hero Section */}
-        <section className="relative min-h-[80vh] flex items-center py-20">
+        <section className="relative flex min-h-[80vh] items-center py-20">
           <HeroGradient />
 
           <StaggerContainer className="relative z-10 w-full px-4">
-            <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
               <div className="text-center lg:text-left">
                 <FadeInUp>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm mb-6">
-                    <MapPin className="h-4 w-4" />
-                    <span>Available for opportunities</span>
+                  <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-foreground/78">
+                    <span className="relative inline-flex h-2.5 w-2.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/40" />
+                      <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                    </span>
+                    Available for full-stack roles and freelance builds
                   </div>
                 </FadeInUp>
 
                 <FadeInUp delay={0.1}>
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
-                    <h1 className="text-5xl sm:text-7xl font-bold tracking-tight">
+                  <div className="mb-6">
+                    <p className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-primary/80">
+                      Elijah De Los Santos
+                    </p>
+                    <h1 className="max-w-4xl text-5xl font-semibold tracking-[-0.045em] text-white sm:text-7xl">
                       Hi, I'm Elijah
                     </h1>
-                    <div className="flex items-center gap-2">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full bg-green-500/10 text-green-500 text-xs font-medium">
-                        <span className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse" />
-                        Open to Work
-                      </span>
-                    </div>
                   </div>
                 </FadeInUp>
 
-                <FadeInUp delay={0.2} className="min-h-[80px] sm:min-h-[64px] mb-6">
-                  <h2 className="text-4xl sm:text-6xl font-bold text-gradient-primary animate-gradient">
-                    <TypingEffect
-                      words={[
-                        "Full-Stack Developer",
-                        "Flutter Developer",
-                        "Aspiring Project Manager",
-                        "Agile Leader",
-                        "Problem Solver",
-                      ]}
-                      speed={100}
-                      deleteSpeed={50}
-                      pauseDuration={2000}
-                      className="inline-block"
-                    />
+                <FadeInUp delay={0.2} className="mb-6">
+                  <h2 className="max-w-4xl text-4xl font-semibold tracking-[-0.05em] text-foreground sm:text-6xl">
+                    I engineer scalable, high-performance web applications.
                   </h2>
                 </FadeInUp>
 
                 <FadeInUp delay={0.3}>
-                  <p className="text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-10 text-balance">
-                    BS Information Systems student | Lean Six Sigma certified |
-                    Results-driven developer with hands-on experience leading Agile
-                    software projects and coordinating cross-functional teams
+                  <p className="mb-10 max-w-2xl text-lg text-muted-foreground/95 sm:text-xl">
+                    Full-stack developer with a systems mindset. I build performant
+                    products, shape reliable front-end architecture, and turn complex
+                    requirements into clean user experiences that feel considered.
                   </p>
                 </FadeInUp>
 
                 <FadeInUp delay={0.4}>
-                  <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
+                  <div className="mb-8 flex flex-wrap justify-center gap-4 lg:justify-start">
                     <Button size="lg" asChild className="group rounded-full px-8 shadow-elevation-3">
                       <Link to="/projects">
                         View My Work
@@ -130,7 +116,6 @@ export default function HomePage() {
                   </div>
                 </FadeInUp>
 
-                {/* Social Links */}
                 <FadeInUp delay={0.5}>
                   <div className="flex justify-center lg:justify-start gap-4">
                     {[
@@ -151,8 +136,8 @@ export default function HomePage() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 rounded-full glass hover:shadow-glow transition-all text-muted-foreground hover:text-primary inline-block"
-                        whileHover={{ scale: 1.15, rotate: 5 }}
+                        className="inline-flex rounded-full border border-white/8 bg-white/[0.03] p-3 text-muted-foreground transition-all hover:border-white/16 hover:bg-white/[0.05] hover:text-foreground"
+                        whileHover={{ scale: 1.08, y: -2 }}
                         whileTap={{ scale: 0.95 }}
                         aria-label={social.label}
                       >
@@ -164,37 +149,48 @@ export default function HomePage() {
               </div>
 
               <FadeInUp delay={0.35}>
-                <Card className="surface-card relative overflow-hidden border-primary/20">
-                  <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-[50px]" />
-                  <CardHeader className="space-y-4">
+                <Card className="surface-card relative overflow-hidden border-white/8">
+                  <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-primary/12 blur-[60px]" />
+                  <CardHeader className="space-y-5 p-8 sm:p-10">
                     <div className="flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground">
                       <Sparkles className="h-4 w-4 text-primary" />
-                      Impact
+                      Selected Focus
                     </div>
-                    <CardTitle className="text-3xl">Building products that solve real problems.</CardTitle>
-                    <CardDescription className="text-base">
-                      Dean's Lister | Lean Six Sigma Certified | Building scalable apps since 2022
+                    <CardTitle className="text-3xl tracking-[-0.03em] text-foreground">
+                      Shipping products with strong systems thinking and clean execution.
+                    </CardTitle>
+                    <CardDescription className="text-base text-muted-foreground/90">
+                      Front-end engineering, full-stack delivery, and product-minded
+                      implementation across SaaS, AI, and operational platforms.
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-6">
+                  <CardContent className="space-y-8 p-8 pt-0 sm:p-10 sm:pt-0">
                     <div className="grid grid-cols-2 gap-4">
-                      <div className="text-center p-3 rounded-lg bg-primary/5">
-                        <div className="text-2xl font-bold text-primary">6+</div>
-                        <div className="text-xs text-muted-foreground">Production Apps</div>
+                      <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-5">
+                        <div className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
+                          Focus
+                        </div>
+                        <div className="mt-3 text-lg font-semibold text-foreground">
+                          React, TypeScript, Tailwind
+                        </div>
                       </div>
-                      <div className="text-center p-3 rounded-lg bg-primary/5">
-                        <div className="text-2xl font-bold text-primary">500+</div>
-                        <div className="text-xs text-muted-foreground">GitHub Commits</div>
+                      <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-5">
+                        <div className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
+                          Strength
+                        </div>
+                        <div className="mt-3 text-lg font-semibold text-foreground">
+                          Product systems and delivery
+                        </div>
                       </div>
                     </div>
                     <ul className="space-y-3 text-sm text-muted-foreground">
                       {[
-                        "Full-stack applications with React & Node.js",
-                        "Cross-platform mobile apps with Flutter",
-                        "AI-powered tools with RAG & LLMs",
+                        "Designing scalable interfaces that stay fast under real product complexity.",
+                        "Building end-to-end systems with clear architecture and maintainable code.",
+                        "Translating business requirements into polished, conversion-aware experiences.",
                       ].map((item) => (
                         <li key={item} className="flex items-start gap-2">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary flex-shrink-0" />
+                          <Dot className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
                           <span>{item}</span>
                         </li>
                       ))}

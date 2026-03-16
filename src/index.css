@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,66 +6,66 @@
 
 @layer base {
   :root {
-    /* Distinctive palette - Warm earth tones with unexpected accents */
-    --background: 42 25% 96%;
-    --foreground: 28 20% 18%;
-    --card: 40 22% 97%;
-    --card-foreground: 28 20% 18%;
-    --popover: 40 22% 97%;
-    --popover-foreground: 28 20% 18%;
-    --primary: 24 65% 48%;
-    --primary-foreground: 42 25% 96%;
-    --secondary: 35 15% 92%;
-    --secondary-foreground: 28 20% 18%;
-    --muted: 38 18% 90%;
-    --muted-foreground: 28 15% 35%;
-    --accent: 175 45% 42%;
-    --accent-foreground: 42 25% 96%;
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 42 25% 96%;
-    --border: 35 18% 85%;
-    --input: 35 18% 85%;
-    --ring: 24 65% 48%;
-    --radius: 0.5rem;
+    --background: 240 12% 7%;
+    --foreground: 220 20% 96%;
+    --card: 240 10% 10%;
+    --card-foreground: 220 20% 96%;
+    --popover: 240 10% 10%;
+    --popover-foreground: 220 20% 96%;
+    --primary: 217 50% 68%;
+    --primary-foreground: 240 12% 7%;
+    --secondary: 240 8% 14%;
+    --secondary-foreground: 220 18% 92%;
+    --muted: 240 8% 14%;
+    --muted-foreground: 220 12% 68%;
+    --accent: 228 26% 54%;
+    --accent-foreground: 220 20% 96%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 240 8% 20%;
+    --input: 240 8% 18%;
+    --ring: 217 50% 68%;
+    --radius: 1rem;
 
-    /* Unique accent helpers */
-    --terracotta: 18 75% 52%;
-    --sage: 165 35% 45%;
-    --indigo: 235 55% 55%;
-    --cream: 45 30% 96%;
-    --charcoal: 225 15% 15%;
-    --clay: 25 60% 55%;
-    --forest: 155 40% 35%;
+    --primary-light: 217 58% 78%;
+    --accent-amber: 39 32% 60%;
+    --accent-teal: 203 30% 62%;
+    --accent-ink: 226 20% 88%;
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(255, 255, 255, 0.03);
   }
 
   .dark {
-    --background: 225 20% 8%;
-    --foreground: 40 20% 94%;
-    --card: 225 20% 10%;
-    --card-foreground: 40 20% 94%;
-    --popover: 225 20% 10%;
-    --popover-foreground: 40 20% 94%;
-    --primary: 24 70% 55%;
-    --primary-foreground: 225 20% 8%;
-    --secondary: 225 18% 14%;
-    --secondary-foreground: 40 20% 94%;
-    --muted: 225 18% 14%;
-    --muted-foreground: 225 15% 65%;
-    --accent: 175 50% 48%;
-    --accent-foreground: 225 20% 8%;
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 225 20% 94%;
-    --border: 225 18% 18%;
-    --input: 225 18% 18%;
-    --ring: 24 70% 55%;
+    --background: 240 12% 7%;
+    --foreground: 220 20% 96%;
+    --card: 240 10% 10%;
+    --card-foreground: 220 20% 96%;
+    --popover: 240 10% 10%;
+    --popover-foreground: 220 20% 96%;
+    --primary: 217 50% 68%;
+    --primary-foreground: 240 12% 7%;
+    --secondary: 240 8% 14%;
+    --secondary-foreground: 220 18% 92%;
+    --muted: 240 8% 14%;
+    --muted-foreground: 220 12% 68%;
+    --accent: 228 26% 54%;
+    --accent-foreground: 220 20% 96%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 240 8% 20%;
+    --input: 240 8% 18%;
+    --ring: 217 50% 68%;
 
-    --terracotta: 18 75% 58%;
-    --sage: 165 35% 50%;
-    --indigo: 235 55% 60%;
-    --cream: 40 20% 94%;
-    --charcoal: 225 15% 10%;
-    --clay: 25 65% 58%;
-    --forest: 155 40% 42%;
+    --primary-light: 217 58% 78%;
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --terracotta: 217 50% 68%;
+    --sage: 203 30% 62%;
+    --indigo: 228 26% 54%;
+    --cream: 220 20% 96%;
+    --charcoal: 240 12% 7%;
+    --clay: 217 58% 78%;
+    --forest: 203 30% 62%;
   }
 }
 
@@ -76,7 +76,8 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-family: "Inter", sans-serif;
+    /* Smooth font rendering */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -86,9 +87,9 @@
 
   /* Distinctive Typography System */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold;
-    font-family: "Playfair Display", Georgia, serif;
-    line-height: 1.15;
+    @apply font-semibold tracking-tight;
+    font-family: "Manrope", "Inter", sans-serif;
+    line-height: 1.2;
     letter-spacing: -0.02em;
   }
 
@@ -104,13 +105,13 @@
 
   h3 {
     @apply text-2xl sm:text-3xl lg:text-4xl;
-    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-family: "Manrope", "Inter", sans-serif;
     font-weight: 600;
   }
 
   h4 {
     @apply text-xl sm:text-2xl;
-    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-family: "Manrope", "Inter", sans-serif;
     font-weight: 500;
   }
 
@@ -162,11 +163,11 @@
   }
 }
 
-/* Distinctive Surface Utilities */
+/* Surface Utilities */
 @layer utilities {
   /* Handcrafted paper-like surfaces */
   .surface-paper {
-    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--background)) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.025) 100%);
     border: 1px solid hsl(var(--border));
     position: relative;
     overflow: hidden;
@@ -194,18 +195,18 @@
 
   /* Handcrafted shadows - softer, more natural */
   .shadow-soft {
-    box-shadow: 0 2px 8px -2px hsla(var(--foreground) / 0.08),
-                0 4px 12px -2px hsla(var(--foreground) / 0.04);
+    box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.12),
+                0 4px 12px -2px rgba(0, 0, 0, 0.08);
   }
 
   .shadow-deep {
-    box-shadow: 0 8px 24px -4px hsla(var(--foreground) / 0.12),
-                0 4px 12px -2px hsla(var(--foreground) / 0.08);
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.18),
+                0 4px 12px -2px rgba(0, 0, 0, 0.12);
   }
 
   .shadow-float {
-    box-shadow: 8px 8px 24px -4px hsla(var(--foreground) / 0.1),
-                -4px -4px 16px -2px hsla(var(--foreground) / 0.02);
+    box-shadow: 8px 8px 24px -4px rgba(0, 0, 0, 0.16),
+                -4px -4px 16px -2px rgba(255, 255, 255, 0.02);
   }
 
   /* Text decorations */
@@ -255,6 +256,70 @@
 
   .hover-organic:hover {
     transform: translateY(-4px) rotate(-0.5deg);
+  }
+
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-strong {
+    background: var(--glass-bg);
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+    border: 1px solid var(--glass-border);
+  }
+
+  /* Enhanced Shadows */
+  .shadow-elevation-1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .shadow-elevation-2 {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .shadow-elevation-3 {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow-elevation-4 {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 30px rgba(124, 147, 222, 0.16);
+  }
+
+  .dark .shadow-glow {
+    box-shadow: 0 0 35px rgba(124, 147, 222, 0.2);
+  }
+
+  /* Text Gradients */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-white via-slate-200 to-primary bg-clip-text text-transparent;
+  }
+
+  .text-gradient-secondary {
+    @apply bg-gradient-to-r from-primary via-slate-300 to-white bg-clip-text text-transparent;
+  }
+
+  .surface-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.025) 100%);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+  }
+
+  .surface-ring {
+    box-shadow: 0 0 0 1px hsl(var(--border)), 0 20px 40px rgba(0, 0, 0, 0.18);
+  }
+
+  .bg-noise {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.04) 0.5px, transparent 0.5px);
+    background-size: 3px 3px;
+    opacity: 0.18;
   }
 
   /* Hover Lift Effect */
