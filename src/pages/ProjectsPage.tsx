@@ -1,44 +1,45 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { useQuery } from "@tanstack/react-query";
 import { getPublishedProjects } from "@/services";
-import { Search, Filter } from "lucide-react";
+import { Search } from "lucide-react";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/animations/PageTransition";
 import { ProjectGrid } from "@/components/EnhancedProjectCard";
 import { SEO } from "@/components/SEO";
+import {
+  PROJECT_CATEGORIES,
+  matchesProject,
+  type ProjectCategoryFilter,
+} from "@/lib/projectPresentation";
 
 export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [activeCategory, setActiveCategory] = useState<ProjectCategoryFilter>("All");
 
   const { data: projects, isLoading } = useQuery({
     queryKey: ["projects"],
     queryFn: getPublishedProjects,
   });
 
-  const filteredProjects = projects?.filter((project) => {
-    const searchLower = searchTerm.toLowerCase();
-    return (
-      project.title.toLowerCase().includes(searchLower) ||
-      project.summary.toLowerCase().includes(searchLower) ||
-      project.stack.some((tech: string) =>
-        tech.toLowerCase().includes(searchLower),
-      )
-    );
-  });
+  const filteredProjects = projects?.filter((project) =>
+    matchesProject(project, searchTerm, activeCategory),
+  );
 
-  // Get unique technologies for filter
-  const allTechnologies = projects?.flatMap((p) => p.stack) || [];
-  const uniqueTechs = Array.from(new Set(allTechnologies)).sort();
+  const filtersActive = Boolean(searchTerm.trim()) || activeCategory !== "All";
+
+  const clearFilters = () => {
+    setSearchTerm("");
+    setActiveCategory("All");
+  };
 
   return (
     <>
       <SEO
         title="Projects"
-        description="Explore my portfolio of projects showcasing full-stack development skills with React, TypeScript, Node.js, and more."
+        description="Explore commercial products, client platforms, and technical builds across full-stack web, mobile, AI, commerce, and automation."
       />
 
       <div className="space-y-12">
@@ -47,9 +48,9 @@ export default function ProjectsPage() {
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold">Projects</h1>
             <p className="text-xl text-muted-foreground max-w-3xl">
-              A collection of my work showcasing my skills and passion for building
-              great products. Each project demonstrates different aspects of my
-              full-stack development expertise.
+              Production products, client platforms, and technical builds across full-stack
+              web, mobile, AI, and automation. Every entry is labeled by its real delivery
+              state.
             </p>
           </div>
         </ScrollReveal>
@@ -61,59 +62,56 @@ export default function ProjectsPage() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               <Input
                 type="text"
-                placeholder="Search projects by title, tech stack..."
+                placeholder="Search products, outcomes, or technology..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10 h-12"
+                aria-label="Search projects"
               />
             </div>
 
-            {/* Tech Filter Pills */}
-            <div className="flex flex-wrap gap-2">
-              <motion.div
-                className="flex items-center gap-2 text-sm text-muted-foreground"
-                whileHover={{ x: 2 }}
-              >
-                <Filter className="h-4 w-4" />
-                <span>Quick filter:</span>
-              </motion.div>
-              {uniqueTechs.slice(0, 10).map((tech) => (
+            <div
+              className="flex flex-wrap gap-2"
+              role="group"
+              aria-label="Filter projects by category"
+            >
+              {PROJECT_CATEGORIES.map((category) => (
                 <motion.button
-                  key={tech}
-                  onClick={() => setSearchTerm(tech)}
+                  key={category}
+                  type="button"
+                  onClick={() => setActiveCategory(category)}
                   className={`px-3 py-1 text-sm rounded-full border transition-colors ${
-                    searchTerm === tech
+                    activeCategory === category
                       ? "bg-primary text-primary-foreground border-primary"
                       : "bg-background hover:bg-muted border-border"
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  aria-pressed={activeCategory === category}
                 >
-                  {tech}
+                  {category}
                 </motion.button>
               ))}
-              {uniqueTechs.length > 10 && (
-                <Badge variant="secondary">+{uniqueTechs.length - 10} more</Badge>
-              )}
             </div>
 
             {/* Results count */}
-            {searchTerm && (
+            {filtersActive && (
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-sm text-muted-foreground"
               >
                 {filteredProjects?.length} project
-                {filteredProjects?.length !== 1 ? "s" : ""} found for "{searchTerm}"
-                {searchTerm && (
-                  <button
-                    onClick={() => setSearchTerm("")}
-                    className="ml-2 text-primary hover:underline"
-                  >
-                    Clear
-                  </button>
-                )}
+                {filteredProjects?.length !== 1 ? "s" : ""} found
+                {searchTerm.trim() ? ` for “${searchTerm.trim()}”` : ""}
+                {activeCategory !== "All" ? ` in ${activeCategory}` : ""}
+                <button
+                  type="button"
+                  onClick={clearFilters}
+                  className="ml-2 text-primary hover:underline"
+                >
+                  Clear filters
+                </button>
               </motion.p>
             )}
           </div>
@@ -134,15 +132,15 @@ export default function ProjectsPage() {
               >
                 <div className="text-6xl mb-4">🔍</div>
                 <h3 className="text-xl font-semibold mb-2">
-                  {searchTerm ? "No projects found" : "No projects yet"}
+                  {filtersActive ? "No projects found" : "No projects yet"}
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  {searchTerm
-                    ? `No projects match "${searchTerm}". Try a different search term.`
+                  {filtersActive
+                    ? "No projects match these filters. Try another search or category."
                     : "Check back soon for new projects!"}
                 </p>
-                {searchTerm && (
-                  <Button onClick={() => setSearchTerm("")}>Clear search</Button>
+                {filtersActive && (
+                  <Button onClick={clearFilters}>Clear filters</Button>
                 )}
               </motion.div>
             </div>
@@ -150,7 +148,7 @@ export default function ProjectsPage() {
         </ScrollReveal>
 
         {/* CTA */}
-        {!searchTerm && filteredProjects && filteredProjects.length > 0 && (
+        {!filtersActive && filteredProjects && filteredProjects.length > 0 && (
           <ScrollReveal delay={0.3}>
             <div className="text-center py-12">
               <p className="text-muted-foreground mb-4">

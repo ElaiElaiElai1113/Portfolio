@@ -26,7 +26,7 @@ export default function UniqueHomePage() {
     <>
       <SEO
         title="Elijah De Los Santos"
-        description="Full-Stack Developer & Automation Architect building thoughtful digital products. Explore my projects, n8n workflows, and technical journey."
+        description="Full-stack product developer building production web, mobile, commerce, rewards, and business systems from customer experience through reliable operations."
       />
 
       {/* Hero Section */}
@@ -43,11 +43,15 @@ export default function UniqueHomePage() {
           >
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">
-                Selected Work
+                Shipped Systems
               </p>
               <h2 className="text-4xl sm:text-5xl font-['Playfair_Display'] font-semibold">
-                Projects I've built
+                Commercial products, built end to end
               </h2>
+              <p className="mt-4 max-w-2xl text-muted-foreground">
+                Customer-facing experiences and operational platforms spanning automotive,
+                commerce, rewards, and business networks.
+              </p>
             </div>
             <Button variant="ghost" asChild className="group">
               <Link to="/projects">
@@ -103,7 +107,7 @@ export default function UniqueHomePage() {
                 icon: Code,
                 title: "All Projects",
                 description: "The complete portfolio",
-                details: "6+ featured projects to explore",
+                details: "11 case studies across live products and technical builds",
                 href: "/projects",
                 color: "text-indigo",
               },

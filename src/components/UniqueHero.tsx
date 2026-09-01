@@ -91,11 +91,8 @@ export function UniqueHero() {
               className="max-w-2xl"
             >
               <p className="text-xl sm:text-2xl text-muted-foreground leading-relaxed font-light">
-                I build thoughtful digital products that balance{" "}
-                <span className="text-foreground font-medium">craft</span>,{" "}
-                <span className="text-foreground font-medium">performance</span>,
-                and{" "}
-                <span className="text-foreground font-medium">meaning</span>.
+                I build <span className="font-medium text-foreground">full-stack products</span>{" "}
+                that connect customer experience, business operations, and reliable data—from the first workflow to production.
               </p>
             </motion.div>
 
@@ -107,10 +104,10 @@ export function UniqueHero() {
               className="flex flex-wrap gap-4"
             >
               {[
-                "Full-Stack Developer",
-                "Automation Architect",
-                "Agile Practitioner",
-                "Problem Solver",
+                "Sole Full-Stack Developer",
+                "React & TypeScript",
+                "Supabase & SQL",
+                "Product Delivery",
               ].map((role, index) => (
                 <motion.span
                   key={role}
@@ -139,7 +136,7 @@ export function UniqueHero() {
               >
                 <Link to="/projects">
                   <span className="relative z-10 flex items-center gap-2">
-                    View Projects
+                    Explore Case Studies
                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </Link>
@@ -170,7 +167,7 @@ export function UniqueHero() {
                 {[
                   {
                     icon: Github,
-                    href: "https://github.com/elijahndelosantos",
+                    href: "https://github.com/ElaiElaiElai1113",
                     label: "GitHub",
                   },
                   {
