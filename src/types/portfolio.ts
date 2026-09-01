@@ -1,3 +1,21 @@
+export const projectCategories = [
+  "Business Systems",
+  "Commerce",
+  "SaaS",
+  "AI",
+  "Mobile",
+  "Automation",
+] as const;
+
+export type ProjectCategory = (typeof projectCategories)[number];
+
+export type ProjectState =
+  | "live-product"
+  | "demo"
+  | "source-available"
+  | "client-work"
+  | "archived-build";
+
 export interface Project {
   id: string;
   title: string;
@@ -8,7 +26,11 @@ export interface Project {
   solution?: string;
   stack: string[];
   tags: string[];
-  status?: "draft" | "published";
+  category: ProjectCategory;
+  project_state: ProjectState;
+  year: number;
+  client_work?: boolean;
+  status?: "draft" | "published" | "hidden";
   featured?: boolean;
   featured_order?: number;
   repo_url?: string;
