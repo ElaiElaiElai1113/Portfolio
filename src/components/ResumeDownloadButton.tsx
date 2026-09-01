@@ -11,6 +11,14 @@ interface ResumeDownloadButtonProps {
   size?: 'default' | 'sm' | 'lg';
 }
 
+type AnalyticsWindow = Window & {
+  gtag?: (
+    command: 'event',
+    eventName: string,
+    parameters: Record<string, string>,
+  ) => void;
+};
+
 export function ResumeDownloadButton({
   resumeUrl = '/resume.pdf',
   className = '',
@@ -20,8 +28,9 @@ export function ResumeDownloadButton({
 }: ResumeDownloadButtonProps) {
   const handleDownload = () => {
     // Track download event (e.g., analytics)
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'resume_download', {
+    const analyticsWindow = window as AnalyticsWindow;
+    if (analyticsWindow.gtag) {
+      analyticsWindow.gtag('event', 'resume_download', {
         event_category: 'engagement',
         event_label: 'resume',
       });

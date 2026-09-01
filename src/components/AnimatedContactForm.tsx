@@ -52,17 +52,18 @@ export function AnimatedContactForm({ onSuccess }: AnimatedContactFormProps) {
     // Netlify Forms will handle the submission automatically
     // We just need to submit the form to the current URL
     try {
-      const formData = new FormData();
-      formData.append('form-name', 'contact');
-      formData.append('name', data.name);
-      formData.append('email', data.email);
-      formData.append('subject', data.subject);
-      formData.append('message', data.message);
+      const formData = new URLSearchParams({
+        'form-name': 'contact',
+        name: data.name,
+        email: data.email,
+        subject: data.subject,
+        message: data.message,
+      });
 
       await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
+        body: formData.toString(),
       });
 
       setIsSubmitted(true);
@@ -75,7 +76,7 @@ export function AnimatedContactForm({ onSuccess }: AnimatedContactFormProps) {
         form.reset();
         onSuccess?.();
       }, 3000);
-    } catch (error) {
+    } catch {
       toast({
         title: 'Error',
         description: 'Failed to send message. Please try again.',
