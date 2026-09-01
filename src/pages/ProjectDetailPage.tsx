@@ -11,6 +11,8 @@ import ReactMarkdown from "react-markdown";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { ProjectVisual } from "@/components/ProjectVisual";
+import { getProjectActions, getProjectStateLabel } from "@/lib/projectPresentation";
 
 type TocItem = { id: string; text: string; level: 2 | 3 };
 
@@ -101,7 +103,6 @@ export default function ProjectDetailPage() {
     queryFn: getPublishedProjects,
   });
 
-  const caseStudyMeta = project?.case_study_meta ?? [];
   const caseStudyTakeaways = project?.case_study_takeaways ?? [];
   const caseStudyWhy = project?.case_study_why;
   const caseStudyContributions = project?.case_study_contributions ?? [];
@@ -168,6 +169,14 @@ export default function ProjectDetailPage() {
     );
   }
 
+  const projectActions = getProjectActions(project);
+  const caseStudyMeta = [
+    { label: "Role", value: project.role ?? "Full-Stack Developer" },
+    { label: "Product State", value: getProjectStateLabel(project.project_state) },
+    { label: "Delivery", value: project.client_work ? "Client Work" : "Independent Build" },
+    { label: "Stack", value: project.stack.slice(0, 4).join(" · ") },
+  ];
+
   return (
     <div className="max-w-5xl mx-auto space-y-8 pb-16">
       {/* Back button */}
@@ -183,50 +192,59 @@ export default function ProjectDetailPage() {
       <ScrollReveal delay={0.1}>
         <div className="space-y-6">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              {project.featured && (
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                >
-                  <Badge className="bg-gradient-to-r from-primary to-purple-500 text-white border-0">Featured</Badge>
-                </motion.div>
-              )}
-              {project.status && (
-                <Badge variant="secondary" className="capitalize">{project.status}</Badge>
-              )}
+            <p className="mb-4 text-xs uppercase tracking-[0.28em] text-muted-foreground">
+              {project.category} <span aria-hidden="true">·</span> {project.year}
+            </p>
+            <div className="mb-4 flex flex-wrap items-center gap-3">
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+                <Badge variant="secondary">{getProjectStateLabel(project.project_state)}</Badge>
+              </motion.div>
+              {project.client_work && <Badge variant="outline">Client Work</Badge>}
             </div>
             <h1 className="text-5xl sm:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
               {project.title}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl">{project.summary}</p>
+            <div className="mt-5 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+              <span>
+                <span className="text-muted-foreground">Role</span>{" "}
+                <strong className="ml-2 font-semibold text-foreground">
+                  {project.role ?? "Full-Stack Developer"}
+                </strong>
+              </span>
+              <span>
+                <span className="text-muted-foreground">Delivery</span>{" "}
+                <strong className="ml-2 font-semibold text-foreground">
+                  {project.client_work ? "Client product" : "Independent build"}
+                </strong>
+              </span>
+            </div>
           </div>
 
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-3">
-            {project.live_url && (
-              <Button size="lg" asChild className="group hover-lift">
-                <a
-                  href={project.live_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" /> Live Demo
+            {projectActions.map((action, index) => (
+              <Button
+                key={`${action.kind}-${action.url}`}
+                size="lg"
+                variant={index === 0 ? "default" : "outline"}
+                asChild
+                className="group hover-lift"
+              >
+                <a href={action.url} target="_blank" rel="noopener noreferrer">
+                  {action.kind === "live" ? (
+                    <ExternalLink className="mr-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  ) : (
+                    <Github className="mr-2 h-5 w-5 transition-transform group-hover:rotate-12" />
+                  )}
+                  {action.label}
                 </a>
               </Button>
-            )}
-            {project.repo_url && (
-              <Button size="lg" variant="outline" asChild className="group hover-lift">
-                <a
-                  href={project.repo_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" /> GitHub Repository
-                </a>
-              </Button>
-            )}
+            ))}
             {project.demo_video_url && (
               <Button size="lg" variant="outline" asChild className="group hover-lift">
                 <a
@@ -243,23 +261,22 @@ export default function ProjectDetailPage() {
       </ScrollReveal>
 
       {/* Cover Image */}
-      {project.cover_image_url && (
-        <ScrollReveal delay={0.2}>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="aspect-video w-full glass-strong rounded-2xl overflow-hidden shadow-glow"
-          >
-            <img
-              src={project.cover_image_url}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        </ScrollReveal>
-      )}
+      <ScrollReveal delay={0.2}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="aspect-video w-full glass-strong rounded-2xl overflow-hidden shadow-glow"
+        >
+          <ProjectVisual
+            src={project.cover_image_url}
+            alt={`${project.title} product preview`}
+            className="h-full w-full object-cover object-top"
+            loading="eager"
+          />
+        </motion.div>
+      </ScrollReveal>
 
       {/* Tech Stack */}
       <ScrollReveal delay={0.3}>
@@ -288,7 +305,8 @@ export default function ProjectDetailPage() {
       {/* Tabs */}
       <ScrollReveal delay={0.4}>
         <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="w-full justify-start glass p-1">
+          <div className="w-full overflow-x-auto pb-1">
+          <TabsList className="min-w-max justify-start glass p-1">
             <TabsTrigger value="overview" className="data-[state=active]:bg-background/50">Overview</TabsTrigger>
             {project.case_study_md && (
               <TabsTrigger value="case-study" className="data-[state=active]:bg-background/50">Case Study</TabsTrigger>
@@ -297,6 +315,7 @@ export default function ProjectDetailPage() {
               <TabsTrigger value="gallery" className="data-[state=active]:bg-background/50">Media Gallery</TabsTrigger>
             )}
           </TabsList>
+          </div>
 
           {/* Overview Tab */}
           <TabsContent value="overview" className="space-y-6 mt-6">
@@ -574,15 +593,25 @@ export default function ProjectDetailPage() {
                   >
                     <Card className="glass hover:shadow-glow transition-all overflow-hidden group">
                       {item.type === "image" ? (
-                        <div className="relative overflow-hidden">
-                          <motion.img
-                            src={item.url}
-                            alt={item.caption || "Project image"}
-                            className="w-full aspect-video object-cover"
-                            whileHover={{ scale: 1.05 }}
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="relative block aspect-[4/3] overflow-hidden"
+                          aria-label={`Open ${item.caption ?? project.title} screenshot`}
+                        >
+                          <motion.div
+                            className="h-full w-full"
+                            whileHover={{ scale: 1.035 }}
                             transition={{ duration: 0.3 }}
-                          />
-                        </div>
+                          >
+                            <ProjectVisual
+                              src={item.url}
+                              alt={item.caption || `${project.title} project screenshot`}
+                              className="h-full w-full object-cover object-top"
+                            />
+                          </motion.div>
+                        </a>
                       ) : (
                         <video
                           src={item.url}
