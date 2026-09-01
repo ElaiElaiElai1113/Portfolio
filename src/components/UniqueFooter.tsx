@@ -14,8 +14,8 @@ export function UniqueFooter() {
               Elijah De Los Santos
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Full-Stack Developer & Automation Architect building thoughtful
-              digital products that balance craft, performance, and meaning.
+              Full-stack product developer building customer experiences and
+              reliable business systems from workflow to production.
             </p>
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
               <span>Made with</span>
@@ -56,7 +56,7 @@ export function UniqueFooter() {
             </h4>
             <div className="flex flex-col gap-3">
               <a
-                href="https://github.com/elijahndelosantos"
+                href="https://github.com/ElaiElaiElai1113"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"

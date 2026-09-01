@@ -24,7 +24,7 @@ export default function UniqueAboutPage() {
     <>
       <SEO
         title="About Elijah De Los Santos"
-        description="Elijah N. De Los Santos - Full-Stack Developer, Automation Architect, and Agile practitioner based in Davao City, Philippines."
+        description="Elijah N. De Los Santos — full-stack product developer building customer experiences, operational platforms, and reliable data systems."
       />
 
       <div className="max-w-5xl mx-auto space-y-16">
@@ -318,7 +318,7 @@ export default function UniqueAboutPage() {
 
             <div className="flex justify-center gap-4">
               <a
-                href="https://github.com/elijahndelosantos"
+                href="https://github.com/ElaiElaiElai1113"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-lg border border-border/50 hover:bg-primary/5 transition-colors"

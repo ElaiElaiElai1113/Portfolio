@@ -273,7 +273,7 @@ export function UniqueNavigation() {
 
                   <div className="flex gap-3">
                     <a
-                      href="https://github.com/elijahndelosantos"
+                      href="https://github.com/ElaiElaiElai1113"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-3 rounded-lg border border-border/50 hover:bg-muted/50 transition-colors"

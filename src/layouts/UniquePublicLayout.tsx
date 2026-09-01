@@ -27,8 +27,8 @@ export function UniquePublicLayout({
                     Elijah De Los Santos
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Full-Stack Developer & Automation Architect building
-                    thoughtful digital products.
+                    Full-stack product developer building customer experiences
+                    and reliable business systems.
                   </p>
                 </div>
 

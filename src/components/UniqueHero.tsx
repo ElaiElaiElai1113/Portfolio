@@ -197,7 +197,7 @@ export function UniqueHero() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="hidden lg:block absolute top-0 right-0 w-64 text-right space-y-6"
+            className="absolute right-6 top-0 hidden w-56 space-y-6 text-right lg:block xl:right-0"
           >
             <div className="space-y-2">
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
