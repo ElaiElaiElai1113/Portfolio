@@ -14,6 +14,7 @@ import { ExternalLink, Award, Calendar, CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/animations/PageTransition";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
+import { LINKEDIN_URL } from "@/lib/site";
 
 export default function CertificationsPage() {
   const { data: certifications, isLoading } = useQuery({
@@ -182,7 +183,7 @@ export default function CertificationsPage() {
                 Want to verify a certification or learn more about my skills?
               </p>
               <Button size="lg" asChild>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
                   View LinkedIn Profile
                 </a>
               </Button>

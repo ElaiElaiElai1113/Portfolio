@@ -14,20 +14,24 @@ import {
   Mail,
   Linkedin,
   Github,
-  X,
   MapPin,
   Phone,
   Clock,
   Send,
 } from "lucide-react";
+import {
+  CONTACT_EMAIL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+} from "@/lib/site";
 
 export default function ContactPage() {
   const contactMethods = [
     {
       icon: Mail,
       label: "Email",
-      value: "elaidelossantos05@gmail.com",
-      href: "mailto:elaidelossantos05@gmail.com",
+      value: CONTACT_EMAIL,
+      href: `mailto:${CONTACT_EMAIL}`,
       color: "text-red-500",
     },
     {
@@ -50,20 +54,14 @@ export default function ContactPage() {
     {
       icon: Linkedin,
       name: "LinkedIn",
-      href: "https://linkedin.com/in/yourprofile",
+      href: LINKEDIN_URL,
       color: "hover:bg-blue-500/10 hover:text-blue-500 hover:border-blue-500/50",
     },
     {
       icon: Github,
       name: "GitHub",
-      href: "https://github.com/yourusername",
+      href: GITHUB_URL,
       color: "hover:bg-gray-500/10 hover:text-gray-500 hover:border-gray-500/50",
-    },
-    {
-      icon: X,
-      name: "X (Twitter)",
-      href: "https://twitter.com/yourusername",
-      color: "hover:bg-sky-500/10 hover:text-sky-500 hover:border-sky-500/50",
     },
   ];
 
@@ -198,13 +196,13 @@ export default function ContactPage() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button size="lg" asChild className="group">
-                  <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+                  <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
                     <Linkedin className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
                     Connect on LinkedIn
                   </a>
                 </Button>
                 <Button size="lg" variant="outline" asChild className="group">
-                  <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                  <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
                     Check GitHub
                   </a>

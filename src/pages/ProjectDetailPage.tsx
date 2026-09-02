@@ -13,6 +13,7 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { getProjectActions, getProjectStateLabel } from "@/lib/projectPresentation";
+import { SEO } from "@/components/SEO";
 
 type TocItem = { id: string; text: string; level: 2 | 3 };
 
@@ -178,7 +179,14 @@ export default function ProjectDetailPage() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto space-y-8 pb-16">
+    <>
+      <SEO
+        title={`${project.title} Case Study`}
+        description={project.summary}
+        image={project.cover_image_url}
+        type="article"
+      />
+      <div className="max-w-5xl mx-auto space-y-8 pb-16">
       {/* Back button */}
       <ScrollReveal>
         <Link to="/projects">
@@ -691,6 +699,7 @@ export default function ProjectDetailPage() {
           </CardContent>
         </Card>
       </ScrollReveal>
-    </div>
+      </div>
+    </>
   );
 }

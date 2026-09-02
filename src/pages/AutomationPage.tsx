@@ -16,6 +16,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SEO } from "@/components/SEO";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 interface WorkflowNode {
   id: string;
@@ -459,7 +460,7 @@ export default function AutomationPage() {
               workflows that save your team time and reduce errors.
             </p>
             <Button size="lg" asChild className="rounded-full px-8">
-              <a href="mailto:contact@elijahndelosantos.com">
+              <a href={`mailto:${CONTACT_EMAIL}`}>
                 <Mail className="mr-2 h-5 w-5" />
                 Let's Talk Automation
               </a>

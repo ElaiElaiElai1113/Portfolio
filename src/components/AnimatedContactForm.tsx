@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -15,8 +14,8 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, Send, CheckCircle, Loader2 } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { Mail, Send } from 'lucide-react';
+import { CONTACT_EMAIL, buildContactMailtoUrl } from '@/lib/site';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -27,15 +26,7 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-interface AnimatedContactFormProps {
-  onSuccess?: () => void;
-}
-
-export function AnimatedContactForm({ onSuccess }: AnimatedContactFormProps) {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
+export function AnimatedContactForm() {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,69 +37,9 @@ export function AnimatedContactForm({ onSuccess }: AnimatedContactFormProps) {
     },
   });
 
-  const onSubmit = async (data: FormValues) => {
-    setIsSubmitting(true);
-
-    // Netlify Forms will handle the submission automatically
-    // We just need to submit the form to the current URL
-    try {
-      const formData = new URLSearchParams({
-        'form-name': 'contact',
-        name: data.name,
-        email: data.email,
-        subject: data.subject,
-        message: data.message,
-      });
-
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formData.toString(),
-      });
-
-      setIsSubmitted(true);
-      toast({
-        title: 'Message sent!',
-        description: 'Thank you for reaching out. I\'ll get back to you soon.',
-      });
-      setTimeout(() => {
-        setIsSubmitted(false);
-        form.reset();
-        onSuccess?.();
-      }, 3000);
-    } catch {
-      toast({
-        title: 'Error',
-        description: 'Failed to send message. Please try again.',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+  const onSubmit = (data: FormValues) => {
+    window.location.href = buildContactMailtoUrl(data);
   };
-
-  if (isSubmitted) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="flex flex-col items-center justify-center py-12"
-      >
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: 'spring', delay: 0.2 }}
-          className="w-20 h-20 rounded-full bg-green-500/20 flex items-center justify-center mb-6"
-        >
-          <CheckCircle className="h-10 w-10 text-green-500" />
-        </motion.div>
-        <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>
-        <p className="text-muted-foreground text-center">
-          Thank you for reaching out. I'll get back to you as soon as possible.
-        </p>
-      </motion.div>
-    );
-  }
 
   return (
     <Card>
@@ -118,7 +49,7 @@ export function AnimatedContactForm({ onSuccess }: AnimatedContactFormProps) {
           Send Me a Message
         </CardTitle>
         <CardDescription>
-          Have a project in mind or just want to chat? Fill out the form below.
+          Complete the details and I’ll open a ready-to-send email in your mail app.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -126,12 +57,7 @@ export function AnimatedContactForm({ onSuccess }: AnimatedContactFormProps) {
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-6"
-            name="contact"
-            method="POST"
-            data-netlify="true"
           >
-            <input type="hidden" name="form-name" value="contact" />
-
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -221,23 +147,19 @@ export function AnimatedContactForm({ onSuccess }: AnimatedContactFormProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <Button
-                type="submit"
-                className="w-full group"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    Send Message
-                    <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </>
-                )}
+              <Button type="submit" className="w-full group">
+                Open Email Draft
+                <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </Button>
+              <p className="mt-3 text-center text-xs text-muted-foreground">
+                Prefer to write directly?{" "}
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="font-medium text-primary hover:underline"
+                >
+                  {CONTACT_EMAIL}
+                </a>
+              </p>
             </motion.div>
           </form>
         </Form>

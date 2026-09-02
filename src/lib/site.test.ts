@@ -1,4 +1,11 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { createElement } from "react";
+import { render, waitFor } from "@testing-library/react";
+import { HelmetProvider } from "react-helmet-async";
+import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
+import { SEO } from "@/components/SEO";
 import {
   CONTACT_EMAIL,
   SITE_URL,
@@ -32,5 +39,49 @@ describe("site identity", () => {
     expect(url).toContain("mailto:elaidelossantos05%40gmail.com");
     expect(decodeURIComponent(url)).toContain("Full-stack role");
     expect(decodeURIComponent(url)).toContain("manager@example.com");
+  });
+
+  it("renders contextual canonical and social metadata", async () => {
+    render(
+      createElement(
+        HelmetProvider,
+        null,
+        createElement(
+          MemoryRouter,
+          { initialEntries: ["/projects/rewardme"] },
+          createElement(SEO, {
+            title: "RewardMe",
+            description: "RewardMe case study",
+          }),
+        ),
+      ),
+    );
+
+    await waitFor(() => {
+      expect(document.title).toBe("RewardMe | Elijah De Los Santos");
+    });
+    expect(
+      document.querySelector('link[rel="canonical"]')?.getAttribute("href"),
+    ).toBe("https://portfolio-inky-eight-48.vercel.app/projects/rewardme");
+    expect(
+      document.querySelector('meta[property="og:url"]')?.getAttribute("content"),
+    ).toBe("https://portfolio-inky-eight-48.vercel.app/projects/rewardme");
+  });
+
+  it("contains no stale public destinations", () => {
+    const files = [
+      "src/pages/ContactPage.tsx",
+      "src/components/UniqueFooter.tsx",
+      "src/components/UniqueNavigation.tsx",
+      "src/pages/AutomationPage.tsx",
+      "src/pages/CertificationsPage.tsx",
+    ];
+    const source = files
+      .map((file) => readFileSync(resolve(file), "utf8"))
+      .join("\n");
+
+    expect(source).not.toMatch(
+      /yourprofile|yourusername|contact@elijahndelosantos\.com/,
+    );
   });
 });

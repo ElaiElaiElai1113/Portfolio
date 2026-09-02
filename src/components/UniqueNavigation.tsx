@@ -13,6 +13,7 @@ import {
 import { useTheme } from "@/components/theme-provider";
 import { useKeyboardShortcuts } from "@/hooks/useKeyboardShortcuts";
 import { KeyboardShortcutsModal } from "@/components/KeyboardShortcutsModal";
+import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/site";
 
 interface NavItem {
   name: string;
@@ -273,7 +274,7 @@ export function UniqueNavigation() {
 
                   <div className="flex gap-3">
                     <a
-                      href="https://github.com/ElaiElaiElai1113"
+                      href={GITHUB_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-3 rounded-lg border border-border/50 hover:bg-muted/50 transition-colors"
@@ -281,7 +282,7 @@ export function UniqueNavigation() {
                       <Github className="h-5 w-5" />
                     </a>
                     <a
-                      href="https://linkedin.com/in/elijahndelosantos"
+                      href={LINKEDIN_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-3 rounded-lg border border-border/50 hover:bg-muted/50 transition-colors"
@@ -289,7 +290,7 @@ export function UniqueNavigation() {
                       <Linkedin className="h-5 w-5" />
                     </a>
                     <a
-                      href="mailto:contact@elijahndelosantos.com"
+                      href={`mailto:${CONTACT_EMAIL}`}
                       className="p-3 rounded-lg border border-border/50 hover:bg-muted/50 transition-colors"
                     >
                       <Mail className="h-5 w-5" />

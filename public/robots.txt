@@ -7,4 +7,4 @@ Allow: /
 Disallow: /admin/
 
 # Sitemap location
-Sitemap: https://portfolio.vercel.app/sitemap.xml
+Sitemap: https://portfolio-inky-eight-48.vercel.app/sitemap.xml

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { SITE_URL } from '@/lib/site';
 
 interface SitemapUrl {
   url: string;
@@ -9,12 +10,14 @@ interface SitemapUrl {
 const staticUrls: SitemapUrl[] = [
   { url: '', priority: 1.0, changefreq: 'weekly' },
   { url: '/projects', priority: 0.9, changefreq: 'weekly' },
+  { url: '/about', priority: 0.8, changefreq: 'monthly' },
+  { url: '/automation', priority: 0.8, changefreq: 'monthly' },
   { url: '/experience', priority: 0.8, changefreq: 'monthly' },
   { url: '/certifications', priority: 0.7, changefreq: 'monthly' },
   { url: '/contact', priority: 0.6, changefreq: 'yearly' },
 ];
 
-const baseUrl = 'https://portfolio.vercel.app';
+const baseUrl = SITE_URL;
 
 export function Sitemap() {
   useEffect(() => {

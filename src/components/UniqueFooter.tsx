@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/site";
 
 export function UniqueFooter() {
   const currentYear = new Date().getFullYear();
@@ -56,7 +57,7 @@ export function UniqueFooter() {
             </h4>
             <div className="flex flex-col gap-3">
               <a
-                href="https://github.com/ElaiElaiElai1113"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
@@ -65,7 +66,7 @@ export function UniqueFooter() {
                 <span>GitHub</span>
               </a>
               <a
-                href="https://linkedin.com/in/elijahndelosantos"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
@@ -74,7 +75,7 @@ export function UniqueFooter() {
                 <span>LinkedIn</span>
               </a>
               <a
-                href="mailto:contact@elijahndelosantos.com"
+                href={`mailto:${CONTACT_EMAIL}`}
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
               >
                 <Mail className="h-4 w-4 group-hover:text-foreground transition-colors" />

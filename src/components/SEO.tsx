@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
+import { SITE_URL, buildCanonicalUrl, buildPageTitle } from '@/lib/site';
 
 interface SEOProps {
   title?: string;
@@ -10,21 +11,22 @@ interface SEOProps {
 }
 
 const defaultSEO = {
-  title: 'Portfolio | Full-Stack Developer',
-  description: 'Full-Stack Developer specializing in React, TypeScript, and Node.js. Building modern web applications with exceptional user experiences.',
+  title: buildPageTitle(),
+  description: 'Independent full-stack developer delivering production web, commerce, rewards, automotive, and business systems for clients.',
   image: '/og-image.png',
   type: 'website' as const,
 };
 
-const siteUrl = 'https://portfolio.vercel.app';
-
 export function SEO({ title, description, image, type, noIndex }: SEOProps) {
   const location = useLocation();
-  const fullTitle = title ? `${title} | Portfolio` : defaultSEO.title;
+  const fullTitle = title ? buildPageTitle(title) : defaultSEO.title;
   const metaDescription = description || defaultSEO.description;
   const metaImage = image || defaultSEO.image;
   const metaType = type || defaultSEO.type;
-  const url = `${siteUrl}${location.pathname}`;
+  const url = buildCanonicalUrl(location.pathname);
+  const imageUrl = metaImage.startsWith('http')
+    ? metaImage
+    : `${SITE_URL}${metaImage.startsWith('/') ? metaImage : `/${metaImage}`}`;
 
   return (
     <Helmet>
@@ -39,15 +41,15 @@ export function SEO({ title, description, image, type, noIndex }: SEOProps) {
       <meta property="og:url" content={url} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDescription} />
-      <meta property="og:image" content={`${siteUrl}${metaImage}`} />
-      <meta property="og:site_name" content="Portfolio" />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:site_name" content="Elijah De Los Santos" />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={url} />
       <meta property="twitter:title" content={fullTitle} />
       <meta property="twitter:description" content={metaDescription} />
-      <meta property="twitter:image" content={`${siteUrl}${metaImage}`} />
+      <meta property="twitter:image" content={imageUrl} />
 
       {/* Canonical URL */}
       <link rel="canonical" href={url} />
