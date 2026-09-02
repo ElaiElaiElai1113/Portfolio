@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { createElement } from "react";
 import { render, waitFor } from "@testing-library/react";
@@ -144,6 +144,17 @@ describe("site identity", () => {
   it("keeps the home page focused on work and primary next steps", () => {
     const source = readFileSync(resolve("src/pages/UniqueHomePage.tsx"), "utf8");
     expect(source).not.toContain("<AutomationShowcase");
+  });
+
+  it("publishes resume actions in both active homepage CTA areas", () => {
+    const hero = readFileSync(resolve("src/components/UniqueHero.tsx"), "utf8");
+    const home = readFileSync(resolve("src/pages/UniqueHomePage.tsx"), "utf8");
+    const resumePath = resolve("public/elijah-de-los-santos-resume.pdf");
+
+    expect(hero).toContain("<ResumeActions");
+    expect(home).toContain("<ResumeActions");
+    expect(existsSync(resumePath)).toBe(true);
+    expect(statSync(resumePath).size).toBeGreaterThan(50_000);
   });
 
   it("uses level-two headings for projects in the archive", () => {

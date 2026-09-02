@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { ResumeActions } from "@/components/ResumeActions";
 
 export default function UniqueHomePage() {
   const { data: featuredProjects, isLoading: projectsLoading } = useQuery({
@@ -166,6 +167,12 @@ export default function UniqueHomePage() {
                     View My Work
                   </Link>
                 </Button>
+                <ResumeActions
+                  size="lg"
+                  wrapperClassName="justify-center"
+                  viewClassName="rounded-full px-6"
+                  downloadClassName="rounded-full px-4"
+                />
               </div>
               <p className="text-sm text-muted-foreground mt-6">
                 Based in Davao City, Philippines • Available for remote

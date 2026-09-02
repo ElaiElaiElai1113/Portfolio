@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Mail, Github, Linkedin, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ResumeActions } from "@/components/ResumeActions";
 
 export function UniqueHero() {
   return (
@@ -127,7 +128,7 @@ export function UniqueHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
+              className="flex flex-wrap gap-4 pt-4"
             >
               <Button
                 size="lg"
@@ -153,6 +154,13 @@ export function UniqueHero() {
                   Get in Touch
                 </Link>
               </Button>
+
+              <ResumeActions
+                size="lg"
+                wrapperClassName="w-full sm:w-auto"
+                viewClassName="rounded-full px-6"
+                downloadClassName="rounded-full px-4"
+              />
             </motion.div>
 
             {/* Social links - unique presentation */}
