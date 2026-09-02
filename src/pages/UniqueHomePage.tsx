@@ -90,8 +90,8 @@ export default function UniqueHomePage() {
               {
                 icon: Briefcase,
                 title: "Experience",
-                description: "My professional journey and growth",
-                details: "2+ years shipping web and mobile projects",
+                description: "Independent client delivery",
+                details: "Client product work since March 2026",
                 href: "/experience",
                 color: "text-terracotta",
               },

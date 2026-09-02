@@ -58,22 +58,22 @@ export default function UniqueAboutPage() {
                 </h2>
                 <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
                   <p>
-                    I'm a Full-Stack Developer and automation enthusiast based in
-                    Davao City, Philippines. I'm currently pursuing my BS in
-                    Information Systems at Ateneo de Davao University, where
-                    I've consistently made the Dean's and President's List.
+                    I'm an independent Full-Stack Developer based in Davao City,
+                    Philippines. I began paid client development in March 2026
+                    and graduated with a BS in Information Systems from Ateneo
+                    de Davao University in June 2026 while working.
                   </p>
                   <p>
-                    But here's what actually drives me: I love building things
-                    that solve real problems. Whether it's a full-stack app, a
-                    mobile application, or an n8n workflow that saves someone 10
-                    hours a week — I get excited about tangible outcomes.
+                    I build production products that connect customer experience
+                    with the operational systems behind it. My client work spans
+                    automotive, rewards, commerce, and B2B platforms, and I have
+                    owned the majority of those builds as the sole full-stack developer.
                   </p>
                   <p>
-                    I type at 100+ WPM (yes, I've tested), which might explain
-                    why I enjoy both writing code and writing documentation. I
-                    believe clear communication is just as important as clean
-                    code.
+                    I care about clear requirements, dependable data, thoughtful
+                    interfaces, and maintainable delivery. Clear communication
+                    and documentation are part of the engineering work, not an
+                    afterthought.
                   </p>
                 </div>
               </div>
@@ -85,7 +85,7 @@ export default function UniqueAboutPage() {
                   </div>
                   <div className="flex items-center gap-3 text-sm">
                     <GraduationCap className="h-5 w-5 text-primary" />
-                    <span>BS Information Systems, 2026</span>
+                    <span>BS Information Systems · Graduated June 2026</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm">
                     <Award className="h-5 w-5 text-primary" />

@@ -1,5 +1,23 @@
 [
   {
+    "id": "independent-full-stack-developer",
+    "company": "Independent Client Work",
+    "role": "Full-Stack Developer",
+    "location": "Davao City, Philippines · Remote",
+    "start_date": "2026-03-01",
+    "end_date": null,
+    "current": true,
+    "description": "Delivering production products for clients across automotive, rewards, commerce, and B2B operations.",
+    "bullets": [
+      "Owned architecture, frontend, backend, data, integrations, deployment, and maintenance as the sole full-stack developer for the majority of engagements",
+      "Delivered EasyDrive, RewardMe, Synergize Business Group, Innerfire Co., and Loyality / Medellin Rewards across customer-facing and operational workflows",
+      "Translated business requirements into typed interfaces, secure data models, role-aware workflows, integrations, and production releases",
+      "Continued full-time client delivery after graduating with a BS Information Systems degree in June 2026"
+    ],
+    "skills": ["React", "TypeScript", "Next.js", "Supabase", "PostgreSQL", "Shopify", "Playwright"],
+    "sort_order": 0
+  },
+  {
     "id": "experience-1",
     "company": "Ateneo de Davao University CSSEC",
     "role": "Productions & Documentation Officer",

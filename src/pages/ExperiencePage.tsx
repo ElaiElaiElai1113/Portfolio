@@ -3,7 +3,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useQuery } from "@tanstack/react-query";
 import { getExperiences } from "@/services";
-import { MapPin, Calendar, Building2, TrendingUp } from "lucide-react";
+import {
+  MapPin,
+  Calendar,
+  Building2,
+  TrendingUp,
+  GraduationCap,
+} from "lucide-react";
 import { ScrollReveal } from "@/components/animations/PageTransition";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
@@ -52,9 +58,37 @@ export default function ExperiencePage() {
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold">Experience</h1>
             <p className="text-xl text-muted-foreground">
-              My professional journey and career milestones.
+              Client products delivered end to end, backed by the work ethic of
+              completing my degree while building professionally.
             </p>
           </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.05}>
+          <Card className="overflow-hidden border-primary/20 bg-gradient-to-br from-primary/10 via-background to-background">
+            <CardContent className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-start gap-4">
+                <div className="rounded-2xl bg-primary/15 p-3 text-primary">
+                  <GraduationCap className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
+                    Education milestone
+                  </p>
+                  <h2 className="mt-2 text-xl font-semibold">
+                    BS Information Systems · Graduated June 2026
+                  </h2>
+                  <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
+                    Completed my degree at Ateneo de Davao University while
+                    working, then continued delivering client products.
+                  </p>
+                </div>
+              </div>
+              <Badge variant="outline" className="w-fit">
+                Working graduate
+              </Badge>
+            </CardContent>
+          </Card>
         </ScrollReveal>
 
         {/* Timeline */}
@@ -74,7 +108,19 @@ export default function ExperiencePage() {
 
             <div className="space-y-12">
               {experiences.map((experience, index) => (
-                <ScrollReveal key={experience.id} delay={index * 0.1}>
+                <div key={experience.id}>
+                  {index === 1 && (
+                    <div className="mb-6 pl-16">
+                      <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                        Earlier experience
+                      </p>
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        Roles that developed the communication, documentation,
+                        and coordination skills I bring to client work.
+                      </p>
+                    </div>
+                  )}
+                  <ScrollReveal delay={index * 0.1}>
                   <div className="relative pl-16">
                     {/* Animated timeline dot */}
                     <motion.div
@@ -202,7 +248,8 @@ export default function ExperiencePage() {
                       </Card>
                     </motion.div>
                   </div>
-                </ScrollReveal>
+                  </ScrollReveal>
+                </div>
               ))}
             </div>
           </div>

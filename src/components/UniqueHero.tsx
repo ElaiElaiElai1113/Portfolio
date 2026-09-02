@@ -210,9 +210,9 @@ export function UniqueHero() {
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
                 Education
               </p>
-              <p className="text-sm">BS Information Systems</p>
+              <p className="text-sm">BS Information Systems · June 2026</p>
               <p className="text-xs text-muted-foreground">
-                Ateneo de Davao University
+                Ateneo de Davao University · Graduate
               </p>
             </div>
 
