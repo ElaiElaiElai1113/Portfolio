@@ -28,6 +28,7 @@ const navigation: NavItem[] = [
   { name: "Projects", href: "/projects", key: "p" },
   { name: "Automation", href: "/automation", key: "u" },
   { name: "Experience", href: "/experience", key: "e" },
+  { name: "Certifications", href: "/certifications", key: "r" },
   { name: "Contact", href: "/contact", key: "c" },
 ];
 
@@ -54,6 +55,7 @@ export function UniqueNavigation() {
     { key: "p", action: () => navigate("/projects"), description: "Go to projects" },
     { key: "u", action: () => navigate("/automation"), description: "Go to automation" },
     { key: "e", action: () => navigate("/experience"), description: "Go to experience" },
+    { key: "r", action: () => navigate("/certifications"), description: "Go to certifications" },
     { key: "c", action: () => navigate("/contact"), description: "Go to contact" },
     { key: "b", action: () => setTheme(theme === "dark" ? "light" : "dark"), description: "Toggle theme" },
     { key: "?", action: () => setShowShortcuts(true), description: "Show shortcuts" },

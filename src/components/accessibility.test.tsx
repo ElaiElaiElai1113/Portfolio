@@ -1,5 +1,5 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { MemoryRouter, useLocation } from "react-router-dom";
 import { describe, expect, it, vi } from "vitest";
 import { AnimatedContactForm } from "@/components/AnimatedContactForm";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -17,6 +17,10 @@ function renderWithProviders(ui: React.ReactNode) {
       <MemoryRouter>{ui}</MemoryRouter>
     </ThemeProvider>,
   );
+}
+
+function LocationProbe() {
+  return <output aria-label="Current route">{useLocation().pathname}</output>;
 }
 
 describe("public-page accessibility", () => {
@@ -68,6 +72,46 @@ describe("public-page accessibility", () => {
     const homeLinks = screen.getAllByRole("link", { name: "Home" });
     expect(homeLinks).toHaveLength(2);
     expect(homeLinks.every((link) => link.getAttribute("href") === "/")).toBe(true);
+  });
+
+  it("exposes Certifications in primary navigation and through its shortcut", async () => {
+    renderWithProviders(
+      <>
+        <UniqueNavigation />
+        <LocationProbe />
+      </>,
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "Open menu" }));
+
+    const certificationLinks = await screen.findAllByRole("link", {
+      name: "Certifications",
+    });
+    expect(certificationLinks).toHaveLength(2);
+    expect(
+      certificationLinks.every(
+        (link) => link.getAttribute("href") === "/certifications",
+      ),
+    ).toBe(true);
+
+    fireEvent.keyDown(window, { key: "r" });
+    await waitFor(() =>
+      expect(screen.getByRole("status", { name: "Current route" })).toHaveTextContent(
+        "/certifications",
+      ),
+    );
+  });
+
+  it("keeps shortcut help synchronized with implemented keys", async () => {
+    renderWithProviders(<UniqueNavigation />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Keyboard shortcuts" }));
+    const dialog = await screen.findByRole("dialog");
+
+    expect(within(dialog).getByText("Certifications")).toBeInTheDocument();
+    expect(within(dialog).getByText("r")).toBeInTheDocument();
+    expect(within(dialog).getByText("Toggle Theme")).toBeInTheDocument();
+    expect(within(dialog).getByText("b")).toBeInTheDocument();
   });
 
   it("uses level-two headings for contact-page sections", () => {

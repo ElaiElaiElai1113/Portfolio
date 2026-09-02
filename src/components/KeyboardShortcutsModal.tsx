@@ -18,11 +18,13 @@ export function KeyboardShortcutsModal({ open, onOpenChange }: KeyboardShortcuts
         </DialogHeader>
         <div className="grid gap-3">
           <ShortcutItem shortcut="Home" keyChar="h" />
+          <ShortcutItem shortcut="About" keyChar="a" />
           <ShortcutItem shortcut="Projects" keyChar="p" />
+          <ShortcutItem shortcut="Automation" keyChar="u" />
           <ShortcutItem shortcut="Experience" keyChar="e" />
+          <ShortcutItem shortcut="Certifications" keyChar="r" />
           <ShortcutItem shortcut="Contact" keyChar="c" />
-          <ShortcutItem shortcut="Search" keyChar="/" />
-          <ShortcutItem shortcut="Toggle Theme" keyChar="t" />
+          <ShortcutItem shortcut="Toggle Theme" keyChar="b" />
         </div>
       </DialogContent>
     </Dialog>

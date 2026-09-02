@@ -34,11 +34,12 @@ export function useKeyboardShortcuts(shortcuts: Shortcut[]) {
 }
 
 export const shortcuts = {
-  search: { key: '/', description: 'Focus search' },
   home: { key: 'h', description: 'Go to home' },
+  about: { key: 'a', description: 'Go to about' },
   projects: { key: 'p', description: 'View projects' },
+  automation: { key: 'u', description: 'View automation' },
   experience: { key: 'e', description: 'View experience' },
+  certifications: { key: 'r', description: 'View certifications' },
   contact: { key: 'c', description: 'Contact' },
-  theme: { key: 't', description: 'Toggle theme' },
-  github: { key: 'g', description: 'Open GitHub' },
+  theme: { key: 'b', description: 'Toggle theme' },
 };

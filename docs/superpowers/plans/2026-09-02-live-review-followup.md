@@ -108,7 +108,7 @@ Expected: FAIL because Certifications is absent from primary navigation and no `
 
 - [ ] **Step 3: Implement the shared navigation entry and synchronized help**
 
-Add `{ name: "Certifications", href: "/certifications", key: "r" }` before Contact, add the corresponding `useKeyboardShortcuts` handler, and update `KeyboardShortcutsModal` to list Home, About, Projects, Automation, Experience, Certifications, Contact, Search, and Toggle Theme using the keys implemented by the application (`h`, `a`, `p`, `u`, `e`, `r`, `c`, `/`, `b`).
+Add `{ name: "Certifications", href: "/certifications", key: "r" }` before Contact, add the corresponding `useKeyboardShortcuts` handler, and update `KeyboardShortcutsModal` to list Home, About, Projects, Automation, Experience, Certifications, Contact, and Toggle Theme using the keys implemented by the application (`h`, `a`, `p`, `u`, `e`, `r`, `c`, `b`). Remove the stale Search shortcut from the reference because no global `/` handler is implemented.
 
 - [ ] **Step 4: Run the focused test and verify GREEN**
 
