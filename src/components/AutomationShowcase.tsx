@@ -411,8 +411,8 @@ export function AutomationShowcase() {
             Ready to automate your workflows?
           </h3>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            Let's discuss how I can help you reclaim hours of productive time
-            through intelligent automation.
+            Let's discuss how I can reduce repetitive work and make your
+            operational handoffs easier to validate.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button size="lg" asChild className="rounded-full px-8">

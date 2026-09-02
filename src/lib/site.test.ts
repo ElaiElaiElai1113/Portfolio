@@ -100,4 +100,12 @@ describe("site identity", () => {
     expect(source).not.toContain('rel="canonical"');
     expect(source).not.toContain('property="og:url"');
   });
+
+  it("mounts a single global notification region", () => {
+    const source = ["src/main.tsx", "src/App.tsx", "src/layouts/UniquePublicLayout.tsx"]
+      .map((file) => readFileSync(resolve(file), "utf8"))
+      .join("\n");
+
+    expect(source.match(/<Toaster/g) ?? []).toHaveLength(1);
+  });
 });

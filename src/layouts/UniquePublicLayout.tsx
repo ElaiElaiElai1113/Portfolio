@@ -1,4 +1,3 @@
-import { Toaster } from "@/components/ui/toaster";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { UniqueNavigation } from "@/components/UniqueNavigation";
 
@@ -75,7 +74,6 @@ export function UniquePublicLayout({
             </div>
           </footer>
       </div>
-      <Toaster />
     </ErrorBoundary>
   );
 }

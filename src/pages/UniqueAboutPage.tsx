@@ -23,7 +23,7 @@ export default function UniqueAboutPage() {
   return (
     <>
       <SEO
-        title="About Elijah De Los Santos"
+        title="About"
         description="Elijah N. De Los Santos — full-stack product developer building customer experiences, operational platforms, and reliable data systems."
       />
 
