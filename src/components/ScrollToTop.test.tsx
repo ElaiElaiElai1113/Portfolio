@@ -18,6 +18,7 @@ function RouteHarness() {
 
 describe("ScrollToTop", () => {
   it("resets both scroll axes after a pathname change", () => {
+    document.documentElement.style.scrollBehavior = "smooth";
     const scrollTo = vi
       .spyOn(window, "scrollTo")
       .mockImplementation(() => undefined);
@@ -32,6 +33,13 @@ describe("ScrollToTop", () => {
     fireEvent.click(screen.getByRole("button", { name: "Projects" }));
 
     expect(screen.getByText("/projects")).toBeInTheDocument();
-    expect(scrollTo).toHaveBeenCalledWith(0, 0);
+    expect(scrollTo).toHaveBeenCalledWith({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+    expect(document.documentElement.style.scrollBehavior).toBe("smooth");
+
+    document.documentElement.style.scrollBehavior = "";
   });
 });
