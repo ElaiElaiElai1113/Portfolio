@@ -88,4 +88,14 @@ describe("site identity", () => {
       /100% data accuracy|120\+|1,200\+|2-4x|2\+ days manual/,
     );
   });
+
+  it("loads route pages on demand", () => {
+    const source = readFileSync(resolve("src/App.tsx"), "utf8");
+
+    expect(source).toContain('lazy(() => import("@/pages/UniqueHomePage"))');
+    expect(source).toContain('lazy(() => import("@/pages/ProjectsPage"))');
+    expect(source).toContain('lazy(() => import("@/pages/ProjectDetailPage"))');
+    expect(source).toContain("<Suspense fallback={<PageFallback />}>"
+    );
+  });
 });
