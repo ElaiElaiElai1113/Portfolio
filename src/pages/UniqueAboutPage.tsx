@@ -118,7 +118,7 @@ export default function UniqueAboutPage() {
                 icon: Code,
                 title: "Build Full-Stack Applications",
                 description:
-                  "I create web applications using React, Node.js, and whatever tools fit the job. I care about performance, accessibility, and maintainability — not just shipping features.",
+                  "I deliver production Next.js, React, and TypeScript products backed by Supabase/PostgreSQL, including Shopify commerce and Flutter mobile experiences. I own the path from requirements and data modeling through testing and deployment.",
                 color: "text-terracotta",
               },
               {
@@ -170,24 +170,24 @@ export default function UniqueAboutPage() {
                 Skills & Tools
               </h2>
               <p className="text-muted-foreground">
-                Technologies I work with regularly. Not a checklist — these are
-                tools I've used in shipped projects, coursework, and freelance builds.
+                A focused view of the technologies and delivery practices used
+                across shipped client products and source-available builds.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-semibold text-lg mb-4">Frontend</h3>
+                <h3 className="font-semibold text-lg mb-4">Frontend &amp; Mobile</h3>
                 <div className="flex flex-wrap gap-2">
                   {[
                     "React",
+                    "Next.js",
                     "TypeScript",
                     "Tailwind CSS",
-                    "Next.js",
                     "Flutter",
                     "Dart",
-                    "Framer Motion",
-                    "HTML/CSS",
+                    "PWA",
+                    "Capacitor",
                   ].map((skill) => (
                     <Badge
                       key={skill}
@@ -201,9 +201,9 @@ export default function UniqueAboutPage() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-lg mb-4">Backend & Infrastructure</h3>
+                <h3 className="font-semibold text-lg mb-4">Backend &amp; Data</h3>
                 <div className="flex flex-wrap gap-2">
-                  {["Node.js", "Express", "Python", "PostgreSQL", "MongoDB", "n8n", "REST APIs", "Git"].map(
+                  {["Supabase", "PostgreSQL", "Django", "REST APIs", "Authentication", "Row-Level Security", "SQL", "API Integrations"].map(
                     (skill) => (
                       <Badge
                         key={skill}
@@ -218,9 +218,9 @@ export default function UniqueAboutPage() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-lg mb-4">Tools & Platforms</h3>
+                <h3 className="font-semibold text-lg mb-4">Platforms &amp; Delivery</h3>
                 <div className="flex flex-wrap gap-2">
-                  {["VS Code", "Figma", "GitHub", "Vercel", "Supabase", "Postman", "Trello", "Asana"].map(
+                  {["Shopify", "Vercel", "GitHub", "Playwright", "Figma", "Postman", "n8n", "AI/LLM Integrations"].map(
                     (skill) => (
                       <Badge
                         key={skill}
@@ -235,9 +235,9 @@ export default function UniqueAboutPage() {
               </div>
 
               <div>
-                <h3 className="font-semibold text-lg mb-4">Methodologies</h3>
+                <h3 className="font-semibold text-lg mb-4">Product &amp; Process</h3>
                 <div className="flex flex-wrap gap-2">
-                  {["Agile/Scrum", "Lean Six Sigma", "Git Flow", "Code Review", "Documentation", "Testing"].map(
+                  {["Agile/Scrum", "Requirements Discovery", "Data Modeling", "Testing", "Technical Documentation", "Stakeholder Communication", "Workflow Automation", "Lean Six Sigma"].map(
                     (skill) => (
                       <Badge
                         key={skill}

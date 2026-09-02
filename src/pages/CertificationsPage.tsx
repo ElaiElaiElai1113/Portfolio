@@ -108,8 +108,8 @@ export default function CertificationsPage() {
                         </p>
                       )}
 
-                      <div className="mt-auto pt-7">
-                        {cert.credential_url ? (
+                      {cert.credential_url && (
+                        <div className="mt-auto pt-7">
                         <Button
                           variant="outline"
                           className="w-full group"
@@ -124,12 +124,8 @@ export default function CertificationsPage() {
                             <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                           </a>
                         </Button>
-                        ) : (
-                          <p className="rounded-xl border border-border/60 bg-background/40 px-4 py-3 text-sm text-muted-foreground">
-                            Credential details available on request.
-                          </p>
-                        )}
-                      </div>
+                        </div>
+                      )}
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -158,8 +154,9 @@ export default function CertificationsPage() {
         {!isLoading && certifications && certifications.length > 0 && (
           <ScrollReveal delay={0.3}>
             <div className="text-center py-12">
-              <p className="text-muted-foreground mb-4">
-                Want credential details or more context on how I apply this training?
+              <p className="mx-auto mb-4 max-w-2xl text-muted-foreground">
+                Public credential links are not displayed here yet. Supporting
+                documentation can be discussed during the hiring process.
               </p>
               <Button size="lg" asChild>
                 <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
