@@ -172,7 +172,9 @@ export function UniqueNavigation() {
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2 text-foreground"
-                aria-label="Toggle menu"
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation"
               >
                 <AnimatePresence mode="wait">
                   {mobileMenuOpen ? (
@@ -216,6 +218,7 @@ export function UniqueNavigation() {
               onClick={() => setMobileMenuOpen(false)}
             />
             <motion.div
+              id="mobile-navigation"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -228,6 +231,7 @@ export function UniqueNavigation() {
                   <button
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-2 text-muted-foreground hover:text-foreground"
+                    aria-label="Close menu"
                   >
                     <X className="h-5 w-5" />
                   </button>
@@ -252,7 +256,7 @@ export function UniqueNavigation() {
                       >
                         <div className="flex items-center justify-between">
                           <span>{item.name}</span>
-                          <span className="mono text-xs opacity-50">
+                          <span aria-hidden="true" className="mono text-xs opacity-50">
                             {item.key}
                           </span>
                         </div>

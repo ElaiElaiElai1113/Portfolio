@@ -13,7 +13,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader } from '@/components/ui/card';
 import { Mail, Send } from 'lucide-react';
 import { CONTACT_EMAIL, buildContactMailtoUrl } from '@/lib/site';
 
@@ -44,10 +44,10 @@ export function AnimatedContactForm() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
+        <h2 className="flex items-center gap-2 text-2xl font-semibold leading-none tracking-tight">
           <Mail className="h-5 w-5" />
           Send Me a Message
-        </CardTitle>
+        </h2>
         <CardDescription>
           Complete the details and I’ll open a ready-to-send email in your mail app.
         </CardDescription>

@@ -4,7 +4,6 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { ScrollReveal } from "@/components/animations/PageTransition";
 import { AnimatedContactForm } from "@/components/AnimatedContactForm";
@@ -99,7 +98,9 @@ export default function ContactPage() {
             <ScrollReveal delay={0.2}>
               <Card>
                 <CardHeader>
-                  <CardTitle>Contact Info</CardTitle>
+                  <h2 className="text-2xl font-semibold leading-none tracking-tight">
+                    Contact Info
+                  </h2>
                   <CardDescription>
                     Various ways to reach me
                   </CardDescription>
@@ -139,7 +140,9 @@ export default function ContactPage() {
             <ScrollReveal delay={0.3}>
               <Card>
                 <CardHeader>
-                  <CardTitle>Social Links</CardTitle>
+                  <h2 className="text-2xl font-semibold leading-none tracking-tight">
+                    Social Links
+                  </h2>
                   <CardDescription>
                     Connect with me on social media
                   </CardDescription>
@@ -189,7 +192,7 @@ export default function ContactPage() {
           <Card className="relative overflow-hidden bg-gradient-to-r from-primary/10 via-purple-500/10 to-pink-500/10 border-border/50">
             <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:20px_20px]" />
             <div className="relative z-10 text-center py-12 px-4">
-              <h3 className="text-2xl font-bold mb-3">Let's Create Something Amazing</h3>
+              <h2 className="text-2xl font-bold mb-3">Let's Create Something Amazing</h2>
               <p className="text-muted-foreground max-w-xl mx-auto mb-6">
                 Whether you have a project in mind, a question, or just want to connect,
                 I'm always happy to chat.
