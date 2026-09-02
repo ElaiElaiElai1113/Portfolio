@@ -14,76 +14,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { getProjectActions, getProjectStateLabel } from "@/lib/projectPresentation";
 import { SEO } from "@/components/SEO";
-
-type TocItem = { id: string; text: string; level: 2 | 3 };
-
-function slugify(value: string) {
-  return value
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/\s+/g, "-");
-}
-
-function getHeadingId(text: string, counts: Map<string, number>) {
-  const base = slugify(text);
-  const next = (counts.get(base) ?? 0) + 1;
-  counts.set(base, next);
-  return next === 1 ? base : `${base}-${next}`;
-}
-
-function buildToc(markdown?: string) {
-  if (!markdown) return [] as TocItem[];
-  const lines = markdown.split("\n");
-  const counts = new Map<string, number>();
-  const items: TocItem[] = [];
-
-  for (const line of lines) {
-    const h2 = line.match(/^##\s+(.+)/);
-    const h3 = line.match(/^###\s+(.+)/);
-    if (!h2 && !h3) continue;
-    const level = h2 ? 2 : 3;
-    const text = (h2 ?? h3)![1].trim();
-    const id = getHeadingId(text, counts);
-    items.push({ id, text, level });
-  }
-
-  return items;
-}
-
-type MarkdownSection = { title: string; content: string };
-
-function splitMarkdownSections(markdown?: string) {
-  if (!markdown) return [] as MarkdownSection[];
-  const lines = markdown.split("\n");
-  const sections: MarkdownSection[] = [];
-  let currentTitle = "";
-  let buffer: string[] = [];
-
-  for (const line of lines) {
-    const match = line.match(/^##\s+(.+)/);
-    if (match) {
-      if (currentTitle || buffer.join("").trim()) {
-        sections.push({ title: currentTitle || "Overview", content: buffer.join("\n").trim() });
-      }
-      currentTitle = match[1].trim();
-      buffer = [];
-      continue;
-    }
-    buffer.push(line);
-  }
-
-  if (currentTitle || buffer.join("").trim()) {
-    sections.push({ title: currentTitle || "Overview", content: buffer.join("\n").trim() });
-  }
-
-  return sections.filter((section) => section.content.length > 0);
-}
+import { parseCaseStudy } from "@/lib/caseStudy";
 
 export default function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const [caseStudyExpanded, setCaseStudyExpanded] = useState(false);
-  const headingIndexRef = useRef(0);
   const h3IndexRef = useRef(0);
   const caseStudyCardRef = useRef<HTMLDivElement | null>(null);
   const [readingProgress, setReadingProgress] = useState(0);
@@ -108,9 +43,10 @@ export default function ProjectDetailPage() {
   const caseStudyWhy = project?.case_study_why;
   const caseStudyContributions = project?.case_study_contributions ?? [];
   const caseStudyBody = project?.case_study_md ?? "";
-  const caseStudyToc = buildToc(caseStudyBody);
-  const caseStudySections = splitMarkdownSections(caseStudyBody);
-  const h2Items = caseStudyToc.filter((item) => item.level === 2);
+  const { sections: caseStudySections, toc: caseStudyToc } = useMemo(
+    () => parseCaseStudy(caseStudyBody),
+    [caseStudyBody],
+  );
   const h3Items = caseStudyToc.filter((item) => item.level === 3);
 
   const navLinks = useMemo(() => {
@@ -139,7 +75,6 @@ export default function ProjectDetailPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [caseStudyBody]);
 
-  headingIndexRef.current = 0;
   h3IndexRef.current = 0;
 
   if (isLoading) {
@@ -513,11 +448,10 @@ export default function ProjectDetailPage() {
                           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background via-background/90 to-transparent" />
                         )}
                         <div className="space-y-6 max-w-3xl mx-auto">
-                          {caseStudySections.map((section, index) => {
-                            const sectionId = h2Items[index]?.id ?? slugify(section.title);
+                          {caseStudySections.map((section) => {
                             return (
-                              <details key={sectionId} open className="rounded-xl border border-border/60 bg-background/40 p-5">
-                                <summary id={sectionId} className="cursor-pointer text-lg font-semibold text-foreground">
+                              <details key={section.id} open className="rounded-xl border border-border/60 bg-background/40 p-5">
+                                <summary id={section.id} className="cursor-pointer text-lg font-semibold text-foreground">
                                   {section.title}
                                 </summary>
                                 <div className="mt-4 prose prose-slate dark:prose-invert md:prose-lg max-w-none
@@ -534,9 +468,7 @@ export default function ProjectDetailPage() {
                                   <ReactMarkdown
                                     components={{
                                       h3: ({ children }) => {
-                                        const text = String(children);
-                                        const id =
-                                          h3Items[h3IndexRef.current]?.id ?? slugify(text);
+                                        const id = h3Items[h3IndexRef.current]?.id;
                                         h3IndexRef.current += 1;
                                         return <h3 id={id}>{children}</h3>;
                                       },
