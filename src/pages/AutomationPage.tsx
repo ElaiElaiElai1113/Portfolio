@@ -146,8 +146,8 @@ export default function AutomationPage() {
             Intelligent Workflows
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Watch my n8n workflows in action. Click play to see how
-            automation transforms manual processes into seamless operations.
+            Explore an illustrative n8n workflow and the design decisions that
+            make business automations easier to validate and operate.
           </p>
         </section>
 
@@ -157,10 +157,10 @@ export default function AutomationPage() {
             <div className="flex items-center justify-between mb-8">
               <div>
                 <h2 className="text-2xl font-semibold mb-2">
-                  Live Workflow Demo
+                  Illustrative Workflow Demo
                 </h2>
                 <p className="text-muted-foreground">
-                  Invoice Processing Automation (Watch it run)
+                  Invoice processing pattern — run the interaction locally
                 </p>
               </div>
               <div className="flex gap-2">
@@ -331,28 +331,28 @@ export default function AutomationPage() {
             <Card className="surface-paper p-6 text-center">
               <Clock className="h-8 w-8 mx-auto mb-4 text-primary/70" />
               <div className="text-3xl font-bold font-['Playfair_Display'] mb-2">
-                ~30s
+                Validation
               </div>
               <div className="text-sm text-muted-foreground">
-                Processing time (vs 2+ days manual)
+                Checks before each handoff
               </div>
             </Card>
             <Card className="surface-paper p-6 text-center">
               <CheckCircle2 className="h-8 w-8 mx-auto mb-4 text-sage" />
               <div className="text-3xl font-bold font-['Playfair_Display'] mb-2">
-                100%
+                Traceable
               </div>
               <div className="text-sm text-muted-foreground">
-                Data accuracy achieved
+                Explicit processing states
               </div>
             </Card>
             <Card className="surface-paper p-6 text-center">
               <Workflow className="h-8 w-8 mx-auto mb-4 text-terracotta" />
               <div className="text-3xl font-bold font-['Playfair_Display'] mb-2">
-                4 steps
+                4 stages
               </div>
               <div className="text-sm text-muted-foreground">
-                Automated in this workflow
+                Demonstrated workflow
               </div>
             </Card>
           </div>

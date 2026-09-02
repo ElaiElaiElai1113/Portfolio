@@ -75,6 +75,7 @@ describe("site identity", () => {
       "src/components/UniqueNavigation.tsx",
       "src/pages/AutomationPage.tsx",
       "src/pages/CertificationsPage.tsx",
+      "src/components/AutomationShowcase.tsx",
     ];
     const source = files
       .map((file) => readFileSync(resolve(file), "utf8"))
@@ -82,6 +83,9 @@ describe("site identity", () => {
 
     expect(source).not.toMatch(
       /yourprofile|yourusername|contact@elijahndelosantos\.com/,
+    );
+    expect(source).not.toMatch(
+      /100% data accuracy|120\+|1,200\+|2-4x|2\+ days manual/,
     );
   });
 });

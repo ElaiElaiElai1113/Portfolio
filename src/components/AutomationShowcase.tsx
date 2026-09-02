@@ -5,9 +5,7 @@ import {
   Zap,
   GitBranch,
   Workflow,
-  Clock,
   CheckCircle2,
-  TrendingUp,
   Database,
   Mail,
 } from "lucide-react";
@@ -16,7 +14,6 @@ import { Card } from "@/components/ui/card";
 
 interface AutomationMetric {
   label: string;
-  value: string;
   description: string;
   icon: React.ComponentType<{ className?: string }>;
 }
@@ -28,30 +25,26 @@ interface WorkflowStep {
   description: string;
 }
 
-const automationMetrics: AutomationMetric[] = [
+const automationCapabilities: AutomationMetric[] = [
   {
-    label: "Hours Reclaimed",
-    value: "120+",
-    description: "Estimated monthly savings across active workflows",
-    icon: Clock,
+    label: "Event-driven",
+    description: "Webhook, schedule, and system-event triggers",
+    icon: Zap,
   },
   {
-    label: "Workflows Built",
-    value: "18+",
-    description: "n8n automations built for real use cases",
-    icon: Workflow,
-  },
-  {
-    label: "Runs Processed",
-    value: "1,200+",
-    description: "Successful workflow runs in recent projects",
+    label: "Validated",
+    description: "Checks and conditional paths before each handoff",
     icon: CheckCircle2,
   },
   {
-    label: "Faster Handoffs",
-    value: "2-4x",
-    description: "Typical speed-up after automation",
-    icon: TrendingUp,
+    label: "Observable",
+    description: "Explicit processing states and actionable failures",
+    icon: Workflow,
+  },
+  {
+    label: "Integrated",
+    description: "APIs, databases, email, and business tools connected",
+    icon: Database,
   },
 ];
 
@@ -87,7 +80,7 @@ const exampleWorkflows = [
     title: "Invoice Processing System",
     description:
       "Automatically extract data from PDF invoices, validate against purchase orders, and update accounting systems",
-    timeSaved: "8 hours/week",
+    focus: "Document intake and validation",
     complexity: "Medium",
     tools: ["n8n", "Google Sheets", "QuickBooks", "Gmail"],
   },
@@ -95,7 +88,7 @@ const exampleWorkflows = [
     title: "Social Media Scheduler",
     description:
       "AI-powered content scheduling across platforms with optimal timing based on audience analytics",
-    timeSaved: "5 hours/week",
+    focus: "Reviewable content handoffs",
     complexity: "Advanced",
     tools: ["n8n", "Twitter API", "LinkedIn", "OpenAI"],
   },
@@ -103,7 +96,7 @@ const exampleWorkflows = [
     title: "Customer Onboarding Flow",
     description:
       "Automated welcome sequences, account setup, and personalized resource delivery for new users",
-    timeSaved: "12 hours/week",
+    focus: "Consistent account setup",
     complexity: "Complex",
     tools: ["n8n", "Notion", "SendGrid", "CRM"],
   },
@@ -154,35 +147,28 @@ export function AutomationShowcase() {
           </p>
         </motion.div>
 
-        {/* Metrics dashboard */}
+        {/* Capability dashboard */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-20">
-          {automationMetrics.map((metric, index) => (
+          {automationCapabilities.map((capability, index) => (
             <motion.div
-              key={metric.label}
+              key={capability.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="surface-paper p-6 text-center hover-organic transition-all">
-                <metric.icon className="h-8 w-8 mx-auto mb-4 text-primary/70" />
-                <div className="text-4xl font-bold font-['Playfair_Display'] mb-2">
-                  {metric.value}
+              <Card className="surface-paper p-6 h-full hover-organic transition-all">
+                <capability.icon className="h-8 w-8 mb-5 text-primary/70" />
+                <div className="text-lg font-semibold text-foreground mb-2">
+                  {capability.label}
                 </div>
-                <div className="text-sm font-medium text-foreground mb-1">
-                  {metric.label}
-                </div>
-                <div className="text-xs text-muted-foreground">
-                  {metric.description}
+                <div className="text-sm leading-relaxed text-muted-foreground">
+                  {capability.description}
                 </div>
               </Card>
             </motion.div>
           ))}
         </div>
-        <p className="text-xs text-muted-foreground text-center mb-16">
-          Metrics are aggregated from personal, academic, and freelance automation projects.
-        </p>
-
         {/* Interactive workflow visualization */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -290,7 +276,9 @@ export function AutomationShowcase() {
         {/* Example workflows showcase */}
         <div className="mb-12">
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-2xl font-semibold">Recent Automations</h3>
+            <h3 className="text-2xl font-semibold">
+              Representative Workflow Patterns
+            </h3>
             <Button variant="outline" asChild className="group">
               <Link to="/automation">
                 View All Workflows
@@ -322,9 +310,9 @@ export function AutomationShowcase() {
 
                   <div className="space-y-4">
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Time Saved</span>
+                      <span className="text-muted-foreground">Workflow Focus</span>
                       <span className="font-medium text-primary">
-                        {workflow.timeSaved}
+                        {workflow.focus}
                       </span>
                     </div>
 
@@ -372,11 +360,11 @@ export function AutomationShowcase() {
               </div>
               <ul className="space-y-3">
                 {[
-                  "Copy-pasting data between 5+ applications",
-                  "Waiting for human approval at every step",
-                  "Errors from manual data entry (15% rate)",
-                  "2-3 day turnaround time",
-                  "Team frustrated with repetitive tasks",
+                  "Copy-pasting data between disconnected applications",
+                  "Human approval without a visible queue or audit trail",
+                  "Manual entry that is difficult to validate consistently",
+                  "Handoffs with unclear ownership or processing state",
+                  "Repetitive work competing with higher-value tasks",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm">
                     <span className="text-destructive mt-0.5">×</span>
@@ -395,11 +383,11 @@ export function AutomationShowcase() {
               </div>
               <ul className="space-y-3">
                 {[
-                  "Seamless integration via n8n workflows",
-                  "Smart decisions with conditional logic",
-                  "100% data accuracy",
-                  "Instant processing (~30 seconds)",
-                  "Team focuses on high-value work",
+                  "Connected systems through explicit integration steps",
+                  "Validation before data moves to the next stage",
+                  "Traceable processing states and actionable failures",
+                  "Retries and human review where exceptions matter",
+                  "Teams retain control while repetitive work is automated",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm">
                     <span className="text-sage mt-0.5">✓</span>
