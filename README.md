@@ -23,7 +23,7 @@ A case-study-led portfolio for Elijah De Los Santos, an independent full-stack d
 - React 19, TypeScript, Vite, and React Router
 - Tailwind CSS, Radix UI / shadcn-style components, Framer Motion, and Lucide icons
 - TanStack Query over local typed JSON content
-- React Helmet Async for canonical, Open Graph, and social metadata
+- React 19 native metadata components for canonical, Open Graph, and social metadata
 - Vitest and Testing Library for data, rendering, identity, and content-integrity tests
 
 Portfolio content lives in `src/data`. Project screenshots and supporting media live in `public/assets`.

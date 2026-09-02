@@ -2,7 +2,6 @@ import { lazy, Suspense } from "react";
 import { Routes, Route, Outlet, useLocation } from "react-router-dom";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { PageTransition } from "@/components/animations/PageTransition";
-import { HelmetProvider } from "react-helmet-async";
 
 import { UniquePublicLayout } from "@/layouts/UniquePublicLayout";
 import NotFoundPage from "@/pages/NotFoundPage";
@@ -49,33 +48,31 @@ function AnimatedOutlet() {
 
 function App() {
   return (
-    <HelmetProvider>
-      <ErrorBoundary>
-        <Routes>
-          {/* Public Routes */}
-          <Route
-            path="/"
-            element={
-              <UniquePublicLayout>
-                <AnimatedOutlet />
-              </UniquePublicLayout>
-            }
-          >
-            <Route index element={<UniqueHomePage />} />
-            <Route path="about" element={<UniqueAboutPage />} />
-            <Route path="automation" element={<AutomationPage />} />
-            <Route path="projects" element={<ProjectsPage />} />
-            <Route path="projects/:slug" element={<ProjectDetailPage />} />
-            <Route path="experience" element={<ExperiencePage />} />
-            <Route path="certifications" element={<CertificationsPage />} />
-            <Route path="contact" element={<ContactPage />} />
-          </Route>
+    <ErrorBoundary>
+      <Routes>
+        {/* Public Routes */}
+        <Route
+          path="/"
+          element={
+            <UniquePublicLayout>
+              <AnimatedOutlet />
+            </UniquePublicLayout>
+          }
+        >
+          <Route index element={<UniqueHomePage />} />
+          <Route path="about" element={<UniqueAboutPage />} />
+          <Route path="automation" element={<AutomationPage />} />
+          <Route path="projects" element={<ProjectsPage />} />
+          <Route path="projects/:slug" element={<ProjectDetailPage />} />
+          <Route path="experience" element={<ExperiencePage />} />
+          <Route path="certifications" element={<CertificationsPage />} />
+          <Route path="contact" element={<ContactPage />} />
+        </Route>
 
-          {/* 404 Page */}
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </ErrorBoundary>
-    </HelmetProvider>
+        {/* 404 Page */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </ErrorBoundary>
   );
 }
 

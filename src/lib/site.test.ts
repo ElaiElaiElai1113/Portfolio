@@ -2,7 +2,6 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { createElement } from "react";
 import { render, waitFor } from "@testing-library/react";
-import { HelmetProvider } from "react-helmet-async";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 import { SEO } from "@/components/SEO";
@@ -44,16 +43,12 @@ describe("site identity", () => {
   it("renders contextual canonical and social metadata", async () => {
     render(
       createElement(
-        HelmetProvider,
-        null,
-        createElement(
-          MemoryRouter,
-          { initialEntries: ["/projects/rewardme"] },
-          createElement(SEO, {
-            title: "RewardMe",
-            description: "RewardMe case study",
-          }),
-        ),
+        MemoryRouter,
+        { initialEntries: ["/projects/rewardme"] },
+        createElement(SEO, {
+          title: "RewardMe",
+          description: "RewardMe case study",
+        }),
       ),
     );
 
@@ -95,7 +90,14 @@ describe("site identity", () => {
     expect(source).toContain('lazy(() => import("@/pages/UniqueHomePage"))');
     expect(source).toContain('lazy(() => import("@/pages/ProjectsPage"))');
     expect(source).toContain('lazy(() => import("@/pages/ProjectDetailPage"))');
-    expect(source).toContain("<Suspense fallback={<PageFallback />}>"
-    );
+    expect(source).toContain("<Suspense fallback={<PageFallback />}>");
+  });
+
+  it("keeps route-managed metadata out of the static HTML shell", () => {
+    const source = readFileSync(resolve("index.html"), "utf8");
+
+    expect(source).not.toContain("https://portfolio.vercel.app");
+    expect(source).not.toContain('rel="canonical"');
+    expect(source).not.toContain('property="og:url"');
   });
 });

@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import { SITE_URL, buildCanonicalUrl, buildPageTitle } from '@/lib/site';
 
@@ -29,12 +28,15 @@ export function SEO({ title, description, image, type, noIndex }: SEOProps) {
     : `${SITE_URL}${metaImage.startsWith('/') ? metaImage : `/${metaImage}`}`;
 
   return (
-    <Helmet>
+    <>
       {/* Primary Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
       <meta name="description" content={metaDescription} />
-      {noIndex && <meta name="robots" content="noindex, nofollow" />}
+      <meta
+        name="robots"
+        content={noIndex ? "noindex, nofollow" : "index, follow"}
+      />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={metaType} />
@@ -53,6 +55,6 @@ export function SEO({ title, description, image, type, noIndex }: SEOProps) {
 
       {/* Canonical URL */}
       <link rel="canonical" href={url} />
-    </Helmet>
+    </>
   );
 }

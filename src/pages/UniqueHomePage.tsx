@@ -25,7 +25,6 @@ export default function UniqueHomePage() {
   return (
     <>
       <SEO
-        title="Elijah De Los Santos"
         description="Full-stack product developer building production web, mobile, commerce, rewards, and business systems from customer experience through reliable operations."
       />
 

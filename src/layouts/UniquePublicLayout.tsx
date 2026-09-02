@@ -1,6 +1,5 @@
 import { Toaster } from "@/components/ui/toaster";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
-import { HelmetProvider } from "react-helmet-async";
 import { UniqueNavigation } from "@/components/UniqueNavigation";
 
 export function UniquePublicLayout({
@@ -9,10 +8,9 @@ export function UniquePublicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <HelmetProvider>
-      <ErrorBoundary>
-        <div className="min-h-screen bg-background">
-          <UniqueNavigation />
+    <ErrorBoundary>
+      <div className="min-h-screen bg-background">
+        <UniqueNavigation />
 
           {/* Main content with top padding for fixed nav */}
           <div className="pt-20">{children}</div>
@@ -76,9 +74,8 @@ export function UniquePublicLayout({
               </div>
             </div>
           </footer>
-        </div>
-        <Toaster />
-      </ErrorBoundary>
-    </HelmetProvider>
+      </div>
+      <Toaster />
+    </ErrorBoundary>
   );
 }
