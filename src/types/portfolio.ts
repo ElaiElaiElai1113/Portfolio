@@ -60,6 +60,8 @@ export interface Experience {
   location: string | null;
   start_date: string;
   end_date: string | null;
+  date_label?: string;
+  duration_label?: string;
   current?: boolean;
   description?: string;
   bullets: string[];

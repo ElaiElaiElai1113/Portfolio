@@ -18,6 +18,39 @@
     "sort_order": 0
   },
   {
+    "id": "dict-region-11-internship",
+    "company": "Department of Information and Communications Technology - Region 11",
+    "role": "Software Development Intern",
+    "location": "Davao City, Philippines",
+    "start_date": "2025-01-01",
+    "end_date": "2025-01-01",
+    "date_label": "2025 · 3 months",
+    "current": false,
+    "description": "Translated internal government processes into maintainable web and mobile tools during a three-month software development internship.",
+    "bullets": [
+      "Built a Django Locator Slip system and a Flutter/Supabase fleet management application for internal operational workflows",
+      "Collaborated with stakeholders on requirements, implementation, testing, and documentation"
+    ],
+    "skills": ["Django", "Python", "Flutter", "Dart", "Supabase", "Requirements", "Testing", "Documentation"],
+    "sort_order": 1
+  },
+  {
+    "id": "ateneo-samahan-project-manager",
+    "company": "Ateneo SAMAHAN",
+    "role": "Project Manager",
+    "location": "Davao City, Philippines",
+    "start_date": "2025-01-01",
+    "end_date": "2025-01-01",
+    "date_label": "2025",
+    "current": false,
+    "description": "Supported student-led initiatives through project planning, documentation, and stakeholder coordination.",
+    "bullets": [
+      "Held a project-management role supporting planning, delivery coordination, and stakeholder communication for Ateneo SAMAHAN initiatives"
+    ],
+    "skills": ["Project Management", "Stakeholder Communication", "Documentation", "Team Coordination"],
+    "sort_order": 2
+  },
+  {
     "id": "experience-1",
     "company": "Ateneo de Davao University CSSEC",
     "role": "Productions & Documentation Officer",
@@ -32,7 +65,7 @@
       "Coordinated with various teams for successful event execution"
     ],
     "skills": ["Event Management", "Documentation", "Team Coordination", "Logistics", "Agile"],
-    "sort_order": 1
+    "sort_order": 3
   },
   {
     "id": "experience-2",
@@ -49,6 +82,6 @@
       "Improved workflow organization and reporting accuracy"
     ],
     "skills": ["Administrative Support", "Data Entry", "Communication", "Research", "Organization"],
-    "sort_order": 2
+    "sort_order": 4
   }
 ]

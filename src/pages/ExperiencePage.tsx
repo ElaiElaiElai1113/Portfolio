@@ -109,7 +109,7 @@ export default function ExperiencePage() {
             <div className="space-y-12">
               {experiences.map((experience, index) => (
                 <div key={experience.id}>
-                  {index === 1 && (
+                  {index === 2 && (
                     <div className="mb-6 pl-16">
                       <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
                         Earlier experience
@@ -169,19 +169,26 @@ export default function ExperiencePage() {
                             <div className="flex items-center gap-1.5">
                               <Calendar className="h-4 w-4" />
                               <span>
-                                {formatDate(experience.start_date)} -{" "}
-                                {formatDate(experience.end_date)}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                              <TrendingUp className="h-4 w-4" />
-                              <span>
-                                {calculateDuration(
-                                  experience.start_date,
-                                  experience.end_date,
+                                {experience.date_label ?? (
+                                  <>
+                                    {formatDate(experience.start_date)} -{" "}
+                                    {formatDate(experience.end_date)}
+                                  </>
                                 )}
                               </span>
                             </div>
+                            {(experience.duration_label || !experience.date_label) && (
+                              <div className="flex items-center gap-1.5">
+                                <TrendingUp className="h-4 w-4" />
+                                <span>
+                                  {experience.duration_label ??
+                                    calculateDuration(
+                                      experience.start_date,
+                                      experience.end_date,
+                                    )}
+                                </span>
+                              </div>
+                            )}
                           </div>
                         </CardHeader>
 
