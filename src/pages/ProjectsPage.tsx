@@ -42,7 +42,7 @@ export default function ProjectsPage() {
         description="Explore commercial products, client platforms, and technical builds across full-stack web, mobile, AI, commerce, and automation."
       />
 
-      <div className="space-y-12">
+      <div className="container mx-auto px-6 space-y-12">
         {/* Header */}
         <ScrollReveal>
           <div className="space-y-4">
