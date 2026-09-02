@@ -1,0 +1,37 @@
+import { fireEvent, render, screen } from "@testing-library/react";
+import { MemoryRouter, useLocation, useNavigate } from "react-router-dom";
+import { describe, expect, it, vi } from "vitest";
+import { ScrollToTop } from "@/components/ScrollToTop";
+
+function RouteHarness() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <ScrollToTop />
+      <span>{location.pathname}</span>
+      <button type="button" onClick={() => navigate("/projects")}>Projects</button>
+    </>
+  );
+}
+
+describe("ScrollToTop", () => {
+  it("resets both scroll axes after a pathname change", () => {
+    const scrollTo = vi
+      .spyOn(window, "scrollTo")
+      .mockImplementation(() => undefined);
+
+    render(
+      <MemoryRouter initialEntries={["/about"]}>
+        <RouteHarness />
+      </MemoryRouter>,
+    );
+    scrollTo.mockClear();
+
+    fireEvent.click(screen.getByRole("button", { name: "Projects" }));
+
+    expect(screen.getByText("/projects")).toBeInTheDocument();
+    expect(scrollTo).toHaveBeenCalledWith(0, 0);
+  });
+});
