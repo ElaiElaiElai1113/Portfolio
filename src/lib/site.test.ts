@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { createElement } from "react";
 import { render, waitFor } from "@testing-library/react";
@@ -80,8 +80,79 @@ describe("site identity", () => {
       /yourprofile|yourusername|contact@elijahndelosantos\.com/,
     );
     expect(source).not.toMatch(
-      /100% data accuracy|120\+|1,200\+|2-4x|2\+ days manual/,
+      /100% data accuracy|120\+|1,200\+|2-4x|2\+ days manual|hours\/week saved|Zero stockouts|More Production Workflows/,
     );
+  });
+
+  it("keeps primary page content inside responsive mobile gutters", () => {
+    const files = [
+      "src/pages/UniqueAboutPage.tsx",
+      "src/pages/AutomationPage.tsx",
+      "src/pages/ExperiencePage.tsx",
+      "src/pages/CertificationsPage.tsx",
+      "src/pages/ContactPage.tsx",
+      "src/pages/ProjectDetailPage.tsx",
+    ];
+
+    for (const file of files) {
+      const source = readFileSync(resolve(file), "utf8");
+      expect(source, file).toMatch(/max-w-(?:4xl|5xl|6xl)[^\n]+px-6/);
+    }
+  });
+
+  it("ships valid discovery and identity assets", () => {
+    expect(existsSync(resolve("public/favicon.svg"))).toBe(true);
+    expect(existsSync(resolve("public/sitemap.xml"))).toBe(true);
+
+    const seoSource = readFileSync(resolve("src/components/SEO.tsx"), "utf8");
+    expect(seoSource).not.toContain("/og-image.png");
+
+    const html = readFileSync(resolve("index.html"), "utf8");
+    expect(html).toContain('href="/favicon.svg"');
+    expect(html).not.toContain("/vite.svg");
+
+    const sitemap = readFileSync(resolve("public/sitemap.xml"), "utf8");
+    expect(sitemap).toContain(`${SITE_URL}/projects/rewardme`);
+    expect(sitemap).not.toContain("issuepilot");
+  });
+
+  it("marks the not-found route as non-indexable", () => {
+    const source = readFileSync(resolve("src/pages/NotFoundPage.tsx"), "utf8");
+    expect(source).toContain("<SEO");
+    expect(source).toContain("noIndex");
+  });
+
+  it("uses semantic case-study section headings", () => {
+    const source = readFileSync(resolve("src/pages/ProjectDetailPage.tsx"), "utf8");
+    expect(source).toContain('<section id={section.id}');
+    expect(source).toContain("<h2");
+    expect(source).not.toContain('<summary id={section.id}');
+  });
+
+  it("marks missing project routes as non-indexable", () => {
+    const source = readFileSync(resolve("src/pages/ProjectDetailPage.tsx"), "utf8");
+    expect(source).toContain('title="Project Not Found"');
+    expect(source).toContain("noIndex");
+  });
+
+  it("labels icon-only profile links", () => {
+    const source = readFileSync(resolve("src/pages/UniqueAboutPage.tsx"), "utf8");
+    expect(source).toContain('aria-label="View Elijah\'s GitHub profile"');
+    expect(source).toContain('aria-label="View Elijah\'s LinkedIn profile"');
+  });
+
+  it("keeps the home page focused on work and primary next steps", () => {
+    const source = readFileSync(resolve("src/pages/UniqueHomePage.tsx"), "utf8");
+    expect(source).not.toContain("<AutomationShowcase");
+  });
+
+  it("uses level-two headings for projects in the archive", () => {
+    const source = readFileSync(
+      resolve("src/components/EnhancedProjectCard.tsx"),
+      "utf8",
+    );
+    expect(source).toContain("<h2");
+    expect(source).not.toContain("<CardTitle");
   });
 
   it("loads route pages on demand", () => {

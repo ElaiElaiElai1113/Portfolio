@@ -17,6 +17,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SEO } from "@/components/SEO";
 import { CONTACT_EMAIL } from "@/lib/site";
+import {
+  getWorkflowConnectionPosition,
+  getWorkflowRunState,
+} from "@/lib/automation";
 
 interface WorkflowNode {
   id: string;
@@ -30,7 +34,6 @@ interface WorkflowNode {
 interface WorkflowConnection {
   from: string;
   to: string;
-  label?: string;
 }
 
 const demoWorkflow: WorkflowNode[] = [
@@ -69,25 +72,37 @@ const demoWorkflow: WorkflowNode[] = [
 ];
 
 const connections: WorkflowConnection[] = [
-  { from: "1", to: "2", label: "Attachment" },
-  { from: "2", to: "3", label: "Data" },
-  { from: "3", to: "4", label: "Valid" },
+  { from: "1", to: "2" },
+  { from: "2", to: "3" },
+  { from: "3", to: "4" },
 ];
 
 export default function AutomationPage() {
   const [workflow, setWorkflow] = useState<WorkflowNode[]>(demoWorkflow);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentStep, setCurrentStep] = useState<number>(-1);
+  const runState = getWorkflowRunState(
+    isPlaying,
+    workflow.map((node) => node.status),
+  );
 
   const runWorkflow = async () => {
     setIsPlaying(true);
     setCurrentStep(0);
+    setWorkflow((prev) =>
+      prev.map((node) => ({ ...node, status: "idle" as const })),
+    );
 
     // Simulate workflow execution
     for (let i = 0; i < workflow.length; i++) {
       setWorkflow((prev) =>
         prev.map((node, idx) =>
-          idx === i ? { ...node, status: "active" as const } : node
+          idx === i
+            ? { ...node, status: "active" as const }
+            : {
+                ...node,
+                status: idx < i ? ("complete" as const) : ("idle" as const),
+              },
         )
       );
 
@@ -106,14 +121,7 @@ export default function AutomationPage() {
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setIsPlaying(false);
-    setCurrentStep(-1);
-
-    // Reset after completion
-    setTimeout(() => {
-      setWorkflow((prev) =>
-        prev.map((node) => ({ ...node, status: "idle" as const }))
-      );
-    }, 2000);
+    setCurrentStep(workflow.length);
   };
 
   const resetWorkflow = () => {
@@ -128,10 +136,10 @@ export default function AutomationPage() {
     <>
       <SEO
         title="Automation & n8n Workflows"
-        description="Explore intelligent automation workflows built with n8n. See how I eliminate repetitive tasks and create systems that work while you sleep."
+        description="Explore an interactive n8n workflow and the validation, traceability, and integration patterns I use to build dependable business automation."
       />
 
-      <div className="max-w-6xl mx-auto space-y-16">
+      <div className="max-w-6xl mx-auto px-6 space-y-16">
         {/* Header */}
         <section className="text-center py-12">
           <motion.div
@@ -153,8 +161,8 @@ export default function AutomationPage() {
 
         {/* Interactive Workflow Demo */}
         <section>
-          <Card className="surface-paper p-8 lg:p-12">
-            <div className="flex items-center justify-between mb-8">
+          <Card className="surface-paper p-6 sm:p-8 lg:p-12">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between mb-8">
               <div>
                 <h2 className="text-2xl font-semibold mb-2">
                   Illustrative Workflow Demo
@@ -163,7 +171,7 @@ export default function AutomationPage() {
                   Invoice processing pattern — run the interaction locally
                 </p>
               </div>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2 sm:shrink-0">
                 <Button
                   onClick={runWorkflow}
                   disabled={isPlaying}
@@ -201,13 +209,17 @@ export default function AutomationPage() {
                   const fromNode = workflow.find((n) => n.id === conn.from);
                   const toNode = workflow.find((n) => n.id === conn.to);
                   if (!fromNode || !toNode) return null;
+                  const position = getWorkflowConnectionPosition(
+                    idx,
+                    workflow.length,
+                  );
 
                   return (
                     <g key={`${conn.from}-${conn.to}`}>
                       <motion.line
-                        x1="25%"
+                        x1={position.x1}
                         y1="50%"
-                        x2="75%"
+                        x2={position.x2}
                         y2="50%"
                         stroke={
                           isActive
@@ -220,16 +232,6 @@ export default function AutomationPage() {
                         animate={{ pathLength: isActive ? 1 : 0 }}
                         transition={{ duration: 0.5 }}
                       />
-                      {conn.label && (
-                        <text
-                          x="50%"
-                          y="40%"
-                          textAnchor="middle"
-                          className="text-xs fill-muted-foreground"
-                        >
-                          {conn.label}
-                        </text>
-                      )}
                     </g>
                   );
                 })}
@@ -296,8 +298,12 @@ export default function AutomationPage() {
             </div>
 
             {/* Status indicator */}
-            <div className="mt-8 flex items-center justify-center gap-4 text-sm">
-              {isPlaying ? (
+            <div
+              role="status"
+              aria-live="polite"
+              className="mt-8 flex items-center justify-center gap-4 text-center text-sm"
+            >
+              {runState === "running" ? (
                 <>
                   <motion.div
                     className="w-2 h-2 rounded-full bg-primary"
@@ -308,7 +314,7 @@ export default function AutomationPage() {
                     Workflow executing...
                   </span>
                 </>
-              ) : currentStep === -1 ? (
+              ) : runState === "ready" ? (
                 <>
                   <div className="w-2 h-2 rounded-full bg-muted-foreground/50" />
                   <span className="text-muted-foreground">
@@ -358,43 +364,43 @@ export default function AutomationPage() {
           </div>
         </section>
 
-        {/* More Workflows Grid */}
+        {/* Representative workflow patterns */}
         <section>
           <h2 className="text-3xl font-['Playfair_Display'] font-semibold mb-8">
-            More Production Workflows
+            Representative Workflow Patterns
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
             {[
               {
                 title: "AI Content Scheduler",
                 description:
-                  "Generates and schedules social media content using GPT-4, optimizing post times based on audience engagement data.",
-                tools: ["n8n", "OpenAI", "Twitter API", "LinkedIn", "Notion"],
-                impact: "12 hours/week saved",
+                  "Drafts channel-ready content, routes it through human review, and schedules approved posts with a traceable publishing record.",
+                tools: ["n8n", "OpenAI", "Social APIs", "Notion"],
+                focus: "Reviewable drafts",
                 complexity: "Advanced",
               },
               {
                 title: "Customer Onboarding Pipeline",
                 description:
-                  "Automates new user registration, creates accounts in 3 systems, sends personalized welcome emails, and schedules follow-up tasks.",
+                  "Coordinates new-user registration, account provisioning, welcome messages, and follow-up tasks while recording failed handoffs.",
                 tools: ["n8n", "Stripe", "SendGrid", "CRM", "Slack"],
-                impact: "8 hours/week saved",
+                focus: "Reliable handoffs",
                 complexity: "Complex",
               },
               {
                 title: "E-commerce Inventory Sync",
                 description:
-                  "Real-time inventory synchronization across Shopify, WooCommerce, and physical warehouse system with low-stock alerts.",
+                  "Synchronizes inventory across commerce and warehouse systems with validation, conflict handling, and low-stock alerts.",
                 tools: ["n8n", "Shopify", "WooCommerce", "PostgreSQL"],
-                impact: "Zero stockouts",
+                focus: "Validated inventory",
                 complexity: "Medium",
               },
               {
                 title: "Meeting Intelligence Bot",
                 description:
-                  "Transcribes Zoom meetings, extracts action items, assigns tasks in project management tools, and sends summaries to stakeholders.",
+                  "Transcribes meetings, prepares action items for review, creates approved tasks, and distributes a consistent summary.",
                 tools: ["n8n", "Zoom API", "OpenAI Whisper", "Asana", "Slack"],
-                impact: "6 hours/week saved",
+                focus: "Human-reviewed actions",
                 complexity: "Advanced",
               },
             ].map((workflow, index) => (
@@ -428,7 +434,7 @@ export default function AutomationPage() {
                       {workflow.complexity}
                     </Badge>
                   </div>
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                     <div className="flex flex-wrap gap-2">
                       {workflow.tools.map((tool) => (
                         <span
@@ -440,7 +446,7 @@ export default function AutomationPage() {
                       ))}
                     </div>
                     <span className="text-sm font-medium text-primary">
-                      {workflow.impact}
+                      {workflow.focus}
                     </span>
                   </div>
                 </Card>

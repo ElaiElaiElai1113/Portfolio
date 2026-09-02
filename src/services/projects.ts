@@ -27,11 +27,8 @@ export async function getFeaturedProjects(): Promise<Project[]> {
   return getData(data);
 }
 
-export async function getProjectBySlug(slug: string): Promise<Project> {
+export async function getProjectBySlug(slug: string): Promise<Project | undefined> {
   const project = (projectsData as Project[]).find((p) => p.slug === slug && (p.status === "published" || p.status === undefined));
-  if (!project) {
-    throw new Error(`Project not found: ${slug}`);
-  }
   return getData(project);
 }
 

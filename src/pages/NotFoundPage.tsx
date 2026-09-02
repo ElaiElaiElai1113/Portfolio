@@ -3,10 +3,17 @@ import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { Home, ArrowLeft } from 'lucide-react';
 import { FadeInUp } from '@/components/animations/PageTransition';
+import { SEO } from '@/components/SEO';
 
 export default function NotFoundPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <>
+      <SEO
+        title="Page Not Found"
+        description="The requested portfolio page could not be found."
+        noIndex
+      />
+      <main className="min-h-screen flex items-center justify-center px-4">
       <div className="text-center space-y-8 max-w-2xl">
         <FadeInUp>
           <motion.div
@@ -89,6 +96,7 @@ export default function NotFoundPage() {
           ))}
         </div>
       </div>
-    </div>
+      </main>
+    </>
   );
 }

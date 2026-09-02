@@ -18,6 +18,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SEO } from "@/components/SEO";
+import { GITHUB_URL, LINKEDIN_URL } from "@/lib/site";
 
 export default function UniqueAboutPage() {
   return (
@@ -27,7 +28,7 @@ export default function UniqueAboutPage() {
         description="Elijah N. De Los Santos — full-stack product developer building customer experiences, operational platforms, and reliable data systems."
       />
 
-      <div className="max-w-5xl mx-auto space-y-16">
+      <div className="max-w-5xl mx-auto px-6 space-y-16">
         {/* Header */}
         <section className="text-center py-12">
           <motion.div
@@ -318,17 +319,19 @@ export default function UniqueAboutPage() {
 
             <div className="flex justify-center gap-4">
               <a
-                href="https://github.com/ElaiElaiElai1113"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="View Elijah's GitHub profile"
                 className="p-3 rounded-lg border border-border/50 hover:bg-primary/5 transition-colors"
               >
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com/in/elijahndelosantos"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="View Elijah's LinkedIn profile"
                 className="p-3 rounded-lg border border-border/50 hover:bg-primary/5 transition-colors"
               >
                 <Linkedin className="h-5 w-5" />

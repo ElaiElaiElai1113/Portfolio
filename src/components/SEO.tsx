@@ -12,7 +12,7 @@ interface SEOProps {
 const defaultSEO = {
   title: buildPageTitle(),
   description: 'Independent full-stack developer delivering production web, commerce, rewards, automotive, and business systems for clients.',
-  image: '/og-image.png',
+  image: '/assets/projects/easydrive-canada-cover.jpg',
   type: 'website' as const,
 };
 

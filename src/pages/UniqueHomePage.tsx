@@ -3,7 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getFeaturedProjects } from "@/services";
 import { UniqueHero } from "@/components/UniqueHero";
 import { UniqueProjectGrid } from "@/components/UniqueProjectCard";
-import { AutomationShowcase } from "@/components/AutomationShowcase";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import {
@@ -64,9 +63,6 @@ export default function UniqueHomePage() {
         </div>
       </section>
 
-      {/* Automation Showcase */}
-      <AutomationShowcase />
-
       {/* Quick Links - Distinctive Design */}
       <section className="py-24">
         <div className="container mx-auto px-6">
@@ -98,7 +94,7 @@ export default function UniqueHomePage() {
                 icon: Award,
                 title: "Certifications",
                 description: "Credentials and continuous learning",
-                details: "Lean Six Sigma Yellow Belt + Agile training",
+                details: "Lean Six Sigma + DICT learning",
                 href: "/certifications",
                 color: "text-sage",
               },
@@ -106,7 +102,7 @@ export default function UniqueHomePage() {
                 icon: Code,
                 title: "All Projects",
                 description: "The complete portfolio",
-                details: "11 case studies across live products and technical builds",
+                details: "10 case studies across live products and technical builds",
                 href: "/projects",
                 color: "text-indigo",
               },

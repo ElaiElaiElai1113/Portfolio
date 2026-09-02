@@ -243,27 +243,6 @@
     "case_study_md": "# Pokebuddy\n\n## Overview\n\nPokebuddy is a study assistant that answers Pokémon questions using retrieval-augmented generation rather than model memory alone.\n\n## Problem\n\nStatic databases are accurate but cumbersome for exploratory questions, while generic chat systems can invent details and hide sources.\n\n## Solution\n\nI built a React and Django application that retrieves reference documents, reranks candidates, generates a grounded response, and shows citations. It supports stat lookups, fuzzy correction, session memory, and team-building questions.\n\n## Architecture\n\nChromaDB stores embeddings, Django exposes retrieval and conversation APIs, SQLite persists sessions, and PokeAPI enriches structured results. OpenAI and local Ollama providers share one interface.\n\n## Reliability\n\nCitation cards keep answers verifiable, fallbacks preserve behavior when a model or API is unavailable, and fuzzy matching recovers common input errors.\n\n## Outcome\n\nThe project demonstrates an end-to-end RAG workflow with the retrieval, evidence, and failure-handling concerns required for dependable AI features."
   },
   {
-    "id": "issuepilot",
-    "title": "IssuePilot",
-    "slug": "issuepilot",
-    "summary": "A multi-workspace issue tracking SaaS with Kanban boards, analytics, and role-based access control built on React and Supabase.",
-    "role": "Full-Stack Developer",
-    "problem": "Software teams need structured bug and feature tracking across workspaces without the complexity of enterprise tools or the security gaps of lightweight boards.",
-    "solution": "Built a multi-tenant issue platform with row-level security, role permissions, drag-and-drop workflows, saved filters, QA-specific fields, analytics, attachments, and activity history.",
-    "category": "SaaS",
-    "project_state": "archived-build",
-    "year": 2025,
-    "stack": ["React", "TypeScript", "Supabase", "PostgreSQL", "RLS", "Tailwind CSS"],
-    "tags": ["SaaS", "Multi-Tenant", "Issue Tracking", "Kanban", "Security"],
-    "featured": false,
-    "status": "published",
-    "media": [],
-    "case_study_takeaways": ["Enforced workspace isolation with row-level security.", "Built role permissions from database through UI.", "Used optimistic Kanban updates with rollback."],
-    "case_study_why": "Demonstrates production-minded multi-tenant SaaS architecture, secure data boundaries, and complex interactive workflows.",
-    "case_study_contributions": ["Designed the workspace and issue data model.", "Built Kanban, analytics, filters, and QA fields.", "Implemented RLS, storage policies, and activity tracking."],
-    "case_study_md": "# IssuePilot\n\n## Overview\n\nIssuePilot is an archived multi-workspace issue tracking build focused on software and QA teams.\n\n## Problem\n\nEnterprise trackers can be difficult to configure, while simple boards often lack workspace isolation, role controls, reproduction detail, and meaningful analytics.\n\n## Solution\n\nI designed a React and Supabase SaaS with isolated workspaces, projects, memberships, issues, attachments, saved filters, QA fields, a drag-and-drop Kanban board, and analytics.\n\n## Technical Decisions\n\nPostgreSQL row-level security scopes every query to valid membership. Storage policies protect attachments. Enum-backed states keep client and database aligned, while optimistic updates make the board responsive and roll back failed writes.\n\n## Outcome\n\nAlthough no longer hosted, IssuePilot remains a strong reference for multi-tenant data modeling, authorization, and maintainable feature-based structure."
-  },
-  {
     "id": "sebtravels-travel-website",
     "title": "SEBTravels",
     "slug": "sebtravels",

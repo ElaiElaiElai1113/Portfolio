@@ -72,7 +72,7 @@ export default function ContactPage() {
         description="Get in touch! Have a project in mind or just want to say hello? I'd love to hear from you."
       />
 
-      <div className="max-w-6xl mx-auto space-y-16">
+      <div className="max-w-6xl mx-auto px-6 space-y-16">
         {/* Header */}
         <ScrollReveal>
           <div className="text-center space-y-4">

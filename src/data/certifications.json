@@ -22,13 +22,5 @@
     "issuer": "Department of Information and Communications Technology (DICT)",
     "issue_date": "2025-05-08",
     "sort_order": 3
-  },
-  {
-    "id": "cert-4",
-    "title": "Agile Project Management",
-    "name": "Agile Project Management",
-    "issuer": "Currently Enrolled",
-    "issue_date": "2025-01-01",
-    "sort_order": 4
   }
 ]

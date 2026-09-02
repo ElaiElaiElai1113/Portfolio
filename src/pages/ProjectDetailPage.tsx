@@ -12,7 +12,11 @@ import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ProjectVisual } from "@/components/ProjectVisual";
-import { getProjectActions, getProjectStateLabel } from "@/lib/projectPresentation";
+import {
+  getProjectActions,
+  getProjectBadges,
+  getProjectStateLabel,
+} from "@/lib/projectPresentation";
 import { SEO } from "@/components/SEO";
 import { parseCaseStudy } from "@/lib/caseStudy";
 
@@ -79,7 +83,7 @@ export default function ProjectDetailPage() {
 
   if (isLoading) {
     return (
-      <div className="max-w-5xl mx-auto space-y-8">
+      <div className="max-w-5xl mx-auto px-6 space-y-8">
         <Link to="/projects">
           <Button variant="ghost">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
@@ -94,14 +98,24 @@ export default function ProjectDetailPage() {
 
   if (!project) {
     return (
-      <div className="text-center py-20">
-        <h1 className="text-2xl font-bold mb-4">Project not found</h1>
-        <Link to="/projects">
-          <Button>
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
-          </Button>
-        </Link>
-      </div>
+      <>
+        <SEO
+          title="Project Not Found"
+          description="This project is not part of the published portfolio."
+          noIndex
+        />
+        <div className="max-w-5xl mx-auto px-6 text-center py-20">
+          <h1 className="text-2xl font-bold mb-4">Project not found</h1>
+          <p className="mb-6 text-muted-foreground">
+            This project is not part of the published portfolio.
+          </p>
+          <Link to="/projects">
+            <Button>
+              <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
+            </Button>
+          </Link>
+        </div>
+      </>
     );
   }
 
@@ -121,7 +135,7 @@ export default function ProjectDetailPage() {
         image={project.cover_image_url}
         type="article"
       />
-      <div className="max-w-5xl mx-auto space-y-8 pb-16">
+      <div className="max-w-5xl mx-auto px-6 space-y-8 pb-16">
       {/* Back button */}
       <ScrollReveal>
         <Link to="/projects">
@@ -139,14 +153,22 @@ export default function ProjectDetailPage() {
               {project.category} <span aria-hidden="true">·</span> {project.year}
             </p>
             <div className="mb-4 flex flex-wrap items-center gap-3">
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: "spring", stiffness: 200 }}
-              >
-                <Badge variant="secondary">{getProjectStateLabel(project.project_state)}</Badge>
-              </motion.div>
-              {project.client_work && <Badge variant="outline">Client Work</Badge>}
+              {getProjectBadges(project).map((label, index) =>
+                index === 0 ? (
+                  <motion.div
+                    key={label}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                  >
+                    <Badge variant="secondary">{label}</Badge>
+                  </motion.div>
+                ) : (
+                  <Badge key={label} variant="outline">
+                    {label}
+                  </Badge>
+                ),
+              )}
             </div>
             <h1 className="text-5xl sm:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
               {project.title}
@@ -450,10 +472,10 @@ export default function ProjectDetailPage() {
                         <div className="space-y-6 max-w-3xl mx-auto">
                           {caseStudySections.map((section) => {
                             return (
-                              <details key={section.id} open className="rounded-xl border border-border/60 bg-background/40 p-5">
-                                <summary id={section.id} className="cursor-pointer text-lg font-semibold text-foreground">
+                              <section id={section.id} key={section.id} className="scroll-mt-24 rounded-xl border border-border/60 bg-background/40 p-5">
+                                <h2 className="text-lg font-semibold text-foreground">
                                   {section.title}
-                                </summary>
+                                </h2>
                                 <div className="mt-4 prose prose-slate dark:prose-invert md:prose-lg max-w-none
                                   prose-h3:text-lg prose-h3:mb-3 prose-h3:mt-6 prose-h3:font-medium
                                   prose-p:leading-7 prose-p:text-muted-foreground prose-p:text-base prose-p:mb-5
@@ -477,7 +499,7 @@ export default function ProjectDetailPage() {
                                     {section.content}
                                   </ReactMarkdown>
                                 </div>
-                              </details>
+                              </section>
                             );
                           })}
                         </div>

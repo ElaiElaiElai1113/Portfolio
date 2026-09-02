@@ -2,7 +2,11 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import projectsData from "@/data/projects.json";
-import { getFeaturedProjects, getPublishedProjects } from "@/services/projects";
+import {
+  getFeaturedProjects,
+  getProjectBySlug,
+  getPublishedProjects,
+} from "@/services/projects";
 import { projectCategories, type Project } from "@/types/portfolio";
 
 const projects = projectsData as Project[];
@@ -15,10 +19,11 @@ const states = [
 ];
 
 describe("project content", () => {
-  it("contains the eleven approved projects with unique IDs and slugs", () => {
-    expect(projects).toHaveLength(11);
-    expect(new Set(projects.map((project) => project.id)).size).toBe(11);
-    expect(new Set(projects.map((project) => project.slug)).size).toBe(11);
+  it("contains the ten approved projects with unique IDs and slugs", () => {
+    expect(projects).toHaveLength(10);
+    expect(projects.map((project) => project.slug)).not.toContain("issuepilot");
+    expect(new Set(projects.map((project) => project.id)).size).toBe(10);
+    expect(new Set(projects.map((project) => project.slug)).size).toBe(10);
   });
 
   it("contains complete hiring-focused metadata", () => {
@@ -63,7 +68,11 @@ describe("project content", () => {
     ]);
   });
 
-  it("keeps every old and new project in the published archive", async () => {
-    expect(await getPublishedProjects()).toHaveLength(11);
+  it("keeps every approved project in the published archive", async () => {
+    expect(await getPublishedProjects()).toHaveLength(10);
+  });
+
+  it("resolves removed or unknown project slugs without retryable failures", async () => {
+    await expect(getProjectBySlug("issuepilot")).resolves.toBeUndefined();
   });
 });

@@ -30,6 +30,14 @@ export function getProjectStateLabel(state: ProjectState) {
   return stateLabels[state];
 }
 
+export function getProjectBadges(project: Project) {
+  const badges = [getProjectStateLabel(project.project_state)];
+  if (project.client_work && project.project_state !== "client-work") {
+    badges.push("Client Work");
+  }
+  return badges;
+}
+
 export function getProjectActions(project: Project): ProjectAction[] {
   const actions: ProjectAction[] = [];
   if (project.live_url && project.project_state !== "archived-build") {

@@ -27,9 +27,9 @@ export function UniqueFooter() {
 
           {/* Navigation - organized differently */}
           <div className="space-y-4">
-            <h4 className="text-sm font-semibold uppercase tracking-wider">
+            <p className="text-sm font-semibold uppercase tracking-wider text-foreground">
               Explore
-            </h4>
+            </p>
             <div className="grid grid-cols-2 gap-2">
               {[
                 { name: "Projects", href: "/projects" },
@@ -52,9 +52,9 @@ export function UniqueFooter() {
 
           {/* Connect - social links */}
           <div className="space-y-4">
-            <h4 className="text-sm font-semibold uppercase tracking-wider">
+            <p className="text-sm font-semibold uppercase tracking-wider text-foreground">
               Connect
-            </h4>
+            </p>
             <div className="flex flex-col gap-3">
               <a
                 href={GITHUB_URL}

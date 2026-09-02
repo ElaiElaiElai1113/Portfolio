@@ -52,7 +52,7 @@ export default function ExperiencePage() {
         description="My professional journey in development and my career. View my work history, roles, and career milestones."
       />
 
-      <div className="max-w-4xl mx-auto space-y-12">
+      <div className="max-w-4xl mx-auto px-6 space-y-12">
         {/* Header */}
         <ScrollReveal>
           <div className="space-y-4">

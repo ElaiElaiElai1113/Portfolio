@@ -3,7 +3,7 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { TechStackBadge } from "@/components/TechStackIcon";
 import { getProjectActions, getProjectStateLabel } from "@/lib/projectPresentation";
@@ -55,7 +55,7 @@ export function EnhancedProjectCard({ project, index = 0 }: EnhancedProjectCardP
           <p className="text-[0.68rem] font-medium uppercase tracking-[0.22em] text-muted-foreground">
             {project.category} <span aria-hidden="true">·</span> {project.year}
           </p>
-          <CardTitle className="transition-colors group-hover:text-primary">
+          <h2 className="text-2xl font-semibold leading-none tracking-tight transition-colors group-hover:text-primary">
             <Link
               to={`/projects/${project.slug}`}
               className="flex items-center justify-between gap-3"
@@ -63,7 +63,7 @@ export function EnhancedProjectCard({ project, index = 0 }: EnhancedProjectCardP
               {project.title}
               <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
             </Link>
-          </CardTitle>
+          </h2>
           <CardDescription className="line-clamp-3 text-sm leading-6 text-muted-foreground/90">
             {project.summary}
           </CardDescription>

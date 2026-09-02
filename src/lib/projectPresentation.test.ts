@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   PROJECT_CATEGORIES,
   getProjectActions,
+  getProjectBadges,
   getProjectStateLabel,
   matchesProject,
 } from "@/lib/projectPresentation";
@@ -37,6 +38,17 @@ describe("project presentation", () => {
   it("maps project states to readable labels", () => {
     expect(getProjectStateLabel("live-product")).toBe("Live Product");
     expect(getProjectStateLabel("archived-build")).toBe("Archived Build");
+  });
+
+  it("does not repeat Client Work when it is already the project state", () => {
+    expect(
+      getProjectBadges({
+        ...baseProject,
+        project_state: "client-work",
+      }),
+    ).toEqual(["Client Work"]);
+
+    expect(getProjectBadges(baseProject)).toEqual(["Live Product", "Client Work"]);
   });
 
   it("uses product-specific action labels", () => {

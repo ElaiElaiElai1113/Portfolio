@@ -277,6 +277,7 @@ export function UniqueNavigation() {
                       href={GITHUB_URL}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="View Elijah's GitHub profile"
                       className="p-3 rounded-lg border border-border/50 hover:bg-muted/50 transition-colors"
                     >
                       <Github className="h-5 w-5" />
@@ -285,12 +286,14 @@ export function UniqueNavigation() {
                       href={LINKEDIN_URL}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="View Elijah's LinkedIn profile"
                       className="p-3 rounded-lg border border-border/50 hover:bg-muted/50 transition-colors"
                     >
                       <Linkedin className="h-5 w-5" />
                     </a>
                     <a
                       href={`mailto:${CONTACT_EMAIL}`}
+                      aria-label={`Email ${CONTACT_EMAIL}`}
                       className="p-3 rounded-lg border border-border/50 hover:bg-muted/50 transition-colors"
                     >
                       <Mail className="h-5 w-5" />
