@@ -30,7 +30,7 @@ import {
 import { HeroGradient } from "@/components/animations/GradientBackground";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { EnhancedProjectCard } from "@/components/EnhancedProjectCard";
-import { ResumeDownloadButton } from "@/components/ResumeDownloadButton";
+import { ResumeActions } from "@/components/ResumeActions";
 import { CircularSkill } from "@/components/SkillsVisualization";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
@@ -112,7 +112,11 @@ export default function HomePage() {
                       </Link>
                     </Button>
 
-                    <ResumeDownloadButton variant="outline" size="lg" className="rounded-full px-8" />
+                    <ResumeActions
+                      size="lg"
+                      viewClassName="rounded-full px-8"
+                      downloadClassName="rounded-full px-5"
+                    />
                   </div>
                 </FadeInUp>
 
@@ -409,7 +413,11 @@ export default function HomePage() {
                       <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
-                  <ResumeDownloadButton variant="outline" size="lg" className="rounded-full px-8" />
+                  <ResumeActions
+                    size="lg"
+                    viewClassName="rounded-full px-8"
+                    downloadClassName="rounded-full px-5"
+                  />
                 </div>
                 <p className="text-sm text-muted-foreground mt-6">
                   Usually responds within 24 hours
