@@ -175,6 +175,14 @@ describe("site identity", () => {
     expect(source).toContain("<Suspense fallback={<PageFallback />}>");
   });
 
+  it("excludes generated temporary files from tooling discovery", () => {
+    const testConfig = readFileSync(resolve("vitest.config.ts"), "utf8");
+    const lintConfig = readFileSync(resolve("eslint.config.js"), "utf8");
+
+    expect(testConfig).toContain('"tmp/**"');
+    expect(lintConfig).toContain('"tmp"');
+  });
+
   it("keeps route-managed metadata out of the static HTML shell", () => {
     const source = readFileSync(resolve("index.html"), "utf8");
 
